@@ -1,0 +1,13 @@
+{
+  "name": "morva-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Controllo automatico del sito MORVA: percorre il sito come una persona e registra cosa non funziona.",
+  "scripts": {
+    "controlla": "node controlla.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

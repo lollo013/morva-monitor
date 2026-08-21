@@ -1,0 +1,48 @@
+# =====================================================================
+# MORVA — controllo automatico del sito, ogni ora.
+#
+# Gira sui computer di GitHub, non sul tuo: non serve lasciare niente
+# acceso. Sui repository pubblici i minuti sono illimitati e gratuiti.
+#
+# Quando trova qualcosa il lavoro fallisce e GitHub manda un'email.
+# Il rapporto e le immagini restano allegati per trenta giorni.
+# =====================================================================
+name: Controllo del sito
+
+on:
+  schedule:
+    - cron: '0 * * * *'        # ogni ora, al minuto zero
+  workflow_dispatch:            # e a mano, dal pulsante "Run workflow"
+
+jobs:
+  controlla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installa il necessario
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Percorri il sito
+        env:
+          MORVA_URL: https://morva-studios.netlify.app
+        run: node controlla.mjs
+
+      # i rapporti si tengono anche quando è andato tutto bene:
+      # servono per confrontare i tempi di risposta nel tempo
+      - name: Conserva rapporto e immagini
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapporto-${{ github.run_number }}
+          path: rapporti/
+          retention-days: 30
+          if-no-files-found: ignore

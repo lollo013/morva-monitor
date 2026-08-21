@@ -1,0 +1,7 @@
+# quello che si ricrea da solo
+node_modules/
+package-lock.json
+
+# i rapporti restano su GitHub come allegati del lavoro, non nel codice
+rapporti/
+*.png
