@@ -1,0 +1,94 @@
+{
+ "voce": "Professor Aurelio — A2",
+ "elevenlabs_voice_id": "Urn0f9O0p74gbKH8ERH3",
+ "modello": "eleven_v3",
+ "impostazioni": {
+  "stability": 0.5,
+  "similarity_boost": 0.8,
+  "style": 0
+ },
+ "misure_complessive": {
+  "f0_mediana_hz": 146.8,
+  "f0_p10_p90_hz": [
+   100.6,
+   222.2
+  ],
+  "escursione_intonazione_semitoni": 13.7,
+  "parole_al_minuto_media": 176
+ },
+ "per_video": {
+  "sogni": {
+   "durata_s": 40.4,
+   "parole_al_minuto": 180,
+   "f0_mediana_hz": 144.1,
+   "f0_p10_p90_hz": [
+    100.4,
+    225.4
+   ],
+   "pause_oltre_0_15s": 17,
+   "pausa_media_s": 0.33,
+   "pausa_max_s": 0.5,
+   "loudness_lufs": -18.3
+  },
+  "cipolla": {
+   "durata_s": 48.4,
+   "parole_al_minuto": 181,
+   "f0_mediana_hz": 150.9,
+   "f0_p10_p90_hz": [
+    101.3,
+    228.6
+   ],
+   "pause_oltre_0_15s": 22,
+   "pausa_media_s": 0.3,
+   "pausa_max_s": 0.55,
+   "loudness_lufs": -18.4
+  },
+  "cielo": {
+   "durata_s": 25.8,
+   "parole_al_minuto": 179,
+   "f0_mediana_hz": 150.9,
+   "f0_p10_p90_hz": [
+    100.5,
+    228.6
+   ],
+   "pause_oltre_0_15s": 12,
+   "pausa_media_s": 0.36,
+   "pausa_max_s": 0.61,
+   "loudness_lufs": -18.5
+  },
+  "inception": {
+   "durata_s": 108.4,
+   "parole_al_minuto": 174,
+   "f0_mediana_hz": 140.4,
+   "f0_p10_p90_hz": [
+    99.4,
+    210.5
+   ],
+   "pause_oltre_0_15s": 42,
+   "pausa_media_s": 0.34,
+   "pausa_max_s": 0.63,
+   "loudness_lufs": -18.5
+  },
+  "fortnite": {
+   "durata_s": 68.1,
+   "parole_al_minuto": 168,
+   "f0_mediana_hz": 160.0,
+   "f0_p10_p90_hz": [
+    105.3,
+    225.4
+   ],
+   "pause_oltre_0_15s": 24,
+   "pausa_media_s": 0.3,
+   "pausa_max_s": 0.45,
+   "loudness_lufs": -19.1
+  }
+ },
+ "campioni_di_riferimento": {
+  "sogni": "narrazione.mp3",
+  "cipolla": "cipolla.mp3",
+  "cielo": "cielo.mp3",
+  "inception": "inception.mp3",
+  "fortnite": "fortnite-v4.mp3"
+ },
+ "nota": "Profilo misurato, non un modello: serve a controllare che ogni nuova narrazione resti coerente (tono, velocità, pause, volume)."
+}
