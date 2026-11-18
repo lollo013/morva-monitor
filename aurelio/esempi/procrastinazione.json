@@ -1,0 +1,35 @@
+{
+  "titolo": "Ti riduci all'ultimo per studiare? Non sei pigro",
+  "verificato": true,
+  "tono": "amico: conforto, nessun giudizio, poi un metodo concreto",
+  "stile": "ritmo visivo alto, Professore sempre in scena, area sicura TikTok",
+  "fonti": [
+    "Procrastinazione negli studenti: Piers Steel, «The Nature of Procrastination», Psychological Bulletin 133(1), 2007: riporta stime dell'80-95% di studenti universitari che rimandano (da Ellis & Knaus 1977; O'Brien 2002) e circa il 75% che si considera procrastinatore. Nel video: «quasi otto studenti su dieci», detto come «secondo gli studi».",
+    "Rimandare come difesa dalle emozioni negative: Sirois & Pychyl, «Procrastination and the Priority of Short-Term Mood Regulation», Social and Personality Psychology Compass, 2013.",
+    "Compiti a casa: OCSE PISA 2012, quindicenni italiani quasi 9 ore a settimana contro una media OCSE di 4,9; PISA 2018 circa 8,5 ore, Corea del Sud circa 2,5 (Orizzontescuola, Agenda Digitale). Risultati: PISA 2022 matematica Italia 471, media OCSE 472.",
+    "Tecnica del pomodoro: Francesco Cirillo, studente universitario italiano, fine anni '80: 25 minuti di lavoro, 5 di pausa, pausa lunga dopo 4 pomodori. I 25 minuti non vengono da una ricerca.",
+    "Studio distribuito contro studio concentrato: Cepeda et al., «Distributed practice in verbal recall tasks», Psychological Bulletin, 2006 (meta-analisi): distribuire lo studio nel tempo migliora il ricordo a lungo termine."
+  ],
+  "parti": [
+    {
+      "fase": "apertura",
+      "testo": "Anche tu ti riduci all'ultimo per studiare? Tranquillo, non sei pigro. Secondo gli studi, quasi *otto* studenti su dieci rimandano. Sei in ottima compagnia."
+    },
+    {
+      "fase": "spiegazione",
+      "testo": "E diciamolo: anche la scuola ci mette del suo. In Italia i ragazzi fanno quasi *nove* ore di compiti a settimana, tra le più alte d'Europa. In Corea del Sud, circa due e mezza. E i risultati? Non sono migliori. Mattina a scuola, pomeriggio sui libri, verifiche una dopo l'altra: così non si respira. E quando sei sommerso, rimandare diventa una difesa."
+    },
+    {
+      "fase": "scoperta",
+      "testo": "Allora ecco un metodo, inventato proprio da uno studente italiano: la tecnica del *pomodoro*. Metti un timer da venticinque minuti e studi solo quello, niente telefono. Poi cinque minuti di pausa. Dopo quattro pomodori, una pausa lunga. E il segreto vero? Un pomodoro *ogni giorno*, invece di dieci la notte prima. Studiare un po' alla volta ti fa ricordare molto di più."
+    },
+    {
+      "fase": "conclusione",
+      "testo": "Venticinque minuti li trovi sempre. Comincia oggi, con un solo pomodoro."
+    },
+    {
+      "fase": "invito",
+      "testo": "Se ti è stato utile, seguimi!"
+    }
+  ]
+}

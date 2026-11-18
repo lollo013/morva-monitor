@@ -20,8 +20,8 @@ from PIL import Image, ImageDraw, ImageFont
 S = sys.argv[1]
 sys.path.insert(0, S)
 from anima import Figura
-import scene_cielo, scene_inception, scene_fortnite, scene_scuola, scene_larping, scene_stipendio, disegni, inspect
-SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE, **scene_larping.SCENE, **scene_stipendio.SCENE}
+import scene_cielo, scene_inception, scene_fortnite, scene_scuola, scene_larping, scene_stipendio, scene_procrastinazione, disegni, inspect
+SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE, **scene_larping.SCENE, **scene_stipendio.SCENE, **scene_procrastinazione.SCENE}
 
 R = json.load(open(sys.argv[2], encoding='utf8'))
 W, H, FPS = 1080, 1920, 30

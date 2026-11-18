@@ -1,0 +1,180 @@
+{
+ "nome": "procrastinazione",
+ "audio": "procrastinazione.mp3",
+ "frasi": [
+  "Anche tu ti riduci all'ultimo per studiare?",
+  "Tranquillo, non sei pigro.",
+  "Secondo gli studi, quasi otto studenti su dieci rimandano.",
+  "Sei in ottima compagnia.",
+  "E diciamolo: anche la scuola ci mette del suo.",
+  "In Italia i ragazzi fanno quasi nove ore di compiti a settimana, tra le più alte d'Europa.",
+  "In Corea del Sud, circa due e mezza.",
+  "E i risultati?",
+  "Non sono migliori.",
+  "Mattina a scuola, pomeriggio sui libri, verifiche una dopo l'altra: così non si respira.",
+  "E quando sei sommerso, rimandare diventa una difesa.",
+  "Allora ecco un metodo, inventato proprio da uno studente italiano: la tecnica del pomodoro.",
+  "Metti un timer da venticinque minuti e studi solo quello, niente telefono.",
+  "Poi cinque minuti di pausa.",
+  "Dopo quattro pomodori, una pausa lunga.",
+  "E il segreto vero?",
+  "Un pomodoro ogni giorno, invece di dieci la notte prima.",
+  "Studiare un po' alla volta ti fa ricordare molto di più.",
+  "Venticinque minuti li trovi sempre.",
+  "Comincia oggi, con un solo pomodoro.",
+  "Se ti è stato utile, seguimi!"
+ ],
+ "chiave": [
+  "ultimo",
+  "pigro",
+  "otto",
+  "dieci",
+  "compagnia",
+  "scuola",
+  "nove",
+  "compiti",
+  "europa",
+  "migliori",
+  "respira",
+  "difesa",
+  "metodo",
+  "pomodoro",
+  "venticinque",
+  "telefono",
+  "cinque",
+  "pausa",
+  "lunga",
+  "segreto",
+  "ogni",
+  "giorno",
+  "ricordare",
+  "oggi",
+  "utile",
+  "seguimi"
+ ],
+ "inquadrature": [
+  {
+   "da": 0,
+   "tipo": "angolo_dx",
+   "scena": "notte",
+   "testo_grande": "Ti riduci|all'ultimo?"
+  },
+  {
+   "da": "tranquillo",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "secondo",
+   "tipo": "affiancati",
+   "scena": "otto_su_dieci"
+  },
+  {
+   "da": "ottima",
+   "tipo": "angolo_sx",
+   "scena": "otto_su_dieci"
+  },
+  {
+   "da": "diciamolo",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "italia",
+   "tipo": "angolo_dx",
+   "scena": "compiti_ore"
+  },
+  {
+   "da": "tra",
+   "tipo": "mezzo_busto",
+   "scena": "compiti_ore"
+  },
+  {
+   "da": "corea",
+   "tipo": "affiancati",
+   "scena": "compiti_ore"
+  },
+  {
+   "da": "risultati",
+   "tipo": "mezzo_busto",
+   "scena": "risultati"
+  },
+  {
+   "da": "mattina",
+   "tipo": "affiancati",
+   "scena": "giornata"
+  },
+  {
+   "da": "così",
+   "tipo": "angolo_dx",
+   "scena": "giornata"
+  },
+  {
+   "da": "quando",
+   "tipo": "mezzo_busto",
+   "scena": "sommerso"
+  },
+  {
+   "da": "allora",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "tecnica",
+   "tipo": "angolo_dx",
+   "scena": "tecnica"
+  },
+  {
+   "da": "metti",
+   "tipo": "affiancati",
+   "scena": "tecnica"
+  },
+  {
+   "da": "niente",
+   "tipo": "angolo_sx",
+   "scena": "niente_telefono"
+  },
+  {
+   "da": "poi",
+   "tipo": "affiancati",
+   "scena": "cicli"
+  },
+  {
+   "da": "quattro",
+   "tipo": "angolo_dx",
+   "scena": "cicli"
+  },
+  {
+   "da": "segreto",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "ogni",
+   "tipo": "affiancati",
+   "scena": "ogni_giorno"
+  },
+  {
+   "da": "studiare#2",
+   "tipo": "angolo_sx",
+   "scena": "memoria"
+  },
+  {
+   "da": "venticinque#2",
+   "tipo": "mezzo_busto",
+   "scena": "oggi"
+  },
+  {
+   "da": "comincia",
+   "tipo": "angolo_dx",
+   "scena": "oggi"
+  },
+  {
+   "da": "se",
+   "tipo": "mezzo_busto",
+   "scena": "invito"
+  }
+ ],
+ "stupore": [
+  "allora",
+  "tecnica"
+ ],
+ "sorriso_da": "venticinque#2",
+ "coda": 0.8
+}
