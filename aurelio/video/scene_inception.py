@@ -21,7 +21,7 @@ SAIO = (107, 74, 53, 255)
 def etichetta(d, W, H, testo, y=0.07, col=CREMA, dim=56):
     f = font(dim)
     tw = d.textlength(testo, font=f)
-    scuro = sum(col[:3]) < 300
+    scuro = sum(col[:3]) < 360
     d.text(((W - tw) / 2, H * y), testo, font=f, fill=col, stroke_width=4 * SS,
            stroke_fill=(255, 255, 255, 255) if scuro else LINEA)
 

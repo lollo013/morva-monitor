@@ -1,0 +1,18 @@
+{
+  "titolo": "Il paradosso del larping",
+  "verificato": true,
+  "tono": "amico: semplice, a tu per tu; spiega il Professor Aurelio",
+  "stile": "ritmo visivo alto, Professore sempre in scena, area sicura TikTok; apertura dettata dall'autrice",
+  "fonti": [
+    "LARP = Live Action Role-Playing (gioco di ruolo dal vivo); tra i primi gruppi documentati Dagorhir (Stati Uniti, 1977). Voci enciclopediche sulla storia del LARP; Grammarist.",
+    "Senso gergale: fingere di essere qualcuno che non si è (ricchezza, competenza, passione), di solito come presa in giro: Mental Floss, Know Your Meme, Irish Times (novembre 2026), Il Foglio (agosto 2026).",
+    "Teoria dell'autopercezione (Daryl Bem, 1967-1972): le persone deducono atteggiamenti e identità osservando il proprio comportamento."
+  ],
+  "parti": [
+    { "fase": "apertura", "testo": "Il paradosso del larping. Sicuramente hai già sentito parlare di questo termine, ma non sai bene cosa significa. Ci sono qui io per te a spiegartelo." },
+    { "fase": "spiegazione", "testo": "Tutto nasce da una sigla inglese, LARP: gioco di ruolo dal vivo. Dalla fine degli anni settanta, gruppi di appassionati si travestono da cavalieri e maghi e recitano storie inventate. Su internet, però, larping ha preso un altro senso: fingere di essere qualcuno che non sei. Ricco, esperto, sicuro di te. E di solito è una presa in giro." },
+    { "fase": "scoperta", "testo": "Ecco il paradosso: a volte, fingere funziona. Prima fingi di averlo: ti comporti come una persona sicura. Poi lo vuoi davvero, perché lo senti possibile. E a forza di farlo, ce l'hai. Gli psicologi lo spiegano così: guardando come ci comportiamo, capiamo chi siamo." },
+    { "fase": "conclusione", "testo": "Ma attenzione: funziona solo se dietro la finta c'è il lavoro vero. Fingere senza fare resta solo un costume." },
+    { "fase": "invito", "testo": "Ti è piaciuto? Scrivimi nei commenti cosa vorresti diventare, e seguici!" }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+ "nome": "larping",
+ "audio": "larping.mp3",
+ "frasi": [
+  "Il paradosso del larping.",
+  "Sicuramente hai già sentito parlare di questo termine, ma non sai bene cosa significa.",
+  "Ci sono qui io per te a spiegartelo.",
+  "Tutto nasce da una sigla inglese, LARP: gioco di ruolo dal vivo.",
+  "Dalla fine degli anni settanta, gruppi di appassionati si travestono da cavalieri e maghi e recitano storie inventate.",
+  "Su internet, però, larping ha preso un altro senso: fingere di essere qualcuno che non sei.",
+  "Ricco, esperto, sicuro di te.",
+  "E di solito è una presa in giro.",
+  "Ecco il paradosso: a volte, fingere funziona.",
+  "Prima fingi di averlo: ti comporti come una persona sicura.",
+  "Poi lo vuoi davvero, perché lo senti possibile.",
+  "E a forza di farlo, ce l'hai.",
+  "Gli psicologi lo spiegano così: guardando come ci comportiamo, capiamo chi siamo.",
+  "Ma attenzione: funziona solo se dietro la finta c'è il lavoro vero.",
+  "Fingere senza fare resta solo un costume.",
+  "Ti è piaciuto?",
+  "Scrivimi nei commenti cosa vorresti diventare, e seguici!"
+ ],
+ "chiave": [
+  "paradosso",
+  "larping",
+  "larp",
+  "ruolo",
+  "vivo",
+  "cavalieri",
+  "maghi",
+  "fingere",
+  "ricco",
+  "esperto",
+  "sicuro",
+  "funziona",
+  "averlo",
+  "vuoi",
+  "l'hai",
+  "chi",
+  "lavoro",
+  "costume",
+  "commenti",
+  "seguici"
+ ],
+ "inquadrature": [
+  {
+   "da": 0,
+   "tipo": "angolo_dx",
+   "scena": "l_gancio",
+   "testo_grande": "Il paradosso|del larping"
+  },
+  {
+   "da": "sicuramente",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "ci",
+   "tipo": "mezzo_busto",
+   "scena": "l_gancio"
+  },
+  {
+   "da": "tutto",
+   "tipo": "angolo_sx",
+   "scena": "sigla"
+  },
+  {
+   "da": "dalla",
+   "tipo": "affiancati",
+   "scena": "cavalieri"
+  },
+  {
+   "da": "cavalieri",
+   "tipo": "sfondo",
+   "scena": "cavalieri"
+  },
+  {
+   "da": "su",
+   "tipo": "mezzo_busto",
+   "scena": "finto"
+  },
+  {
+   "da": "ricco",
+   "tipo": "angolo_dx",
+   "scena": "finto"
+  },
+  {
+   "da": "presa",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "ecco",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "prima",
+   "tipo": "affiancati",
+   "scena": "scala",
+   "parametri": {
+    "gradino": 0
+   }
+  },
+  {
+   "da": "poi",
+   "tipo": "mezzo_busto",
+   "scena": "scala",
+   "parametri": {
+    "gradino": 1
+   }
+  },
+  {
+   "da": "forza",
+   "tipo": "angolo_sx",
+   "scena": "scala",
+   "parametri": {
+    "gradino": 2
+   }
+  },
+  {
+   "da": "gli",
+   "tipo": "affiancati",
+   "scena": "specchio"
+  },
+  {
+   "da": "guardando",
+   "tipo": "sfondo",
+   "scena": "specchio"
+  },
+  {
+   "da": "ma#2",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "fingere#3",
+   "tipo": "mezzo_busto",
+   "scena": "costume"
+  },
+  {
+   "da": "ti#2",
+   "tipo": "mezzo_busto",
+   "scena": "invito"
+  },
+  {
+   "da": "seguici",
+   "tipo": "angolo_sx",
+   "scena": "invito"
+  }
+ ],
+ "stupore": [
+  "ecco",
+  "prima"
+ ],
+ "sorriso_da": "forza",
+ "coda": 0.8
+}
