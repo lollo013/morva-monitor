@@ -18,7 +18,13 @@ Vale per tutti i video successivi.
    gomito (0–6°, di più sulle parole chiave) e la mano gesticola dal polso.
 4. **Scene animate**: si anima il fenomeno spiegato (luce che si scompone, onde, molecole, percorso
    nell'atmosfera), non immagini ferme.
-5. **Sottotitoli**: 1–3 parole per volta, agganciati alle pause vere della voce; evidenziate solo
+5. **Formato e area sicura TikTok**: sempre 9:16, 1080×1920 (il formato nativo: niente bande).
+   Testi, scene e volto del Professore restano dentro x 60–900 e y 230–1480: sopra c'è «Seguiti / Per
+   te», a destra i pulsanti, in basso nome e descrizione. Nessuna barra di avanzamento nostra.
+   Controllo: `python3 aurelio/video/interfaccia.py <cartella> <secondi>` sovrappone l'interfaccia.
+   Pronuncia: i nomi stranieri si scrivono in alfabeto fonetico tra barre nel testo per la voce
+   (es. Fortnite → `/ˈfɔːrtnaɪt/`).
+6. **Sottotitoli**: 1–3 parole per volta, agganciati alle pause vere della voce; evidenziate solo
    le parole chiave; comparsa leggera; mai sul volto o sugli elementi principali; dentro l'area
    sicura 9:16.
 6. **Montaggio**: tagli netti con breve zoom di ingresso; spinta lenta di camera; piccolo colpo di

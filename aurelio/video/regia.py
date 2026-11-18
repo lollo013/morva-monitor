@@ -230,6 +230,10 @@ def professore(t, ritaglio, alt):
     f = scontorna(f)
     return f.resize((round(f.width * alt / f.height), alt), Image.BICUBIC)
 
+# area sicura di TikTok: in alto «Seguiti / Per te», a destra i pulsanti, in basso nome e descrizione.
+# Sottotitoli, scene e volto del Professore stanno qui dentro.
+SX, DX, ALTO, BASSO = 60, W - 180, 230, 1480
+
 def componi(s, t):
     """Il Professore e' sempre in scena: cambia solo il punto di vista."""
     fr = Image.new('RGB', (W, H), BG)
@@ -238,28 +242,27 @@ def componi(s, t):
         sc = scena_img(s, t, W, H); fr.paste(sc, (0, 0))
         f = professore(t, (0, 0, 600, 860), 1150)
         fr.paste(f, (-40, H - f.height + 20), f)
-        # le etichette delle scene stanno in alto: il sottotitolo va sotto di loro
-        area = (60, 170, W - 60, 520) if s.get('testo_grande') else (60, 470, W - 60, 760)
+        area = (SX, ALTO + 10, DX, 540) if s.get('testo_grande') else (SX, 520, DX, 800)
     elif tipo == 'primo_piano':
-        f = professore(t, (0, 0, 600, 640), 1240)
-        fr.paste(f, ((W - f.width) // 2, 160), f)
-        area = (60, 1440, W - 60, 1620)
+        f = professore(t, (0, 0, 600, 640), 1100)
+        fr.paste(f, ((DX + SX - f.width) // 2, ALTO - 10), f)
+        area = (SX, 1330, DX, BASSO)
     elif tipo == 'mezzo_busto':   # lui grande a sinistra, la scena accanto
         f = professore(t, (0, 0, 600, 860), 1250)
         fr.paste(f, (-60, H - f.height + 20), f)
-        incolla_scena(fr, s, t, (500, 170, W - 40, 830))
-        area = (480, 860, W - 30, 1080)
+        incolla_scena(fr, s, t, (420, ALTO, DX, 820))
+        area = (430, 840, DX, 1060)
     elif tipo in ('angolo_dx', 'angolo_sx'):
-        incolla_scena(fr, s, t, (40, 150, W - 40, 980))
-        f = professore(t, (0, 0, 600, 860), 980)
-        x = W - f.width + 10 if tipo == 'angolo_dx' else -20
+        incolla_scena(fr, s, t, (SX, ALTO, DX, 900))
+        f = professore(t, (0, 0, 600, 860), 900)
+        x = DX - f.width + 90 if tipo == 'angolo_dx' else -20
         fr.paste(f, (x, H - f.height + 20), f)
-        area = (40, 1040, 440, 1400) if tipo == 'angolo_dx' else (W - 420, 1040, W - 30, 1400)
+        area = (SX, 905, DX, 1030)
     else:  # affiancati: lui intero a sinistra, la scena a destra
         f = professore(t, None, 1180)
         fr.paste(f, (0, H - f.height - 20), f)
-        incolla_scena(fr, s, t, (470, 660, W - 40, 1340))
-        area = (60, 230, W - 60, 560)
+        incolla_scena(fr, s, t, (440, 640, DX, 1260))
+        area = (SX, ALTO + 10, DX, 560)
     return fr, area
 
 def camera(fr, s, t):
@@ -353,7 +356,7 @@ def quadro(t):
         gancio_testo(fr, t, area, s['testo_grande'])
     else:
         sottotitolo(fr, t, area)
-    ImageDraw.Draw(fr).rectangle((0, H - 10, W * min(1, t / DURATA), H), fill=(185, 138, 46))
+    # niente barra di avanzamento: TikTok ha la sua, e la nostra finirebbe sotto l'interfaccia
     return fr
 
 if __name__ == '__main__':
