@@ -1,0 +1,19 @@
+{
+  "titolo": "Il token pirata di Fortnite",
+  "verificato": true,
+  "tono": "amico: semplice, a tu per tu, nessun giudizio sui giocatori",
+  "stile": "ritmo visivo alto, Professore sempre in scena; nessun logo, personaggio o immagine del gioco",
+  "fonti": [
+    "Fortnite Status (Epic Games), 7 novembre 2026: probabilità base di 1 su 137.500 per forziere aperto in una partita normale; Treasure Hours con probabilità aumentate (1,5x, una sessione 2x). Riportato da VGC, GamesRadar, Game Rant, GGRecon.",
+    "Il token dà 14 giorni di oggetti gratis nel Negozio pagati in V-Buck; esclusi pass, Crew e pacchetti a soldi veri.",
+    "Mini-stagione Treasure Hunters dal 1 novembre al 5 dicembre 2026, collegata al crossover con One Piece; chi trova il token ne riceve due: uno per il 2026 e uno per il 2027.",
+    "Epic avverte che comprare account o usare strumenti falsi è una truffa."
+  ],
+  "parti": [
+    { "fase": "apertura", "testo": "Ehi, perché tutti su Fortnite cercano una moneta da pirata? Te lo spiego io." },
+    { "fase": "spiegazione", "testo": "È il token del Negozio Pirata. Se lo trovi, per quattordici giorni prendi gratis gli oggetti del negozio che costano V-Buck. Ma la probabilità, confermata da Epic, è di una su centotrentasettemila e cinquecento, per ogni forziere. Per questo quasi nessuno lo avrà." },
+    { "fase": "scoperta", "testo": "E qui arriva il marketing. Primo: un premio raro e casuale, come una slot machine: ogni forziere potrebbe essere quello giusto. Secondo: il tempo è limitato, finisce il cinque dicembre, e la paura di perderselo ti fa tornare. Terzo: le ore del tesoro, a orari precisi, con più probabilità: diventano appuntamenti. Quarto: chi lo trova riceve anche un secondo token per il duemilaventisette, così torna anche l'anno prossimo. E intorno, meme, video e il crossover con One Piece fanno parlare tutti, anche chi aveva smesso di giocare." },
+    { "fase": "conclusione", "testo": "Ecco il trucco: non serve vincere per restare. Basta pensare che il prossimo forziere potrebbe essere quello buono." },
+    { "fase": "invito", "testo": "Ti è piaciuto? Scrivimi nei commenti se l'hai trovato, e seguici!" }
+  ]
+}

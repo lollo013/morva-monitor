@@ -1,0 +1,196 @@
+{
+ "nome": "fortnite",
+ "audio": "fortnite.mp3",
+ "frasi": [
+  "Ehi, perché tutti su Fortnite cercano una moneta da pirata?",
+  "Te lo spiego io.",
+  "È il token del Negozio Pirata.",
+  "Se lo trovi, per quattordici giorni prendi gratis gli oggetti del negozio che costano V-Buck.",
+  "Ma la probabilità, confermata da Epic, è di una su centotrentasettemila e cinquecento, per ogni forziere.",
+  "Per questo quasi nessuno lo avrà.",
+  "E qui arriva il marketing.",
+  "Primo: un premio raro e casuale, come una slot machine: ogni forziere potrebbe essere quello giusto.",
+  "Secondo: il tempo è limitato, finisce il cinque dicembre, e la paura di perderselo ti fa tornare.",
+  "Terzo: le ore del tesoro, a orari precisi, con più probabilità: diventano appuntamenti.",
+  "Quarto: chi lo trova riceve anche un secondo token per il duemilaventisette, così torna anche l'anno prossimo.",
+  "E intorno, meme, video e il crossover con One Piece fanno parlare tutti, anche chi aveva smesso di giocare.",
+  "Ecco il trucco: non serve vincere per restare.",
+  "Basta pensare che il prossimo forziere potrebbe essere quello buono.",
+  "Ti è piaciuto?",
+  "Scrivimi nei commenti se l'hai trovato, e seguici!"
+ ],
+ "chiave": [
+  "token",
+  "pirata",
+  "fortnite",
+  "gratis",
+  "quattordici",
+  "probabilità",
+  "forziere",
+  "nessuno",
+  "marketing",
+  "slot",
+  "limitato",
+  "paura",
+  "appuntamenti",
+  "duemilaventisette",
+  "meme",
+  "trucco",
+  "vincere",
+  "commenti",
+  "seguici"
+ ],
+ "inquadrature": [
+  {
+   "da": 0,
+   "tipo": "sfondo",
+   "scena": "f_moneta",
+   "testo_grande": "Il token pirata|di Fortnite"
+  },
+  {
+   "da": "te",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "è",
+   "tipo": "affiancati",
+   "scena": "f_moneta"
+  },
+  {
+   "da": "se",
+   "tipo": "mezzo_busto",
+   "scena": "negozio",
+   "eventi": {
+    "zoom": "oggetti"
+   },
+   "zoom": 1.25,
+   "fuoco": [
+    0.5,
+    0.55
+   ]
+  },
+  {
+   "da": "ma",
+   "tipo": "sfondo",
+   "scena": "probabilita"
+  },
+  {
+   "da": "centotrentasettemila",
+   "tipo": "angolo_dx",
+   "scena": "probabilita"
+  },
+  {
+   "da": "questo",
+   "tipo": "mezzo_busto",
+   "scena": "probabilita"
+  },
+  {
+   "da": "qui",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "primo",
+   "tipo": "affiancati",
+   "scena": "slot"
+  },
+  {
+   "da": "ogni#2",
+   "tipo": "angolo_dx",
+   "scena": "slot",
+   "eventi": {
+    "zoom": "giusto"
+   },
+   "zoom": 1.3,
+   "fuoco": [
+    0.45,
+    0.32
+   ]
+  },
+  {
+   "da": "secondo",
+   "tipo": "mezzo_busto",
+   "scena": "calendario"
+  },
+  {
+   "da": "paura",
+   "tipo": "angolo_sx",
+   "scena": "calendario",
+   "eventi": {
+    "zoom": "paura"
+   },
+   "zoom": 1.45,
+   "fuoco": [
+    0.5,
+    0.82
+   ]
+  },
+  {
+   "da": "terzo",
+   "tipo": "sfondo",
+   "scena": "ore_tesoro"
+  },
+  {
+   "da": "probabilità#2",
+   "tipo": "affiancati",
+   "scena": "ore_tesoro"
+  },
+  {
+   "da": "quarto",
+   "tipo": "mezzo_busto",
+   "scena": "due_token"
+  },
+  {
+   "da": "così",
+   "tipo": "angolo_dx",
+   "scena": "due_token",
+   "eventi": {
+    "zoom": "così"
+   },
+   "zoom": 1.35,
+   "fuoco": [
+    0.7,
+    0.5
+   ]
+  },
+  {
+   "da": "intorno",
+   "tipo": "affiancati",
+   "scena": "social"
+  },
+  {
+   "da": "one",
+   "tipo": "sfondo",
+   "scena": "social"
+  },
+  {
+   "da": "anche#3",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "ecco",
+   "tipo": "mezzo_busto",
+   "scena": "prossimo"
+  },
+  {
+   "da": "basta",
+   "tipo": "sfondo",
+   "scena": "prossimo"
+  },
+  {
+   "da": "ti#2",
+   "tipo": "mezzo_busto",
+   "scena": "invito"
+  },
+  {
+   "da": "seguici",
+   "tipo": "angolo_sx",
+   "scena": "invito"
+  }
+ ],
+ "stupore": [
+  "qui",
+  "primo"
+ ],
+ "sorriso_da": "ti#2",
+ "coda": 0.8
+}

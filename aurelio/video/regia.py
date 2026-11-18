@@ -20,8 +20,8 @@ from PIL import Image, ImageDraw, ImageFont
 S = sys.argv[1]
 sys.path.insert(0, S)
 from anima import Figura
-import scene_cielo, scene_inception, disegni, inspect
-SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE}
+import scene_cielo, scene_inception, scene_fortnite, disegni, inspect
+SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE}
 
 R = json.load(open(sys.argv[2], encoding='utf8'))
 W, H, FPS = 1080, 1920, 30
@@ -293,7 +293,7 @@ def sottotitolo(fr, t, area, grande=False):
             if max(f.getlength(' '.join(w[0] for w in r)) for r in (r1, r2)) <= larg:
                 righe = [r1, r2]; break
         dim -= 6
-        if dim < 54: righe = [b]; break
+        if dim < 40: righe = [b]; break
     f = fnt(dim)
     comp = ease((t - b[0][1] + 0.04) / 0.1)
     alt_riga = dim * 1.12
