@@ -3,11 +3,13 @@
 Tutto e' ottenuto dall'immagine approvata, senza ridisegnare il personaggio:
 - respiro e leggero ondeggiare del corpo
 - la mano alzata che gesticola (ruota attorno al polso)
+- l'avambraccio alzato che si solleva e si abbassa (ruota attorno al gomito)
 - occhi: battito di ciglia e occhi chiusi sorridenti (espressione «Sorriso» della scheda)
 - bocca: si apre mentre parla; «o» di stupore (espressione «Scoperta» della scheda)
 Coordinate in pixel dell'immagine sorgente (figura_pulita.png, 600x1312).
 """
 import math
+import numpy as np
 from PIL import Image, ImageDraw
 
 BG = (253, 252, 251)
@@ -24,6 +26,11 @@ PERNO_MANO = (452, 440)
 # poligono della sola mano, tagliato appena sopra il polsino della manica
 POLIGONO_MANO = [(420, 300), (600, 300), (600, 452), (470, 452), (452, 430), (420, 420)]
 ZONA_MANO = (418, 300, 600, 470)  # x0, y0, x1, y1
+# avambraccio alzato: manica e mano, fino al gomito
+PERNO_BRACCIO = (440, 668)
+POLIGONO_BRACCIO = [(412, 292), (600, 292), (600, 482), (490, 482), (492, 600), (470, 668),
+                    (396, 668), (392, 560), (408, 470), (412, 420)]
+ZONA_BRACCIO = (300, 200, 600, 700)
 
 
 class Figura:
@@ -51,6 +58,14 @@ class Figura:
                                    [(420, 408), (452, 416), (466, 432), (478, 444), (478, 470), (418, 470)]], fill=0)
         sfondo = Image.new('RGB', mano.size, BG)
         self.senza_mano.paste(sfondo, (x0, y0), m)
+        # maschere dell'avambraccio, nelle coordinate della sua zona
+        bx0, by0, bx1, by1 = ZONA_BRACCIO
+        poli = Image.new('L', (bx1 - bx0, by1 - by0), 0)
+        ImageDraw.Draw(poli).polygon([(x - bx0, y - by0) for x, y in POLIGONO_BRACCIO], fill=255)
+        self.poli_braccio = np.array(poli) > 0
+        cancella = poli.copy()   # vicino al gomito restano i pixel originali: niente fessure
+        ImageDraw.Draw(cancella).rectangle((0, 640 - by0, bx1 - bx0, by1 - by0), fill=0)
+        self.cancella_braccio = np.array(cancella) > 0
 
     def _occhio_chiuso(self, d, cx, cy, rx, ry, felice):
         s = self.s
@@ -61,13 +76,25 @@ class Figura:
         else:        # palpebra chiusa
             d.arc(((cx - rx + 2) * s, (cy - 14) * s, (cx + rx - 2) * s, (cy + 8) * s), 20, 160, fill=LINEA, width=w)
 
-    def quadro(self, angolo_mano=0.0, ondeggio=0.0, respiro=0.0, occhi='aperti', bocca=0.0, stupore=False):
+    def quadro(self, angolo_mano=0.0, angolo_braccio=0.0, ondeggio=0.0, respiro=0.0, occhi='aperti', bocca=0.0, stupore=False):
         """occhi: 'aperti' | 'chiusi' | 'felici'; bocca: 0..1 apertura mentre parla."""
         im = self.senza_mano.copy()
         # mano che gesticola
         mano = self.mano.rotate(angolo_mano, resample=Image.BICUBIC, expand=False,
                                 center=(PERNO_MANO[0] - ZONA_MANO[0], PERNO_MANO[1] - ZONA_MANO[1]))
         im.paste(mano, (ZONA_MANO[0], ZONA_MANO[1]), mano)
+        # avambraccio che si solleva (angolo positivo: verso l'alto e verso il viso)
+        if abs(angolo_braccio) > 0.05:
+            bx0, by0, bx1, by1 = ZONA_BRACCIO
+            zona = np.array(im.crop(ZONA_BRACCIO))
+            pieno = ~((zona[..., 0] > 244) & (zona[..., 1] > 240) & (zona[..., 2] > 236))
+            alfa = (self.poli_braccio & pieno).astype(np.uint8) * 255
+            pezzo = Image.fromarray(np.dstack([zona, alfa]), 'RGBA')
+            via = Image.fromarray((self.cancella_braccio & pieno).astype(np.uint8) * 255, 'L')
+            im.paste(Image.new('RGB', pezzo.size, BG), (bx0, by0), via)
+            pezzo = pezzo.rotate(angolo_braccio, resample=Image.BICUBIC,
+                                 center=(PERNO_BRACCIO[0] - bx0, PERNO_BRACCIO[1] - by0))
+            im.paste(pezzo, (bx0, by0), pezzo)
         # viso, disegnato in sovracampionamento e riportato alla scala originale
         if occhi != 'aperti' or bocca > 0.02 or stupore:
             x0, y0, x1, y1 = 190, 140, 345, 300
@@ -109,12 +136,12 @@ if __name__ == '__main__':
     S = sys.argv[1]
     f = Figura(f'{S}/figura_pulita.png')
     pose = [
-        dict(angolo_mano=-9, occhi='aperti', bocca=1.0),
-        dict(angolo_mano=9, occhi='chiusi'),
-        dict(angolo_mano=0, occhi='felici'),
-        dict(angolo_mano=4, stupore=True, ondeggio=1.0, respiro=1.0),
+        dict(angolo_braccio=0),
+        dict(angolo_braccio=3, angolo_mano=-6),
+        dict(angolo_braccio=6, angolo_mano=6),
+        dict(angolo_braccio=-1.5, angolo_mano=-8),
     ]
     tavola = Image.new('RGB', (4 * 610, 1312), (90, 90, 90))
     for i, p in enumerate(pose):
         tavola.paste(f.quadro(**p), (i * 610, 0))
-    tavola.crop((0, 100, 4 * 610, 700)).save(f'{S}/pose.png')
+    tavola.crop((0, 150, 4 * 610, 760)).save(f'{S}/pose.png')

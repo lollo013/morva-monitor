@@ -8,9 +8,12 @@ Quando viene approvato, vale per tutti i video successivi; fino ad allora resta 
    taglio di inquadratura, zoom sul dettaglio nominato, evento nella scena (es. il prisma che si apre).
 2. **Primi 3 secondi**: si apre con il fenomeno, non con il Professore fermo. La domanda è scritta
    grande dal primo fotogramma. La voce parte subito (controllo: silenzio iniziale ≤ 0,15 s).
-3. **Professore come narratore dinamico**, sempre identico all'immagine originale. Cambiano solo
-   inquadratura e dimensione: `primo_piano`, `angolo_dx`, `angolo_sx`, `affiancati`, e `piena`
-   (solo la scena, la voce continua).
+3. **Il Professore è sempre in scena ed è il protagonista.** Non esistono inquadrature senza di lui.
+   Cambia solo il punto di vista, sempre con l'immagine originale: `sfondo` (la scena dietro di lui,
+   lui davanti a mezzo busto), `mezzo_busto` (lui grande, scena accanto), `affiancati` (lui intero),
+   `angolo_dx` / `angolo_sx` (lui in basso, scena sopra), `primo_piano`. Lo sfondo bianco attorno
+   alla figura viene tolto; occhi e riflessi restano pieni. Gesti: l'avambraccio si solleva dal
+   gomito (0–6°, di più sulle parole chiave) e la mano gesticola dal polso.
 4. **Scene animate**: si anima il fenomeno spiegato (luce che si scompone, onde, molecole, percorso
    nell'atmosfera), non immagini ferme.
 5. **Sottotitoli**: 1–3 parole per volta, agganciati alle pause vere della voce; evidenziate solo

@@ -14,6 +14,7 @@ camera dentro ogni inquadratura; piccolo colpo di zoom sulle parole chiave.
 """
 import json, math, os, re, subprocess, sys
 import numpy as np
+from scipy import ndimage
 from PIL import Image, ImageDraw, ImageFont
 
 S = sys.argv[1]
@@ -162,7 +163,12 @@ def stato(t):
         occhi = 'chiusi'
     i = int(t * FPS)
     bocca = float(VOL[i]) if t < FINE_VOCE and i < len(VOL) else 0.0
-    return dict(angolo_mano=max(-8, min(8, ang)), ondeggio=0.6 * math.sin(2 * math.pi * t / 5.0),
+    # avambraccio: si alza e si abbassa con il discorso, si solleva sulle parole chiave
+    br = 2.6 + 2.4 * math.sin(2 * math.pi * t / 2.7 + 0.8)
+    for s in T_CHIAVE:
+        if 0 <= t - s < 0.7:
+            br += 2.5 * math.sin(math.pi * (t - s) / 0.7)
+    return dict(angolo_braccio=max(0.0, min(6.0, br)), angolo_mano=max(-8, min(8, ang)), ondeggio=0.6 * math.sin(2 * math.pi * t / 5.0),
                 respiro=math.sin(2 * math.pi * t / 3.6), occhi=occhi, bocca=bocca, stupore=stupore)
 
 def ease(x): x = max(0.0, min(1.0, x)); return 1 - (1 - x) ** 3
@@ -177,6 +183,8 @@ def scena_img(s, t, w, h):
             extra['apri'] = (s['eventi']['apri'] - s['inizio']) / dur
         if 'colore' in s['eventi']:
             extra['colore_da'] = (s['eventi']['colore'] - s['inizio']) / dur
+        for k in ('punto', 'bersaglio'):
+            if k in s: extra[k] = tuple(s[k])
         rw = 760; rh = round(h * rw / w)        # base di disegno fissa: in grande gli elementi crescono
         return scene_cielo.SCENE[nome](p, lt, rw, rh, **extra).convert('RGB').resize((w, h), Image.BICUBIC)
     im = disegni.SCENE[nome](p, lt)          # 440x440 RGBA
@@ -202,29 +210,50 @@ def incolla_scena(fr, s, t, box):
     fr.paste(sc, (x0, y0), angoli(sc))
     ImageDraw.Draw(fr).rounded_rectangle(box, radius=36, outline=INK, width=6)
 
+def scontorna(f):
+    """Toglie solo lo sfondo bianco che tocca i bordi: occhi e riflessi chiari restano pieni."""
+    a = np.array(f)
+    chiaro = (a[..., 0] > 236) & (a[..., 1] > 232) & (a[..., 2] > 226)
+    etich, _ = ndimage.label(chiaro, structure=np.ones((3, 3)))
+    bordo = np.unique(np.concatenate([etich[0], etich[-1], etich[:, 0], etich[:, -1]]))
+    fondo = np.isin(etich, bordo[bordo > 0])
+    alfa = np.where(fondo, 0, 255).astype(np.uint8)
+    alfa = np.array(Image.fromarray(alfa).filter(__import__('PIL.ImageFilter', fromlist=['x']).GaussianBlur(0.8)))
+    return Image.fromarray(np.dstack([a, alfa]), 'RGBA')
+
 def professore(t, ritaglio, alt):
     f = figura.quadro(**stato(t))
     if ritaglio: f = f.crop(ritaglio)
+    f = scontorna(f)
     return f.resize((round(f.width * alt / f.height), alt), Image.BICUBIC)
 
 def componi(s, t):
+    """Il Professore e' sempre in scena: cambia solo il punto di vista."""
     fr = Image.new('RGB', (W, H), BG)
     tipo = s['tipo']
-    if tipo == 'piena':
-        incolla_scena(fr, s, t, (0, 0, W, 1400)); area = (50, 1430, W - 50, 1640)
+    if tipo == 'sfondo':          # la scena fa da sfondo, lui davanti a mezzo busto
+        sc = scena_img(s, t, W, H); fr.paste(sc, (0, 0))
+        f = professore(t, (0, 0, 600, 860), 1150)
+        fr.paste(f, (-40, H - f.height + 20), f)
+        area = (60, 170, W - 60, 520)
     elif tipo == 'primo_piano':
         f = professore(t, (0, 0, 600, 640), 1240)
-        fr.paste(f, ((W - f.width) // 2, 160))
+        fr.paste(f, ((W - f.width) // 2, 160), f)
         area = (60, 1440, W - 60, 1620)
+    elif tipo == 'mezzo_busto':   # lui grande a sinistra, la scena accanto
+        f = professore(t, (0, 0, 600, 860), 1250)
+        fr.paste(f, (-60, H - f.height + 20), f)
+        incolla_scena(fr, s, t, (500, 170, W - 40, 830))
+        area = (480, 860, W - 30, 1080)
     elif tipo in ('angolo_dx', 'angolo_sx'):
-        incolla_scena(fr, s, t, (40, 150, W - 40, 1060))
-        f = professore(t, (0, 0, 600, 860), 860)
-        x = W - f.width + 20 if tipo == 'angolo_dx' else -20
-        fr.paste(f, (x, H - f.height + 20))
-        area = (40, 1120, 560, 1440) if tipo == 'angolo_dx' else (W - 560, 1120, W - 40, 1440)
-    else:  # affiancati
+        incolla_scena(fr, s, t, (40, 150, W - 40, 980))
+        f = professore(t, (0, 0, 600, 860), 980)
+        x = W - f.width + 10 if tipo == 'angolo_dx' else -20
+        fr.paste(f, (x, H - f.height + 20), f)
+        area = (40, 1040, 440, 1400) if tipo == 'angolo_dx' else (W - 420, 1040, W - 30, 1400)
+    else:  # affiancati: lui intero a sinistra, la scena a destra
         f = professore(t, None, 1180)
-        fr.paste(f, (0, H - f.height - 20))
+        fr.paste(f, (0, H - f.height - 20), f)
         incolla_scena(fr, s, t, (470, 660, W - 40, 1340))
         area = (60, 230, W - 60, 560)
     return fr, area

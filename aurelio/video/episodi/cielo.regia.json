@@ -30,8 +30,12 @@
  "inquadrature": [
   {
    "da": 0,
-   "tipo": "piena",
+   "tipo": "sfondo",
    "scena": "gancio",
+   "punto": [
+    0.66,
+    0.3
+   ],
    "testo_grande": "Perché il cielo è azzurro?"
   },
   {
@@ -40,21 +44,21 @@
   },
   {
    "da": "la",
-   "tipo": "piena",
+   "tipo": "mezzo_busto",
    "scena": "prisma",
    "eventi": {
     "apri": "contiene",
     "zoom": "colori"
    },
-   "zoom": 1.14,
+   "zoom": 1.2,
    "fuoco": [
-    0.72,
-    0.4
+    0.75,
+    0.45
    ]
   },
   {
    "da": "quando",
-   "tipo": "angolo_dx",
+   "tipo": "affiancati",
    "scena": "molecole",
    "eventi": {
     "zoom": "molecole"
@@ -67,13 +71,17 @@
   },
   {
    "da": "che",
-   "tipo": "piena",
+   "tipo": "angolo_dx",
    "scena": "schema_onde"
   },
   {
    "da": "così",
-   "tipo": "affiancati",
-   "scena": "occhi_cielo"
+   "tipo": "sfondo",
+   "scena": "occhi_cielo",
+   "bersaglio": [
+    0.27,
+    0.54
+   ]
   },
   {
    "da": "e",
@@ -81,7 +89,7 @@
   },
   {
    "da": "luce#2",
-   "tipo": "piena",
+   "tipo": "angolo_sx",
    "scena": "tramonto",
    "eventi": {
     "colore": "restano",
@@ -95,7 +103,7 @@
   },
   {
    "da": "ti",
-   "tipo": "angolo_sx",
+   "tipo": "mezzo_busto",
    "scena": "invito"
   }
  ],

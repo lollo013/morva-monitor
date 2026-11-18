@@ -67,7 +67,7 @@ def nuvola(d, x, y, s):
 
 
 # ------------------------------------------------------------------ 1. apertura
-def gancio(p, t, w, h):
+def gancio(p, t, w, h, punto=(0.5, 0.16)):
     """Il cielo che si accende di blu dietro un grande punto di domanda."""
     im, d = tela(w, h)
     W, H = w * SS, h * SS
@@ -81,8 +81,8 @@ def gancio(p, t, w, h):
     salto = max(0, 1 - t / 0.5)
     q = font(int(640 * (1 + 0.25 * salto)))
     tw = d.textlength('?', font=q)
-    d.text(((W - tw) / 2 + 8 * SS, H * 0.16 - salto * 40 * SS + 8 * SS), '?', font=q, fill=(30, 40, 80, 120))
-    d.text(((W - tw) / 2, H * 0.16 - salto * 40 * SS), '?', font=q, fill=CREMA, stroke_width=9 * SS, stroke_fill=LINEA)
+    d.text((W * punto[0] - tw / 2 + 8 * SS, H * punto[1] - salto * 40 * SS + 8 * SS), '?', font=q, fill=(30, 40, 80, 120))
+    d.text((W * punto[0] - tw / 2, H * punto[1] - salto * 40 * SS), '?', font=q, fill=CREMA, stroke_width=9 * SS, stroke_fill=LINEA)
     return fine(im, w, h)
 
 
@@ -183,7 +183,7 @@ def schema_onde(p, t, w, h):
 
 
 # ------------------------------------------------------------------ 5. occhio sotto il cielo
-def occhi_cielo(p, t, w, h):
+def occhi_cielo(p, t, w, h, bersaglio=None):
     """Il blu arriva da ogni punto del cielo fino agli occhi di chi guarda."""
     im, d = tela(w, h)
     W, H = w * SS, h * SS
@@ -191,15 +191,18 @@ def occhi_cielo(p, t, w, h):
     d = ImageDraw.Draw(im, 'RGBA')
     d.rectangle((0, H * 0.78, W, H), fill=(126, 186, 104, 255))
     d.line((0, H * 0.78, W, H * 0.78), fill=LINEA, width=7 * SS)
-    ox, oy = W * 0.5, H * 0.74
-    # omino stilizzato che guarda in alto
-    d.ellipse((ox - 46 * SS, oy - 92 * SS, ox + 46 * SS, oy), fill=(252, 186, 122, 255), outline=LINEA, width=6 * SS)
-    d.ellipse((ox - 18 * SS, oy - 70 * SS, ox - 4 * SS, oy - 56 * SS), fill=LINEA)
-    d.ellipse((ox + 8 * SS, oy - 70 * SS, ox + 22 * SS, oy - 56 * SS), fill=LINEA)
-    d.rounded_rectangle((ox - 60 * SS, oy, ox + 60 * SS, oy + 120 * SS), radius=30 * SS, fill=(138, 47, 39, 255), outline=LINEA, width=6 * SS)
+    if bersaglio:   # le frecce arrivano agli occhi del Professore, che sta davanti alla scena
+        ox, oy = W * bersaglio[0], H * bersaglio[1] + 60 * SS
+    else:
+        ox, oy = W * 0.5, H * 0.74
+        # omino stilizzato che guarda in alto
+        d.ellipse((ox - 46 * SS, oy - 92 * SS, ox + 46 * SS, oy), fill=(252, 186, 122, 255), outline=LINEA, width=6 * SS)
+        d.ellipse((ox - 18 * SS, oy - 70 * SS, ox - 4 * SS, oy - 56 * SS), fill=LINEA)
+        d.ellipse((ox + 8 * SS, oy - 70 * SS, ox + 22 * SS, oy - 56 * SS), fill=LINEA)
+        d.rounded_rectangle((ox - 60 * SS, oy, ox + 60 * SS, oy + 120 * SS), radius=30 * SS, fill=(138, 47, 39, 255), outline=LINEA, width=6 * SS)
     # frecce blu che convergono
     for i in range(9):
-        a = math.radians(200 + i * 17.5)
+        a = math.radians((200 + i * 17.5) if not bersaglio else (215 + i * 13))
         f = (t * 0.9 + i * 0.11) % 1
         r0 = W * 0.62 * (1 - f) + 130 * SS
         x, y = ox + math.cos(a) * r0, oy - 60 * SS + math.sin(a) * r0
