@@ -249,9 +249,49 @@ def prossimo(p, t, w, h):
     return fine(im, w, h)
 
 
+def testa17(p, t, w, h):
+    """Paragone: fare testa 17 volte di fila con una moneta = 1 su 131.072 (2 alla 17)."""
+    im, d = tela(w, h, (250, 244, 232, 255))
+    W, H = w * SS, h * SS
+    # moneta che salta e gira
+    salto = abs(math.sin(t * 3.2))
+    cx, cy, r = W * 0.5, H * 0.40 - salto * 120 * SS, 110 * SS
+    k = max(0.12, abs(math.cos(t * 9)))
+    d.ellipse((cx - r * k - 8 * SS, cy - r + 10 * SS, cx + r * k + 8 * SS, cy + r + 10 * SS), fill=ORO2, outline=LINEA, width=7 * SS)
+    d.ellipse((cx - r * k, cy - r, cx + r * k, cy + r), fill=ORO, outline=LINEA, width=7 * SS)
+    if k > 0.5:
+        f = font(int(90 * k))
+        tw = d.textlength('T', font=f)
+        d.text((cx - tw / 2, cy - 56 * SS), 'T', font=f, fill=LINEA)
+    d.ellipse((W * 0.5 - 120 * SS, H * 0.55, W * 0.5 + 120 * SS, H * 0.55 + 24 * SS), fill=(0, 0, 0, 40))
+    # fila delle 17 teste
+    fatte = min(17, int(t * 8.5) + 1)
+    rr = 22 * SS
+    for i in range(17):
+        x = W * 0.09 + i * (W * 0.82) / 16
+        y = H * 0.66
+        if i < fatte:
+            d.ellipse((x - rr, y - rr, x + rr, y + rr), fill=ORO, outline=LINEA, width=4 * SS)
+            g = font(22)
+            tw = d.textlength('T', font=g)
+            d.text((x - tw / 2, y - 14 * SS), 'T', font=g, fill=LINEA)
+        else:
+            d.ellipse((x - rr, y - rr, x + rr, y + rr), outline=(190, 180, 170, 255), width=4 * SS)
+    f = font(70)
+    testo = f'TESTA x{fatte}'
+    tw = d.textlength(testo, font=f)
+    d.text(((W - tw) / 2, H * 0.06), testo, font=f, fill=ROSSO, stroke_width=4 * SS, stroke_fill=(255, 255, 255, 255))
+    if fatte >= 17:
+        g = font(54)
+        for i, r2 in enumerate(['17 volte di fila', '= 1 su 131.072']):
+            tw = d.textlength(r2, font=g)
+            d.text(((W - tw) / 2, H * (0.76 + 0.07 * i)), r2, font=g, fill=LINEA, stroke_width=3 * SS, stroke_fill=(255, 255, 255, 255))
+    return fine(im, w, h)
+
+
 SCENE = {'f_moneta': moneta_gancio, 'negozio': negozio, 'probabilita': probabilita, 'slot': slot,
          'calendario': calendario, 'ore_tesoro': ore_tesoro, 'due_token': due_token, 'social': social,
-         'prossimo': prossimo}
+         'prossimo': prossimo, 'testa17': testa17}
 
 if __name__ == '__main__':
     S = sys.argv[1]

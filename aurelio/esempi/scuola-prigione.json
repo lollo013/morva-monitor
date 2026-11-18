@@ -1,0 +1,18 @@
+{
+  "titolo": "La scuola assomiglia a una prigione?",
+  "verificato": true,
+  "tono": "amico: ironico ma giusto, nessun attacco a insegnanti o scuole",
+  "stile": "ritmo visivo alto, Professore sempre in scena, area sicura TikTok; mai iniziare con «Ehi»",
+  "fonti": [
+    "American Academy of Sleep Medicine: tra i 13 e i 18 anni servono 8-10 ore di sonno; scuole medie e superiori dovrebbero iniziare alle 8:30 o più tardi (Journal of Clinical Sleep Medicine, 2017).",
+    "Legge 354/1975 (ordinamento penitenziario), art. 10 come sostituito dal d.lgs. 123/2018: almeno quattro ore al giorno all'aria aperta, riducibili a due solo per giustificati motivi.",
+    "Durata della ricreazione decisa dalle singole scuole: spesso 10-15 minuti; superiori con 5-6 ore di lezione al giorno."
+  ],
+  "parti": [
+    { "fase": "apertura", "testo": "Ti sei mai chiesto come mai la scuola assomiglia a una prigione? Seguimi in una giornata qualunque." },
+    { "fase": "spiegazione", "testo": "La sveglia suona presto. Alla tua età servono tra le otto e le dieci ore di sonno, ma molte scuole iniziano alle otto, e il sonno arretrato si accumula. Gli esperti del sonno consigliano di non cominciare prima delle otto e mezza. Poi il cancello si chiude a un orario preciso. Prima ora: l'appello, per controllare che ci sei. In carcere si chiama la conta. Poi resti seduto, fermo, per cinque o sei ore, nel posto che ti hanno assegnato. Vuoi andare in bagno? Devi chiedere il permesso. E il telefono, spesso, va spento." },
+    { "fase": "scoperta", "testo": "E la pausa? La ricreazione dura spesso dieci, quindici minuti. Sai quanto spetta per legge a un detenuto in Italia? Almeno *quattro ore* all'aria aperta, ogni giorno. E a scandire tutto c'è sempre lei: la campanella." },
+    { "fase": "conclusione", "testo": "Ma attenzione: la scuola non è una prigione. Impari, incontri i tuoi amici, e un giorno scegli tu la tua strada. Però qualche regola, come l'orario d'ingresso, si potrebbe davvero ripensare." },
+    { "fase": "invito", "testo": "Ti è piaciuto? Scrivimi nei commenti quale regola cambieresti, e seguici!" }
+  ]
+}

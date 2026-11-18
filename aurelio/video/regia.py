@@ -20,8 +20,8 @@ from PIL import Image, ImageDraw, ImageFont
 S = sys.argv[1]
 sys.path.insert(0, S)
 from anima import Figura
-import scene_cielo, scene_inception, scene_fortnite, disegni, inspect
-SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE}
+import scene_cielo, scene_inception, scene_fortnite, scene_scuola, disegni, inspect
+SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE}
 
 R = json.load(open(sys.argv[2], encoding='utf8'))
 W, H, FPS = 1080, 1920, 30
@@ -201,7 +201,15 @@ def angoli(im, r=36):
 
 def incolla_scena(fr, s, t, box):
     x0, y0, x1, y1 = box
-    sc = scena_img(s, t, x1 - x0, y1 - y0)
+    bw, bh = x1 - x0, y1 - y0
+    if bw / bh > 0.95:
+        # riquadro largo: la scena si disegna nelle sue proporzioni e si centra, senza schiacciarla
+        sh = bh; sw = round(bh * 0.84)
+        dentro = scena_img(s, t, sw, sh)
+        sc = Image.new('RGB', (bw, bh), dentro.getpixel((2, 2)))
+        sc.paste(dentro, ((bw - sw) // 2, 0))
+    else:
+        sc = scena_img(s, t, bw, bh)
     # zoom dentro la scena, sul dettaglio che la voce sta nominando
     if 'zoom' in s and t >= s['eventi'].get('zoom', 1e9):
         z = 1 + (s['zoom'] - 1) * ease((t - s['eventi']['zoom']) / 0.35)
@@ -239,7 +247,10 @@ def componi(s, t):
     fr = Image.new('RGB', (W, H), BG)
     tipo = s['tipo']
     if tipo == 'sfondo':          # la scena fa da sfondo, lui davanti a mezzo busto
-        sc = scena_img(s, t, W, H); fr.paste(sc, (0, 0))
+        # la scena parte sotto la barra «Seguiti / Per te»; sopra si allunga il suo colore di cima
+        cima = ALTO - 40
+        sc = scena_img(s, t, W, H - cima)
+        fr.paste(sc.getpixel((W // 2, 2)), (0, 0, W, cima)); fr.paste(sc, (0, cima))
         f = professore(t, (0, 0, 600, 860), 1150)
         fr.paste(f, (-40, H - f.height + 20), f)
         area = (SX, ALTO + 10, DX, 540) if s.get('testo_grande') else (SX, 520, DX, 800)
@@ -253,11 +264,11 @@ def componi(s, t):
         incolla_scena(fr, s, t, (420, ALTO, DX, 820))
         area = (430, 840, DX, 1060)
     elif tipo in ('angolo_dx', 'angolo_sx'):
-        incolla_scena(fr, s, t, (SX, ALTO, DX, 900))
-        f = professore(t, (0, 0, 600, 860), 900)
+        incolla_scena(fr, s, t, (SX, ALTO, DX, 1020))
+        f = professore(t, (0, 0, 600, 860), 780)
         x = DX - f.width + 90 if tipo == 'angolo_dx' else -20
         fr.paste(f, (x, H - f.height + 20), f)
-        area = (SX, 905, DX, 1030)
+        area = (SX, 1025, DX, 1190) if s.get('testo_grande') else (SX, 1025, DX, 1150)
     else:  # affiancati: lui intero a sinistra, la scena a destra
         f = professore(t, None, 1180)
         fr.paste(f, (0, H - f.height - 20), f)

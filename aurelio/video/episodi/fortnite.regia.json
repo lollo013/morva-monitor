@@ -1,12 +1,14 @@
 {
  "nome": "fortnite",
- "audio": "fortnite-v3.mp3",
+ "audio": "fortnite-v4.mp3",
  "frasi": [
   "Token di Fortnite: sicuramente ne hai sentito parlare.",
   "Ora ti spiego bene che cos'è.",
   "È il token del Negozio Pirata.",
   "Se lo trovi, per quattordici giorni prendi gratis gli oggetti del negozio che costano V-Buck.",
   "Ma la probabilità, confermata da Epic, è di una su centotrentasettemila e cinquecento, per ogni forziere.",
+  "Per capirci: è quasi come lanciare una moneta e fare testa diciassette volte di fila.",
+  "Praticamente impossibile.",
   "Per questo quasi nessuno lo avrà.",
   "E qui arriva il marketing.",
   "Primo: un premio raro e casuale, come una slot machine: ogni forziere potrebbe essere quello giusto.",
@@ -38,7 +40,10 @@
   "trucco",
   "vincere",
   "commenti",
-  "seguici"
+  "seguici",
+  "testa",
+  "diciassette",
+  "impossibile"
  ],
  "inquadrature": [
   {
@@ -78,6 +83,20 @@
    "da": "centotrentasettemila",
    "tipo": "angolo_dx",
    "scena": "probabilita"
+  },
+  {
+   "da": "capirci",
+   "tipo": "mezzo_busto",
+   "scena": "testa17"
+  },
+  {
+   "da": "testa",
+   "tipo": "sfondo",
+   "scena": "testa17"
+  },
+  {
+   "da": "praticamente",
+   "tipo": "primo_piano"
   },
   {
    "da": "questo",
@@ -188,8 +207,8 @@
   }
  ],
  "stupore": [
-  "qui",
-  "primo"
+  "praticamente",
+  "questo"
  ],
  "sorriso_da": "ti#3",
  "coda": 0.8
