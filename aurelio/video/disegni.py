@@ -328,8 +328,184 @@ def invito(p, t):
     return fine(im)
 
 
+VIOLA = (150, 84, 140, 255)
+VIOLA2 = (196, 132, 186, 255)
+VERDE_GAS = (170, 214, 120, 255)
+ACCIAIO = (200, 206, 214, 255)
+AZZURRO = (120, 190, 235, 255)
+
+
+def bulbo(d, cx, cy, s):
+    """Cipolla intera: bulbo con strati e germoglio."""
+    d.polygon([(cx - s * 0.12, cy - s * 0.85), (cx + s * 0.12, cy - s * 0.85), (cx + s * 0.05, cy - s * 1.25), (cx - s * 0.05, cy - s * 1.25)],
+              fill=VERDE, outline=LINEA, width=W)
+    pts = []
+    for i in range(90):
+        a = i / 90 * 2 * math.pi
+        x = math.sin(a) * s * (0.95 - 0.25 * max(0, -math.cos(a)) ** 3)
+        y = -math.cos(a) * s * 0.9 - (s * 0.25 if math.cos(a) > 0.92 else 0) * (math.cos(a) - 0.92) / 0.08
+        pts.append((cx + x, cy + y))
+    d.polygon(pts, fill=VIOLA, outline=LINEA, width=W)
+    for k in (0.35, 0.65):
+        d.arc((cx - s * k, cy - s * 0.85, cx + s * k, cy + s * 0.85), 270 - 70, 270 + 70, fill=VIOLA2, width=W)
+        d.arc((cx - s * k, cy - s * 0.85, cx + s * k, cy + s * 0.85), 90 - 70, 90 + 70, fill=VIOLA2, width=W)
+    for i in range(5):
+        x = cx - s * 0.3 + i * s * 0.15
+        d.line((x, cy + s * 0.88, x - s * 0.05 + i * s * 0.025, cy + s * 1.05), fill=LINEA, width=W // 2)
+
+
+def goccia(d, cx, cy, s, col=AZZURRO):
+    pts = []
+    for i in range(60):
+        a = i / 60 * 2 * math.pi
+        r = s * (1 - 0.0) 
+        x = math.sin(a) * s * 0.62 * (1 - 0.55 * max(0, math.cos(a)))
+        y = -math.cos(a) * s
+        pts.append((cx + x, cy + y * (0.75 if math.cos(a) < 0 else 1.0)))
+    d.polygon(pts, fill=col, outline=LINEA, width=W)
+    d.ellipse((cx - s * 0.25, cy - s * 0.05, cx - s * 0.05, cy + s * 0.25), fill=(235, 248, 255, 255))
+
+
+def cipolla(p, t):
+    """La domanda: una cipolla e una lacrima che scende."""
+    im, d = tela()
+    bulbo(d, L * 0.44, L * 0.60, 150 * SS)
+    f = (t * 0.5) % 1
+    goccia(d, L * 0.84, L * (0.20 + 0.45 * f), 40 * SS)
+    d.text((L * 0.74, L * 0.80), '?', font=zfont, fill=ROSSO)
+    return fine(im)
+
+
+def coltello(d, x, y, s, ang=0):
+    lama = [(0, 0), (s * 1.4, 0), (s * 1.3, s * 0.34), (s * 0.1, s * 0.34)]
+    manico = [(-s * 0.75, s * 0.02), (0, s * 0.02), (0, s * 0.3), (-s * 0.75, s * 0.3)]
+    c, si = math.cos(math.radians(ang)), math.sin(math.radians(ang))
+    rot = lambda pts: [(x + px * c - py * si, y + px * si + py * c) for px, py in pts]
+    d.polygon(rot(lama), fill=ACCIAIO, outline=LINEA, width=W)
+    d.rounded_rectangle((0, 0, 0, 0), radius=1)
+    d.polygon(rot(manico), fill=SAIO, outline=LINEA, width=W)
+
+
+def taglio(p, t):
+    """Il coltello rompe le cellule: zolfo ed enzima si mescolano."""
+    im, d = tela()
+    # mezza cipolla vista in sezione
+    cx, cy, r = L * 0.55, L * 0.80, 175 * SS
+    d.pieslice((cx - r, cy - r, cx + r, cy + r), 180, 360, fill=VIOLA, outline=LINEA, width=W)
+    for k in (0.8, 0.6, 0.4, 0.2):
+        rr = r * k
+        d.arc((cx - rr, cy - rr, cx + rr, cy + rr), 180, 360, fill=CREMA, width=int(W * 1.2))
+    d.line((cx - r, cy, cx + r, cy), fill=LINEA, width=W)
+    # coltello che scende e risale
+    su = abs(math.sin(t * 2.6))
+    coltello(d, L * 0.34, L * 0.14 + su * L * 0.26, 150 * SS, ang=0)
+    # cellule che si rompono: puntini gialli (zolfo) e verdi (enzima) che si incontrano
+    n = 6
+    for i in range(n):
+        f = min(1, max(0, p * 2.2 - i * 0.12))
+        y = cy - L * 0.06 - (i % 3) * 24 * SS
+        x1 = cx - r * 0.75 + i * r * 0.27
+        d.ellipse((x1 - 16 * SS - (1 - f) * 22 * SS, y - 16 * SS, x1 + 16 * SS - (1 - f) * 22 * SS, y + 16 * SS), fill=ORO, outline=LINEA, width=W // 2)
+        d.ellipse((x1 - 12 * SS + (1 - f) * 22 * SS, y - 12 * SS, x1 + 12 * SS + (1 - f) * 22 * SS, y + 12 * SS), fill=VERDE, outline=LINEA, width=W // 2)
+    return fine(im)
+
+
+def occhio(d, cx, cy, s, aperto=1.0):
+    h = s * 0.55 * aperto
+    d.chord((cx - s, cy - h, cx + s, cy + h), 0, 360, fill=CREMA, outline=LINEA, width=W)
+    if aperto > 0.3:
+        r = s * 0.36
+        d.ellipse((cx - r, cy - min(r, h), cx + r, cy + min(r, h)), fill=(110, 80, 50, 255), outline=LINEA, width=W // 2)
+        d.ellipse((cx - r * 0.45, cy - r * 0.45, cx + r * 0.45, cy + r * 0.45), fill=LINEA)
+        d.ellipse((cx + r * 0.1, cy - r * 0.5, cx + r * 0.4, cy - r * 0.2), fill=CREMA)
+
+
+def gas(p, t):
+    """Il gas irritante sale dalla cipolla e vola verso gli occhi."""
+    im, d = tela()
+    cx, cy, r = L * 0.30, L * 0.86, 110 * SS
+    d.pieslice((cx - r, cy - r, cx + r, cy + r), 180, 360, fill=VIOLA, outline=LINEA, width=W)
+    d.line((cx - r, cy, cx + r, cy), fill=LINEA, width=W)
+    occhio(d, L * 0.70, L * 0.22, 105 * SS, aperto=0.85 - 0.25 * max(0, math.sin(t * 3)))
+    for i in range(7):
+        f = (t * 0.45 + i / 7) % 1
+        x = cx + (L * 0.72 - cx) * f + 30 * SS * math.sin(f * 9 + i)
+        y = cy - r * 0.5 - (cy - r * 0.5 - L * 0.32) * f
+        rr = (18 + 26 * f) * SS
+        a = int(230 * min(1, 3 * (1 - f)))
+        d.ellipse((x - rr, y - rr, x + rr, y + rr), fill=VERDE_GAS[:3] + (a,))
+    return fine(im)
+
+
+def enzima(p, t):
+    """Lo studio del 2002: l'enzima che fabbrica il gas."""
+    im, d = tela()
+    d.rounded_rectangle((20 * SS, 20 * SS, L - 20 * SS, L - 20 * SS), radius=60 * SS, fill=(250, 241, 228, 255), outline=LINEA, width=W)
+    tw = d.textlength('2002', font=etich)
+    d.rounded_rectangle((L * 0.08, L * 0.08, L * 0.08 + tw + 40 * SS, L * 0.08 + 58 * SS), radius=28 * SS, fill=ROSSO)
+    d.text((L * 0.08 + 20 * SS, L * 0.08 + 8 * SS), '2002', font=etich, fill=CREMA)
+    # enzima a forma di bocca che si apre e chiude
+    bocca = 25 + 20 * abs(math.sin(t * 4))
+    ex, ey, er = L * 0.40, L * 0.56, 120 * SS
+    d.pieslice((ex - er, ey - er, ex + er, ey + er), bocca, 360 - bocca, fill=VERDE, outline=LINEA, width=W)
+    d.ellipse((ex - 10 * SS, ey - er * 0.55, ex + 14 * SS, ey - er * 0.55 + 24 * SS), fill=LINEA)
+    # molecole di zolfo in arrivo, nuvolette di gas in uscita
+    for i in range(3):
+        f = (t * 0.6 + i / 3) % 1
+        x = L * 0.92 - (L * 0.92 - ex - er * 0.35) * f
+        if f < 0.9:
+            d.ellipse((x - 16 * SS, ey - 16 * SS, x + 16 * SS, ey + 16 * SS), fill=ORO, outline=LINEA, width=W // 2)
+    for i in range(4):
+        f = (t * 0.5 + i / 4) % 1
+        x = ex + er * 0.55 + f * L * 0.08
+        y = ey - er * 1.1 - f * L * 0.22
+        rr = (16 + 18 * f) * SS
+        d.ellipse((x - rr, y - rr, x + rr, y + rr), fill=VERDE_GAS[:3] + (int(230 * (1 - f)),))
+    return fine(im)
+
+
+def lacrime(p, t):
+    """Gli occhi si difendono: lacrime che lavano via il gas."""
+    im, d = tela()
+    for sx in (0.28, 0.72):
+        occhio(d, L * sx, L * 0.32, 88 * SS, aperto=0.6)
+        for k in range(2):
+            f = (t * 0.7 + k * 0.5 + sx) % 1
+            goccia(d, L * sx + 50 * SS, L * (0.45 + 0.42 * f), 30 * SS)
+    for i in range(4):
+        f = (t * 0.4 + i / 4) % 1
+        x = L * (0.15 + 0.7 * i / 3); y = L * 0.12 - f * 40 * SS
+        rr = 20 * SS * (1 - f)
+        d.ellipse((x - rr, y - rr, x + rr, y + rr), fill=VERDE_GAS[:3] + (int(160 * (1 - f)),))
+    return fine(im)
+
+
+def frigo(p, t):
+    """Il consiglio: cipolla in frigo e coltello affilato."""
+    im, d = tela()
+    x0, y0, x1, y1 = L * 0.10, L * 0.08, L * 0.56, L * 0.92
+    d.rounded_rectangle((x0, y0, x1, y1), radius=36 * SS, fill=(232, 240, 246, 255), outline=LINEA, width=W)
+    d.line((x0, L * 0.38, x1, L * 0.38), fill=LINEA, width=W)
+    d.rounded_rectangle((x1 - 40 * SS, L * 0.16, x1 - 24 * SS, L * 0.30), radius=8 * SS, fill=GRIGIO2, outline=LINEA, width=W // 2)
+    d.rounded_rectangle((x1 - 40 * SS, L * 0.46, x1 - 24 * SS, L * 0.62), radius=8 * SS, fill=GRIGIO2, outline=LINEA, width=W // 2)
+    bulbo(d, (x0 + x1) / 2 - 10 * SS, L * 0.68, 72 * SS)
+    # fiocco di neve
+    fx, fy, fr = (x0 + x1) / 2 - 30 * SS, L * 0.23, 46 * SS
+    for k in range(3):
+        a = math.radians(k * 60 + 20 * math.sin(t))
+        d.line((fx - fr * math.cos(a), fy - fr * math.sin(a), fx + fr * math.cos(a), fy + fr * math.sin(a)), fill=AZZURRO, width=W)
+    # coltello che luccica
+    coltello(d, L * 0.70, L * 0.30, 140 * SS, ang=60)
+    if (t % 1.4) < 0.5:
+        sx, sy = L * 0.86, L * 0.62
+        d.line((sx - 22 * SS, sy, sx + 22 * SS, sy), fill=ORO, width=W)
+        d.line((sx, sy - 22 * SS, sx, sy + 22 * SS), fill=ORO, width=W)
+    return fine(im)
+
+
 SCENE = {'sogno': sogno, 'cervello': cervello, 'noradrenalina': noradrenalina, 'ricordo': ricordo,
-         'scoperta': scoperta, 'sveglia': sveglia, 'quaderno': quaderno, 'invito': invito}
+         'scoperta': scoperta, 'sveglia': sveglia, 'quaderno': quaderno, 'invito': invito,
+         'cipolla': cipolla, 'taglio': taglio, 'gas': gas, 'enzima': enzima, 'lacrime': lacrime, 'frigo': frigo}
 
 if __name__ == '__main__':
     import sys

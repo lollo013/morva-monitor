@@ -1,0 +1,134 @@
+{
+ "nome": "sogni",
+ "audio": "narrazione_completa.mp3",
+ "frasi": [
+  [
+   "apertura",
+   "sogno",
+   "Ehi, ti sei mai chiesto perché il nostro cervello ci fa dimenticare i sogni?"
+  ],
+  [
+   "apertura",
+   "sogno",
+   "E se ti dicessi che la risposta è nascosta proprio nel modo in cui dormiamo?"
+  ],
+  [
+   "apertura",
+   "sogno",
+   "Te lo spiego io."
+  ],
+  [
+   "spiegazione",
+   "cervello",
+   "Allora: i sogni più vividi li facciamo nella fase REM."
+  ],
+  [
+   "spiegazione",
+   "noradrenalina",
+   "Lì il cervello è attivissimo, ma una sostanza che serve alla memoria, la noradrenalina, quasi sparisce."
+  ],
+  [
+   "spiegazione",
+   "ricordo",
+   "E senza di lei, il sogno non resta."
+  ],
+  [
+   "scoperta",
+   "scoperta",
+   "Ma sai qual è la cosa più incredibile?"
+  ],
+  [
+   "scoperta",
+   "scoperta",
+   "Nel 2019 hanno scoperto, nei topi, dei neuroni che durante il sonno REM lavorano proprio per farci dimenticare."
+  ],
+  [
+   "conclusione",
+   "sveglia",
+   "Ecco perché ti ricordi un sogno solo se ti svegli mentre lo stai facendo."
+  ],
+  [
+   "conclusione",
+   "quaderno",
+   "Un consiglio da amico?"
+  ],
+  [
+   "conclusione",
+   "quaderno",
+   "Tieni un quaderno accanto al letto, e scrivilo subito."
+  ],
+  [
+   "conclusione",
+   "quaderno",
+   "Fidati."
+  ],
+  [
+   "invito",
+   "invito",
+   "Ti è piaciuto questo video?"
+  ],
+  [
+   "invito",
+   "invito",
+   "Scrivimelo nei commenti, lascia un like e comincia a seguirci, per non perderti altri video come questo!"
+  ]
+ ],
+ "chiave": [
+  "commenti",
+  "like",
+  "seguirci",
+  "piaciuto",
+  "sogni",
+  "rem",
+  "noradrenalina",
+  "2019",
+  "neuroni",
+  "dimenticare",
+  "subito",
+  "quaderno",
+  "dormiamo",
+  "sparisce",
+  "amico",
+  "fidati",
+  "incredibile"
+ ],
+ "schede": [
+  {
+   "da": "rem",
+   "a": "senza",
+   "titolo": "FASE REM",
+   "testo": "il sogno più vivido"
+  },
+  {
+   "da": "noradrenalina",
+   "a": "sai",
+   "anticipo": -0.3,
+   "titolo": "NORADRENALINA",
+   "testo": "quasi a zero: il ricordo\nnon resta"
+  },
+  {
+   "da": "2019",
+   "a": "ecco",
+   "titolo": "2019",
+   "testo": "studio sui topi:\nneuroni che fanno\ndimenticare"
+  },
+  {
+   "da": "quaderno",
+   "a": "piaciuto",
+   "anticipo": -0.2,
+   "titolo": "QUADERNO",
+   "testo": "accanto al letto:\nscrivi il sogno subito"
+  },
+  {
+   "da": "commenti",
+   "a": null,
+   "titolo": "SEGUICI",
+   "testo": "commenta, lascia un like:\narrivano altre curiosità"
+  }
+ ],
+ "stupore": [
+  6,
+  7
+ ],
+ "sorriso_da": 9
+}

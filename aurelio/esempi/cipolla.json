@@ -1,0 +1,18 @@
+{
+  "titolo": "Perché tagliando la cipolla piangiamo?",
+  "verificato": true,
+  "tono": "amico: parla a tu per tu, caldo e complice, mai da lezione",
+  "fonti": [
+    "Nella cipolla i solfossidi di cisteina (ricchi di zolfo) e l'enzima alliinasi sono in compartimenti separati della cellula; il taglio li mette in contatto.",
+    "Imai et al., Nature 419:685 (2002), «An onion enzyme that makes the eyes water»: la lachrymatory-factor synthase produce il gas lacrimogeno (syn-propanetiale-S-ossido).",
+    "Il gas stimola i nervi sensoriali della cornea e le ghiandole lacrimali producono lacrime per diluirlo e lavarlo via.",
+    "Raffreddare la cipolla riduce la volatilità del gas; un coltello affilato rompe meno cellule."
+  ],
+  "parti": [
+    { "fase": "apertura", "testo": "Ehi, ti sei mai chiesto perché quando tagli una cipolla ti viene da piangere? E se ti dicessi che è una vera difesa chimica? Te lo spiego io." },
+    { "fase": "spiegazione", "testo": "Allora: dentro la cipolla ci sono sostanze ricche di zolfo e un enzima, tenuti separati. Quando la tagli, le cellule si rompono e tutto si mescola. Così nasce un gas irritante, che vola dritto verso i tuoi occhi." },
+    { "fase": "scoperta", "testo": "Ma sai qual è la cosa più incredibile? Per fabbricare quel gas serve un enzima tutto suo, scoperto solo nel 2002. E gli occhi, per difendersi, lo lavano via con le *lacrime*." },
+    { "fase": "conclusione", "testo": "Ecco perché piangi anche se non sei triste. Un consiglio da amico? Metti la cipolla in frigo per mezz'ora e usa un coltello ben affilato. Fidati." },
+    { "fase": "invito", "testo": "Ti è piaciuto questo video? Scrivimelo nei commenti, lascia un like e comincia a seguirci, per non perderti altri video come questo!" }
+  ]
+}

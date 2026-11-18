@@ -1,7 +1,7 @@
-"""Anteprima video verticale 1080x1920 del Professor Aurelio: «Perché dimentichiamo i sogni?».
+"""Video verticale 1080x1920 del Professor Aurelio, da un file episodio.
 
-Apertura: voce A2 approvata (campione ElevenLabs). Resto: sottotitoli a tempo, senza voce,
-finché ElevenLabs non torna disponibile. Nessuna voce sostitutiva.
+Uso: python3 monta.py <cartella> <episodio.json> [secondi,da,salvare,come,png]
+La cartella contiene figura_pulita.png e l'audio della voce A2 indicato nell'episodio.
 """
 import math, re, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -11,6 +11,8 @@ from anima import Figura
 from disegni import SCENE, LATO
 
 S = sys.argv[1]
+import json, os
+EP = json.load(open(sys.argv[2], encoding='utf8'))
 W, H, FPS = 1080, 1920, 30
 BG = (253, 252, 251)
 INK = (43, 33, 28)
@@ -29,29 +31,9 @@ titolo = ImageFont.truetype('/usr/share/fonts/truetype/crosextra/Caladea-Bold.tt
 fonte = ImageFont.truetype(F + 'Inter-Medium.otf', 28)
 
 # ---------------------------------------------------------------- copione
-AUDIO = f'{S}/narrazione_completa.mp3'
-if not __import__('os').path.exists(AUDIO):
-    # narrazione + breve respiro + invito finale, tutto con la voce A2
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', f'{S}/narrazione.mp3', '-i', f'{S}/invito.mp3',
-                    '-filter_complex', '[0:a]apad=pad_dur=0.30[a0];[a0][1:a]concat=n=2:v=0:a=1[a]',
-                    '-map', '[a]', '-c:a', 'libmp3lame', '-b:a', '160k', AUDIO], check=True)
-FRASI = [  # (fase, frase) nell'ordine in cui le dice
-    ("apertura", "Ehi, ti sei mai chiesto perché il nostro cervello ci fa dimenticare i sogni?"),
-    ("apertura", "E se ti dicessi che la risposta è nascosta proprio nel modo in cui dormiamo?"),
-    ("apertura", "Te lo spiego io."),
-    ("spiegazione", "Allora: i sogni più vividi li facciamo nella fase REM."),
-    ("spiegazione", "Lì il cervello è attivissimo, ma una sostanza che serve alla memoria, la noradrenalina, quasi sparisce."),
-    ("spiegazione", "E senza di lei, il sogno non resta."),
-    ("scoperta", "Ma sai qual è la cosa più incredibile?"),
-    ("scoperta", "Nel 2019 hanno scoperto, nei topi, dei neuroni che durante il sonno REM lavorano proprio per farci dimenticare."),
-    ("conclusione", "Ecco perché ti ricordi un sogno solo se ti svegli mentre lo stai facendo."),
-    ("conclusione", "Un consiglio da amico?"),
-    ("conclusione", "Tieni un quaderno accanto al letto, e scrivilo subito."),
-    ("conclusione", "Fidati."),
-    ("invito", "Ti è piaciuto questo video?"),
-    ("invito", "Scrivimelo nei commenti, lascia un like e comincia a seguirci, per non perderti altri video come questo!"),
-]
-CHIAVE = {"commenti,", "commenti", "like", "seguirci", "piaciuto", "sogni", "rem", "noradrenalina", "2019", "neuroni", "dimenticare", "subito", "quaderno", "dormiamo", "sparisce", "amico", "fidati", "incredibile"}
+AUDIO = os.path.join(S, EP['audio'])
+FRASI = [(f, testo) for f, _, testo in EP['frasi']]
+CHIAVE = set(EP['chiave'])
 
 def durata_audio(f):
     return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]))
@@ -147,13 +129,8 @@ def t_parola(testo):
             return s
     raise KeyError(testo)
 
-SCHEDE = [
-    (t_parola('rem'), t_parola('senza'), "FASE REM", "il sogno più vivido"),
-    (t_parola('noradrenalina'), t_parola('sai') - 0.3, "NORADRENALINA", "quasi a zero: il ricordo\nnon resta"),
-    (t_parola('2019'), t_parola('ecco'), "2019", "studio sui topi:\nneuroni che fanno\ndimenticare"),
-    (t_parola('quaderno'), t_parola('piaciuto') - 0.2, "QUADERNO", "accanto al letto:\nscrivi il sogno subito"),
-    (t_parola('commenti'), DURATA, "SEGUICI", "commenta, lascia un like:\narrivano altre curiosità"),
-]
+SCHEDE = [(t_parola(s['da']), (t_parola(s['a']) + s.get('anticipo', 0)) if s.get('a') else DURATA,
+           s['titolo'], s['testo']) for s in EP['schede']]
 
 # ---------------------------------------------------------------- figura
 figura = Figura(f'{S}/figura_pulita.png')
@@ -170,7 +147,7 @@ VOLUME = np.array([np.sqrt(np.mean(campioni[i:i + passo] ** 2)) for i in range(0
 VOLUME = np.clip((VOLUME - 0.015) / (np.percentile(VOLUME, 95) - 0.015), 0, 1)
 
 # scene: indice della frase -> disegno
-SCENA_DI_FRASE = ['sogno', 'sogno', 'sogno', 'cervello', 'noradrenalina', 'ricordo', 'scoperta', 'scoperta', 'sveglia', 'quaderno', 'quaderno', 'quaderno', 'invito', 'invito']
+SCENA_DI_FRASE = [sc for _, sc, _ in EP['frasi']]
 scene = []
 for i, nome in enumerate(SCENA_DI_FRASE):
     a, b = frasi[i]
@@ -193,10 +170,10 @@ def stato_figura(t):
             ang += (7 if k % 2 == 0 else -6) * math.sin(math.pi * (t - s) / 0.7)
     ang = max(-8, min(8, ang))
     occhi, stupore, bocca = 'aperti', False, 0.0
-    sc = frasi[6]; sc2 = frasi[7]
-    if sc[0] - 0.1 <= t <= sc2[0] + 1.2:
+    i0, i1 = EP['stupore']
+    if frasi[i0][0] - 0.1 <= t <= frasi[i1][0] + 1.2:
         stupore = True
-    if t >= frasi[9][0]:
+    if t >= frasi[EP['sorriso_da']][0]:
         occhi = 'felici'
     if occhi == 'aperti' and not stupore and ((t - 1.7) % 3.1) < 0.13:
         occhi = 'chiusi'
@@ -283,7 +260,7 @@ def quadro(t):
     return im
 
 if __name__ == '__main__':
-    out = f'{S}/aurelio-sogni-anteprima.mp4'
+    out = os.path.join(S, f"aurelio-{EP['nome']}.mp4")
     n = round(DURATA * FPS)
     cmd = ['ffmpeg', '-y', '-hide_banner', '-loglevel', 'error',
            '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
@@ -296,6 +273,6 @@ if __name__ == '__main__':
         p.stdin.write(quadro(i / FPS).tobytes())
     p.stdin.close(); p.wait()
     print(out, f'{DURATA:.1f}s', p.returncode)
-    if len(sys.argv) > 2:
-        for t in map(float, sys.argv[2].split(',')):
+    if len(sys.argv) > 3:
+        for t in map(float, sys.argv[3].split(',')):
             quadro(t).save(f'{S}/quadro-{t:05.1f}.png')

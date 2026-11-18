@@ -5,7 +5,8 @@
 - `disegni.py`: illustrazioni 2D dello scenario, nello stile del personaggio.
 - `monta.py`: compone il video verticale 1080x1920 con sottotitoli, schede e scene.
 
-Uso: `python3 aurelio/video/monta.py <cartella>`. La cartella deve contenere
+Uso: `python3 aurelio/video/monta.py <cartella> aurelio/video/episodi/<episodio>.json`.
+Ogni episodio dice frasi, scena per frase, parole chiave, schede ed espressioni. La cartella deve contenere
 `figura_pulita.png` (la figura intera ritagliata dalla scheda originale) e
 l'audio della voce approvata. L'immagine non è nel repository, che è pubblico.
 

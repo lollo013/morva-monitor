@@ -1,0 +1,142 @@
+{
+ "nome": "cipolla",
+ "audio": "cipolla.mp3",
+ "frasi": [
+  [
+   "apertura",
+   "cipolla",
+   "Ehi, ti sei mai chiesto perché quando tagli una cipolla ti viene da piangere?"
+  ],
+  [
+   "apertura",
+   "cipolla",
+   "E se ti dicessi che è una vera difesa chimica?"
+  ],
+  [
+   "apertura",
+   "cipolla",
+   "Te lo spiego io."
+  ],
+  [
+   "spiegazione",
+   "taglio",
+   "Allora: dentro la cipolla ci sono sostanze ricche di zolfo e un enzima, tenuti separati."
+  ],
+  [
+   "spiegazione",
+   "taglio",
+   "Quando la tagli, le cellule si rompono e tutto si mescola."
+  ],
+  [
+   "spiegazione",
+   "gas",
+   "Così nasce un gas irritante, che vola dritto verso i tuoi occhi."
+  ],
+  [
+   "scoperta",
+   "enzima",
+   "Ma sai qual è la cosa più incredibile?"
+  ],
+  [
+   "scoperta",
+   "enzima",
+   "Per fabbricare quel gas serve un enzima tutto suo, scoperto solo nel 2002."
+  ],
+  [
+   "scoperta",
+   "lacrime",
+   "E gli occhi, per difendersi, lo lavano via con le lacrime."
+  ],
+  [
+   "conclusione",
+   "lacrime",
+   "Ecco perché piangi anche se non sei triste."
+  ],
+  [
+   "conclusione",
+   "frigo",
+   "Un consiglio da amico?"
+  ],
+  [
+   "conclusione",
+   "frigo",
+   "Metti la cipolla in frigo per mezz'ora e usa un coltello ben affilato."
+  ],
+  [
+   "conclusione",
+   "frigo",
+   "Fidati."
+  ],
+  [
+   "invito",
+   "invito",
+   "Ti è piaciuto questo video?"
+  ],
+  [
+   "invito",
+   "invito",
+   "Scrivimelo nei commenti, lascia un like e comincia a seguirci, per non perderti altri video come questo!"
+  ]
+ ],
+ "chiave": [
+  "cipolla",
+  "piangere",
+  "chimica",
+  "zolfo",
+  "enzima",
+  "gas",
+  "irritante",
+  "occhi",
+  "incredibile",
+  "2002",
+  "lacrime",
+  "triste",
+  "amico",
+  "frigo",
+  "affilato",
+  "fidati",
+  "commenti",
+  "like",
+  "seguirci",
+  "piaciuto"
+ ],
+ "schede": [
+  {
+   "da": "zolfo",
+   "a": "così",
+   "titolo": "ZOLFO",
+   "testo": "sostanze ricche di zolfo\ne un enzima, separati"
+  },
+  {
+   "da": "gas",
+   "a": "sai",
+   "anticipo": -0.3,
+   "titolo": "GAS IRRITANTE",
+   "testo": "nasce quando le cellule\nsi rompono"
+  },
+  {
+   "da": "2002",
+   "a": "ecco",
+   "titolo": "2002",
+   "testo": "scoperto l'enzima\nche crea il gas"
+  },
+  {
+   "da": "frigo",
+   "a": "piaciuto",
+   "anticipo": -0.2,
+   "titolo": "CONSIGLIO",
+   "testo": "cipolla in frigo e\ncoltello affilato"
+  },
+  {
+   "da": "commenti",
+   "a": null,
+   "titolo": "SEGUICI",
+   "testo": "commenta, lascia un like:\narrivano altre curiosità"
+  }
+ ],
+ "stupore": [
+  6,
+  7
+ ],
+ "sorriso_da": 10
+}
