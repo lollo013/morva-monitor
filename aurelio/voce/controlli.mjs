@@ -32,7 +32,7 @@ export function ritmo(numeroParole, secondi) {
   return secondi > 0 ? (numeroParole / secondi) * 60 : 0;
 }
 
-export function verifica({ durata, numeroParole, errore, avvio = 0, config }) {
+export function verifica({ durata, numeroParole, errore, avvio = 0, pausaMassima = 0, config }) {
   const problemi = [];
   if (durata > config.durata_massima_secondi) {
     problemi.push(`Durata ${durata.toFixed(1)} s oltre il massimo di ${config.durata_massima_secondi} s.`);
@@ -42,6 +42,9 @@ export function verifica({ durata, numeroParole, errore, avvio = 0, config }) {
   if (ppm > config.ritmo_massimo_parole_al_minuto) problemi.push(`Ritmo troppo veloce: ${Math.round(ppm)} parole al minuto.`);
   if (avvio > config.silenzio_iniziale_massimo_secondi) {
     problemi.push(`La voce parte dopo ${avvio.toFixed(2)} s di silenzio: deve iniziare subito.`);
+  }
+  if (pausaMassima > config.pausa_massima_fra_frasi_secondi) {
+    problemi.push(`Pausa di ${pausaMassima.toFixed(2)} s fra due parole: troppo lunga.`);
   }
   if (errore !== null && errore > config.soglia_errore_pronuncia) {
     problemi.push(`Pronuncia da ricontrollare: ${(errore * 100).toFixed(1)}% di parole non riconosciute.`);

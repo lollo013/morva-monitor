@@ -49,12 +49,14 @@ try {
   const sentito = await trascrivi(audio, config);
   const errore = erroreParole(atteso, sentito);
   const avvio = listaParole[0]?.inizio ?? 0;
-  const esito = verifica({ durata, numeroParole: listaParole.length, errore, avvio, config });
+  const pausaMassima = listaParole.slice(1).reduce((m, w, i) => Math.max(m, w.inizio - listaParole[i].fine), 0);
+  const esito = verifica({ durata, numeroParole: listaParole.length, errore, avvio, pausaMassima, config });
   await scrivi('rapporto.json', {
     durataSecondi: Math.round(durata * 100) / 100,
     parole: listaParole.length,
     paroleAlMinuto: esito.paroleAlMinuto,
     avvioSecondi: Math.round(avvio * 100) / 100,
+    pausaMassimaSecondi: Math.round(pausaMassima * 100) / 100,
     erroreParole: Math.round(errore * 1000) / 1000,
     trascrizione: sentito,
     problemi: esito.problemi

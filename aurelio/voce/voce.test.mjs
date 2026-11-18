@@ -39,10 +39,16 @@ test('un copione non verificato viene rifiutato', () => {
 });
 
 test('le fasi diventano indicazioni solo con eleven_v3', () => {
-  assert.equal(testoDaLeggere(copione, 'eleven_v3'), '[curious] Perché il cielo è azzurro? [satisfied] La natura è semplice.');
+  assert.equal(testoDaLeggere(copione, 'eleven_v3'), '[curious] Perché il cielo è azzurro? [warmly] La natura è semplice.');
   assert.match(testoDaLeggere({ parti: [{ fase: 'domanda', testo: 'Ti sei mai chiesto?' }] }, 'eleven_v3'), /^\[curious\]/);
   assert.doesNotMatch(testoDaLeggere(copione, 'eleven_multilingual_v2'), /\[/);
   assert.equal(testoPulito(copione), 'Perché il cielo è azzurro? La natura è semplice.');
+});
+
+test('l\'enfasi diventa maiuscolo per la voce, testo normale per i sottotitoli', () => {
+  const c = { parti: [{ fase: 'scoperta', testo: 'La risposta è *nascosta* nel sonno.' }] };
+  assert.equal(testoDaLeggere(c, 'eleven_v3'), '[surprised] La risposta è NASCOSTA nel sonno.');
+  assert.equal(testoPulito(c), 'La risposta è nascosta nel sonno.');
 });
 
 test('le parole saltano le indicazioni tra parentesi', () => {
@@ -69,13 +75,14 @@ test('la bocca si chiude su m, b, p e riposa nelle pause', () => {
 test('controllo pronuncia e ritmo', () => {
   assert.equal(erroreParole('Il cielo è azzurro.', 'il cielo è azzurro'), 0);
   assert.equal(erroreParole('il cielo è azzurro', 'il cielo e azzurro'), 0.25);
-  const config = { durata_massima_secondi: 60, soglia_errore_pronuncia: 0.12, silenzio_iniziale_massimo_secondi: 0.2,
-    ritmo_minimo_parole_al_minuto: 145, ritmo_massimo_parole_al_minuto: 195 };
-  assert.equal(verifica({ durata: 20, numeroParole: 57, errore: 0.02, avvio: 0.1, config }).ok, true);
-  assert.equal(verifica({ durata: 20, numeroParole: 40, errore: 0.02, config }).ok, false, 'troppo lenta');
+  const config = { durata_massima_secondi: 60, soglia_errore_pronuncia: 0.12, silenzio_iniziale_massimo_secondi: 0.15,
+    ritmo_minimo_parole_al_minuto: 155, ritmo_massimo_parole_al_minuto: 195, pausa_massima_fra_frasi_secondi: 0.5 };
+  assert.equal(verifica({ durata: 20, numeroParole: 58, errore: 0.02, avvio: 0.1, pausaMassima: 0.4, config }).ok, true);
+  assert.equal(verifica({ durata: 20, numeroParole: 45, errore: 0.02, config }).ok, false, 'troppo lenta');
   assert.equal(verifica({ durata: 20, numeroParole: 70, errore: 0.02, config }).ok, false, 'troppo veloce');
-  assert.equal(verifica({ durata: 20, numeroParole: 57, errore: 0.3, config }).ok, false, 'pronuncia');
-  assert.equal(verifica({ durata: 20, numeroParole: 57, errore: 0.02, avvio: 0.6, config }).ok, false, 'silenzio iniziale');
+  assert.equal(verifica({ durata: 20, numeroParole: 58, errore: 0.3, config }).ok, false, 'pronuncia');
+  assert.equal(verifica({ durata: 20, numeroParole: 58, errore: 0.02, avvio: 0.6, config }).ok, false, 'silenzio iniziale');
+  assert.equal(verifica({ durata: 20, numeroParole: 58, errore: 0.02, pausaMassima: 1.2, config }).ok, false, 'pausa lunga');
 });
 
 test('se ElevenLabs non trova la voce si ferma, senza ripiego', async () => {

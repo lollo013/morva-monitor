@@ -2,25 +2,27 @@
    Dal copione verificato al testo da far interpretare.
 
    Un copione e' una lista di parti, ognuna con la sua fase:
-     apertura     0-5 s: energica, intrigante, curiosa. Parte subito,
-                  intonazione crescente sulla domanda ("Ti sei mai
-                  chiesto perche'...?")
-     spiegazione  dinamica, espressiva, sicura; mai una lettura uniforme
-     scoperta     enfasi sulla notizia sorprendente
-     conclusione  chiara, incisiva, soddisfacente: una piccola
-                  rivelazione, senza esagerare
+     apertura     0-5 s: curiosita' intensa, parte dalla prima parola
+     spiegazione  energica, dinamica, sicura; mai una lettura uniforme
+     scoperta     sorpresa autentica sulla notizia
+     conclusione  calda e incisiva: una piccola rivelazione
 
-   Con eleven_v3 l'interpretazione si guida con un'indicazione tra
-   parentesi quadre all'inizio di ogni parte. Niente toni da trailer o da
-   pubblicita': il Professore racconta, non vende.
+   Con eleven_v3 l'interpretazione si guida con le indicazioni tra
+   parentesi quadre documentate da ElevenLabs ([curious], [excited],
+   [surprised], [warmly]). Il modello non ha un parametro di velocita':
+   il ritmo nasce da indicazioni, punteggiatura e frasi brevi.
+
+   Enfasi: nel copione si scrive *parola*; con eleven_v3 diventa
+   PAROLA (le maiuscole sono il modo indicato da ElevenLabs per
+   sottolineare), nei sottotitoli resta "parola".
    ===================================================================== */
 import { ErroreVoce } from './errori.mjs';
 
 export const FASI = {
   apertura: '[curious]',
-  spiegazione: '[engaged]',
-  scoperta: '[intrigued]',
-  conclusione: '[satisfied]'
+  spiegazione: '[excited]',
+  scoperta: '[surprised]',
+  conclusione: '[warmly]'
 };
 /* nomi usati nei primi copioni */
 const SINONIMI = { domanda: 'apertura' };
@@ -50,14 +52,18 @@ export function validaCopione(copione) {
 export function testoDaLeggere(copione, modello) {
   const conIndicazioni = modello === 'eleven_v3';
   return copione.parti
-    .map(p => (conIndicazioni ? FASI[fase(p)] + ' ' : '') + pulisci(p.testo))
+    .map(p => conIndicazioni
+      ? FASI[fase(p)] + ' ' + enfasi(pulisci(p.testo), s => s.toUpperCase())
+      : enfasi(pulisci(p.testo), s => s))
     .join(' ');   // nessuna pausa inutile fra le parti
 }
 
 /* Testo come lo legge una persona: per sottotitoli e controllo pronuncia. */
 export function testoPulito(copione) {
-  return copione.parti.map(p => pulisci(p.testo)).join(' ');
+  return copione.parti.map(p => enfasi(pulisci(p.testo), s => s)).join(' ');
 }
+
+const enfasi = (t, f) => t.replace(/\*([^*]+)\*/g, (_, s) => f(s));
 
 function pulisci(t) {
   return t
