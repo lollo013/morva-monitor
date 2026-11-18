@@ -1,0 +1,170 @@
+{
+ "nome": "stipendio",
+ "audio": "stipendio.mp3",
+ "frasi": [
+  "Duemila euro.",
+  "Più o meno, è lo stipendio medio di un lavoratore in Italia.",
+  "Ma come mai, dopo quindici giorni, sembra già finito?",
+  "Il motivo è semplice: nessuno ci insegna davvero a gestire i soldi.",
+  "Paghiamo, compriamo, e a fine mese ci chiediamo dove sono andati.",
+  "Ma esiste una regola semplicissima.",
+  "Eccola: la regola cinquanta, trenta, venti.",
+  "Il cinquanta per cento va alle cose necessarie: affitto, bollette, spesa, trasporti.",
+  "Su duemila euro, sono mille.",
+  "Il trenta per cento va a quello che ti piace: uscite, vestiti, hobby.",
+  "Cioè seicento euro.",
+  "E il venti per cento, quattrocento euro, lo metti da parte: risparmi, o debiti da chiudere.",
+  "Il trucco?",
+  "Quel venti lo togli subito, appena arriva lo stipendio.",
+  "Così i soldi non spariscono: hanno già un posto.",
+  "E in un anno metti da parte quasi cinquemila euro.",
+  "Comincia ad applicarla da questo mese.",
+  "Se ti è stato utile, seguimi!"
+ ],
+ "chiave": [
+  "duemila",
+  "stipendio",
+  "quindici",
+  "finito",
+  "soldi",
+  "regola",
+  "cinquanta",
+  "trenta",
+  "venti",
+  "necessarie",
+  "mille",
+  "seicento",
+  "quattrocento",
+  "subito",
+  "cinquemila",
+  "utile",
+  "seguimi"
+ ],
+ "inquadrature": [
+  {
+   "da": 0,
+   "tipo": "angolo_dx",
+   "scena": "busta",
+   "testo_grande": "2.000 euro:|dove finiscono?"
+  },
+  {
+   "da": "lavoratore",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "ma",
+   "tipo": "affiancati",
+   "scena": "quindici"
+  },
+  {
+   "da": "finito",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "motivo",
+   "tipo": "angolo_sx",
+   "scena": "portafoglio"
+  },
+  {
+   "da": "paghiamo",
+   "tipo": "affiancati",
+   "scena": "portafoglio"
+  },
+  {
+   "da": "esiste",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "eccola",
+   "tipo": "angolo_dx",
+   "scena": "regola"
+  },
+  {
+   "da": "cinquanta#2",
+   "tipo": "mezzo_busto",
+   "scena": "torta",
+   "parametri": {
+    "fette": 1
+   }
+  },
+  {
+   "da": "affitto",
+   "tipo": "affiancati",
+   "scena": "necessita"
+  },
+  {
+   "da": "su",
+   "tipo": "angolo_sx",
+   "scena": "necessita"
+  },
+  {
+   "da": "trenta#2",
+   "tipo": "mezzo_busto",
+   "scena": "torta",
+   "parametri": {
+    "fette": 2
+   }
+  },
+  {
+   "da": "uscite",
+   "tipo": "affiancati",
+   "scena": "desideri"
+  },
+  {
+   "da": "cioè",
+   "tipo": "angolo_dx",
+   "scena": "desideri"
+  },
+  {
+   "da": "venti#2",
+   "tipo": "mezzo_busto",
+   "scena": "torta",
+   "parametri": {
+    "fette": 3
+   }
+  },
+  {
+   "da": "metti",
+   "tipo": "affiancati",
+   "scena": "salvadanaio"
+  },
+  {
+   "da": "trucco",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "quel",
+   "tipo": "angolo_sx",
+   "scena": "subito"
+  },
+  {
+   "da": "così",
+   "tipo": "mezzo_busto",
+   "scena": "torta",
+   "parametri": {
+    "fette": 3
+   }
+  },
+  {
+   "da": "anno",
+   "tipo": "affiancati",
+   "scena": "anno"
+  },
+  {
+   "da": "comincia",
+   "tipo": "angolo_dx",
+   "scena": "anno"
+  },
+  {
+   "da": "se",
+   "tipo": "mezzo_busto",
+   "scena": "invito"
+  }
+ ],
+ "stupore": [
+  "finito",
+  "motivo"
+ ],
+ "sorriso_da": "così",
+ "coda": 0.8
+}

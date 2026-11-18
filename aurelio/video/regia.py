@@ -20,8 +20,8 @@ from PIL import Image, ImageDraw, ImageFont
 S = sys.argv[1]
 sys.path.insert(0, S)
 from anima import Figura
-import scene_cielo, scene_inception, scene_fortnite, scene_scuola, scene_larping, disegni, inspect
-SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE, **scene_larping.SCENE}
+import scene_cielo, scene_inception, scene_fortnite, scene_scuola, scene_larping, scene_stipendio, disegni, inspect
+SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE, **scene_larping.SCENE, **scene_stipendio.SCENE}
 
 R = json.load(open(sys.argv[2], encoding='utf8'))
 W, H, FPS = 1080, 1920, 30
@@ -262,7 +262,7 @@ def componi(s, t):
         f = professore(t, (0, 0, 600, 860), 1250)
         fr.paste(f, (-60, H - f.height + 20), f)
         incolla_scena(fr, s, t, (420, ALTO, DX, 820))
-        area = (430, 840, DX, 1060)
+        area = (500, 840, DX, 1060)
     elif tipo in ('angolo_dx', 'angolo_sx'):
         incolla_scena(fr, s, t, (SX, ALTO, DX, 1020))
         f = professore(t, (0, 0, 600, 860), 780)

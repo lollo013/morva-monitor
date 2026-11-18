@@ -1,0 +1,18 @@
+{
+  "titolo": "Duemila euro e la regola 50-30-20",
+  "verificato": true,
+  "tono": "amico: concreto, numeri semplici, nessun giudizio",
+  "stile": "ritmo visivo alto, Professore sempre in scena, area sicura TikTok",
+  "fonti": [
+    "Stipendio medio: lordo annuo dei dipendenti privati circa 33.000 euro (JP Salary Outlook 2025; Eurostat 2024: 33.523 euro), cioè circa 2.750 euro lordi al mese; netto mensile stimato tra 1.650 e 1.940 euro. «Duemila euro» è una cifra tonda: nel video si dice «più o meno».",
+    "Regola 50-30-20: Elizabeth Warren e Amelia Warren Tyagi, «All Your Worth» (2005): 50% necessità, 30% desideri, 20% risparmi o debiti, sul reddito netto.",
+    "400 euro al mese per 12 mesi = 4.800 euro."
+  ],
+  "parti": [
+    { "fase": "apertura", "testo": "Duemila euro. Più o meno, è lo stipendio medio di un lavoratore in Italia. Ma come mai, dopo quindici giorni, sembra già finito?" },
+    { "fase": "spiegazione", "testo": "Il motivo è semplice: nessuno ci insegna davvero a gestire i soldi. Paghiamo, compriamo, e a fine mese ci chiediamo dove sono andati. Ma esiste una regola semplicissima. Eccola: la regola cinquanta, trenta, venti." },
+    { "fase": "scoperta", "testo": "Il cinquanta per cento va alle cose necessarie: affitto, bollette, spesa, trasporti. Su duemila euro, sono *mille*. Il trenta per cento va a quello che ti piace: uscite, vestiti, hobby. Cioè *seicento* euro. E il venti per cento, *quattrocento* euro, lo metti da parte: risparmi, o debiti da chiudere. Il trucco? Quel venti lo togli subito, appena arriva lo stipendio." },
+    { "fase": "conclusione", "testo": "Così i soldi non spariscono: hanno già un posto. E in un anno metti da parte quasi cinquemila euro. Comincia ad applicarla da questo mese." },
+    { "fase": "invito", "testo": "Se ti è stato utile, seguimi!" }
+  ]
+}

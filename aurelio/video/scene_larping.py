@@ -231,7 +231,8 @@ def soldi(p, t, w, h):
     g = font(150)
     tw = d.textlength('€', font=g)
     d.text((cx - tw / 2, cy - 90 * SS), '€', font=g, fill=ORO, stroke_width=5 * SS, stroke_fill=LINEA)
-    etichetta(d, W, H, 'fare il ricco', y=0.05, col=(43, 33, 28, 255), dim=58)
+    for i, r in enumerate(['fare il ricco', 'finché non lo sei davvero']):
+        etichetta(d, W, H, r, y=0.04 + 0.07 * i, col=(43, 33, 28, 255), dim=56 if i == 0 else 46)
     return fine(im, w, h)
 
 
