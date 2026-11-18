@@ -6,7 +6,9 @@ Vale per tutti i video successivi.
 ## Regole
 1. **Un cambio visivo significativo ogni 2–3 secondi**, sempre con uno scopo narrativo:
    taglio di inquadratura, zoom sul dettaglio nominato, evento nella scena (es. il prisma che si apre).
-2. **Primi 3 secondi**: si apre con il fenomeno, non con il Professore fermo. La domanda è scritta
+2. **Primi 3 secondi**: si apre con il fenomeno, non con il Professore fermo. **Mai iniziare con «Ehi»**:
+   la prima frase nomina subito l'argomento e aggancia (es. «Token di Fortnite: sicuramente ne hai
+   sentito parlare. Ora ti spiego bene che cos'è.»). La domanda è scritta
    grande dal primo fotogramma. La voce parte subito (controllo: silenzio iniziale ≤ 0,15 s).
 3. **Il Professore è sempre in scena ed è il protagonista.** Non esistono inquadrature senza di lui.
    Cambia solo il punto di vista, sempre con l'immagine originale: `sfondo` (la scena dietro di lui,

@@ -10,10 +10,25 @@
     "Epic avverte che comprare account o usare strumenti falsi è una truffa."
   ],
   "parti": [
-    { "fase": "apertura", "testo": "Ehi, perché tutti su Fortnite cercano una moneta da pirata? Te lo spiego io." },
-    { "fase": "spiegazione", "testo": "È il token del Negozio Pirata. Se lo trovi, per quattordici giorni prendi gratis gli oggetti del negozio che costano V-Buck. Ma la probabilità, confermata da Epic, è di una su centotrentasettemila e cinquecento, per ogni forziere. Per questo quasi nessuno lo avrà." },
-    { "fase": "scoperta", "testo": "E qui arriva il marketing. Primo: un premio raro e casuale, come una slot machine: ogni forziere potrebbe essere quello giusto. Secondo: il tempo è limitato, finisce il cinque dicembre, e la paura di perderselo ti fa tornare. Terzo: le ore del tesoro, a orari precisi, con più probabilità: diventano appuntamenti. Quarto: chi lo trova riceve anche un secondo token per il duemilaventisette, così torna anche l'anno prossimo. E intorno, meme, video e il crossover con One Piece fanno parlare tutti, anche chi aveva smesso di giocare." },
-    { "fase": "conclusione", "testo": "Ecco il trucco: non serve vincere per restare. Basta pensare che il prossimo forziere potrebbe essere quello buono." },
-    { "fase": "invito", "testo": "Ti è piaciuto? Scrivimi nei commenti se l'hai trovato, e seguici!" }
+    {
+      "fase": "apertura",
+      "testo": "Token di Fortnite: sicuramente ne hai sentito parlare. Ora ti spiego bene che cos'è."
+    },
+    {
+      "fase": "spiegazione",
+      "testo": "È il token del Negozio Pirata. Se lo trovi, per quattordici giorni prendi gratis gli oggetti del negozio che costano V-Buck. Ma la probabilità, confermata da Epic, è di una su centotrentasettemila e cinquecento, per ogni forziere. Per questo quasi nessuno lo avrà."
+    },
+    {
+      "fase": "scoperta",
+      "testo": "E qui arriva il marketing. Primo: un premio raro e casuale, come una slot machine: ogni forziere potrebbe essere quello giusto. Secondo: il tempo è limitato, finisce il cinque dicembre, e la paura di perderselo ti fa tornare. Terzo: le ore del tesoro, a orari precisi, con più probabilità: diventano appuntamenti. Quarto: chi lo trova riceve anche un secondo token per il duemilaventisette, così torna anche l'anno prossimo. E intorno, meme, video e il crossover con One Piece fanno parlare tutti, anche chi aveva smesso di giocare."
+    },
+    {
+      "fase": "conclusione",
+      "testo": "Ecco il trucco: non serve vincere per restare. Basta pensare che il prossimo forziere potrebbe essere quello buono."
+    },
+    {
+      "fase": "invito",
+      "testo": "Ti è piaciuto? Scrivimi nei commenti se l'hai trovato, e seguici!"
+    }
   ]
 }

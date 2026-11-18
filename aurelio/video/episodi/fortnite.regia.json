@@ -1,9 +1,9 @@
 {
  "nome": "fortnite",
- "audio": "fortnite.mp3",
+ "audio": "fortnite-v2.mp3",
  "frasi": [
-  "Ehi, perché tutti su Fortnite cercano una moneta da pirata?",
-  "Te lo spiego io.",
+  "Token di Fortnite: sicuramente ne hai sentito parlare.",
+  "Ora ti spiego bene che cos'è.",
   "È il token del Negozio Pirata.",
   "Se lo trovi, per quattordici giorni prendi gratis gli oggetti del negozio che costano V-Buck.",
   "Ma la probabilità, confermata da Epic, è di una su centotrentasettemila e cinquecento, per ogni forziere.",
@@ -45,10 +45,10 @@
    "da": 0,
    "tipo": "sfondo",
    "scena": "f_moneta",
-   "testo_grande": "Il token pirata|di Fortnite"
+   "testo_grande": "Token di Fortnite:|ne hai sentito parlare?"
   },
   {
-   "da": "te",
+   "da": "ora",
    "tipo": "primo_piano"
   },
   {
@@ -177,7 +177,7 @@
    "scena": "prossimo"
   },
   {
-   "da": "ti#2",
+   "da": "ti#3",
    "tipo": "mezzo_busto",
    "scena": "invito"
   },
@@ -191,6 +191,6 @@
   "qui",
   "primo"
  ],
- "sorriso_da": "ti#2",
+ "sorriso_da": "ti#3",
  "coda": 0.8
 }
