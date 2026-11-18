@@ -1,0 +1,432 @@
+{
+ "nome": "youtube-compound-interest",
+ "formato": "youtube",
+ "audio": "youtube-compound-interest.mp3",
+ "frasi": [
+  "There's a quote that's been going around the internet for years: compound interest is the eighth wonder of the world.",
+  "People say Einstein said it, but he almost certainly never did.",
+  "One thing is true, though: compound interest can change your future.",
+  "Today I'll show you how it works, how to really save money, and why a one hundred percent safe investment doesn't exist.",
+  "Get comfortable.",
+  "Let's start with the basics.",
+  "You put away one thousand dollars, and it earns four percent a year.",
+  "After one year, you have forty dollars in interest.",
+  "Nothing magical so far.",
+  "But the next year, that four percent is calculated on one thousand and forty, not on one thousand.",
+  "Your interest starts earning interest.",
+  "It's like a snowball rolling downhill: the bigger it gets, the more snow it picks up.",
+  "And here's a trick to do the math in your head: the rule of seventy-two.",
+  "Divide seventy-two by the interest rate, and you get roughly how many years it takes to double your money.",
+  "At four percent, about eighteen years.",
+  "Now look at this example.",
+  "Anna starts at twenty-five and puts away one hundred dollars a month, until she's sixty-five.",
+  "Mark does exactly the same, but he starts at thirty-five.",
+  "At four percent a year, before taxes and fees, Anna ends up with about one hundred eighteen thousand dollars.",
+  "Mark, with about sixty-nine thousand.",
+  "Ten years late, and almost fifty thousand dollars less.",
+  "The secret isn't how much you put in.",
+  "It's when you start.",
+  "And careful: leaving money idle has a cost too.",
+  "With two percent inflation, ten thousand dollars under the mattress will, after twenty years, buy what six thousand seven hundred buys today.",
+  "And in twenty twenty-two, inflation in the US, the UK and the eurozone reached eight percent or more.",
+  "So, how do you start?",
+  "First: an emergency fund.",
+  "Three to six months of expenses, somewhere safe and always available.",
+  "That way, a surprise doesn't push you into debt.",
+  "Second: pay yourself first, not last.",
+  "As soon as your paycheck arrives, move a fixed amount, even a small one.",
+  "Now, let's talk about safe investments.",
+  "I'll be honest with you, as a friend: zero risk doesn't exist.",
+  "There's a ladder.",
+  "At the bottom, savings accounts and deposits: in many countries they're protected up to a limit, like two hundred fifty thousand dollars in the US, or one hundred thousand euros in Europe.",
+  "But they pay little.",
+  "Then government bonds: low risk, but if you sell before they mature, the price can change.",
+  "Higher up, stocks and the funds that hold them: over the long run they've returned more, but they can also drop a lot.",
+  "More return means more risk.",
+  "Always.",
+  "Three rules so you don't get burned.",
+  "One: diversify.",
+  "Don't put all your eggs in one basket.",
+  "Two: watch the fees.",
+  "In Mark's example, if a product takes one percent a year, instead of sixty-nine thousand dollars you end up with about fifty-eight thousand.",
+  "Three: be wary of anyone promising high, guaranteed returns.",
+  "That's not finance.",
+  "Often, it's a scam.",
+  "And remember: this video explains the concepts, it's not financial advice.",
+  "Before you invest, do your research, or talk to a professional.",
+  "If this video helped you, hit like, subscribe to the channel, and tell me in the comments how old you were when you started saving.",
+  "See you in the next lesson!"
+ ],
+ "chiave": [
+  "compound",
+  "interest",
+  "wonder",
+  "future",
+  "safe",
+  "thousand",
+  "four",
+  "forty",
+  "snowball",
+  "seventytwo",
+  "double",
+  "eighteen",
+  "anna",
+  "mark",
+  "sixtynine",
+  "fifty",
+  "when",
+  "inflation",
+  "eight",
+  "emergency",
+  "debt",
+  "first",
+  "risk",
+  "zero",
+  "ladder",
+  "protected",
+  "bonds",
+  "stocks",
+  "diversify",
+  "fees",
+  "fiftyeight",
+  "scam",
+  "advice",
+  "professional",
+  "like",
+  "subscribe",
+  "comments"
+ ],
+ "inquadrature": [
+  {
+   "tipo": "angolo_dx",
+   "scena": "meraviglia_en",
+   "testo_grande": "Can compound interest|change your life?",
+   "da": 0
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "people"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "meraviglia_en",
+   "parametri": {
+    "falso": 0
+   },
+   "da": "almost"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "true"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "programma_en",
+   "da": "today"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "programma_en",
+   "da": "why"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "get"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "mille_en",
+   "parametri": {
+    "anno": 1
+   },
+   "da": "basics"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "mille_en",
+   "parametri": {
+    "anno": 1
+   },
+   "da": "after"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "nothing"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "mille_en",
+   "parametri": {
+    "anno": 2
+   },
+   "da": "next"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "mille_en",
+   "parametri": {
+    "anno": 2
+   },
+   "da": "your#2"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "neve_en",
+   "da": "snowball"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "neve_en",
+   "da": "bigger"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "trick"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "regola72_en",
+   "da": "rule"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "regola72_en",
+   "da": "divide"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "regola72_en",
+   "da": "about"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "look"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "anna_marco_en",
+   "parametri": {
+    "solo": "Anna",
+    "totali": 2
+   },
+   "da": "anna"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "anna_marco_en",
+   "parametri": {
+    "totali": 2
+   },
+   "da": "mark"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "anna_marco_en",
+   "parametri": {
+    "totali": 0,
+    "pieno": 1
+   },
+   "da": "before"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "anna_marco_en",
+   "parametri": {
+    "totali": 0,
+    "pieno": 1
+   },
+   "da": "mark#2"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "ritardo_en",
+   "da": "ten"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "secret"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "ritardo_en",
+   "da": "when"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "careful"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "materasso_en",
+   "da": "mattress"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "materasso_en",
+   "da": "buy"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "inflazione_en",
+   "da": "twentytwo"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "inflazione_en",
+   "da": "reached"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "so#2"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "emergenza_en",
+   "da": "first"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "emergenza_en",
+   "da": "three"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "emergenza_en",
+   "da": "surprise"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "prima_tu_en",
+   "da": "second"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "prima_tu_en",
+   "da": "paycheck"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "talk"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "honest"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "scala_rischio_en",
+   "parametri": {
+    "livello": 0
+   },
+   "da": "ladder"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "scala_rischio_en",
+   "parametri": {
+    "livello": 1
+   },
+   "da": "bottom"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "garanzia_en",
+   "da": "protected"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "scala_rischio_en",
+   "parametri": {
+    "livello": 2
+   },
+   "da": "government"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "sell"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "scala_rischio_en",
+   "parametri": {
+    "livello": 3
+   },
+   "da": "higher"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "scala_rischio_en",
+   "parametri": {
+    "livello": 3
+   },
+   "da": "drop"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "return"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "rules"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "uova_en",
+   "da": "diversify"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "uova_en",
+   "da": "eggs"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "costi_en",
+   "da": "fees#2"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "costi_en",
+   "da": "instead"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "truffa_en",
+   "da": "wary"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "truffa_en",
+   "da": "scam"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "remember"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "informati_en",
+   "da": "research"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "iscriviti_en",
+   "da": "helped"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "iscriviti_en",
+   "da": "comments"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "see"
+  }
+ ],
+ "stupore": [
+  "now",
+  "anna"
+ ],
+ "sorriso_da": "if#3",
+ "coda": 1.0
+}
