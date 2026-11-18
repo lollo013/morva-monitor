@@ -272,8 +272,37 @@ def anno(p, t, w, h):
     return fine(im, w, h)
 
 
+def composto(p, t, w, h):
+    """Interesse composto: risparmio fermo (retta) contro soldi che crescono su sé stessi (curva).
+    Curve solo illustrative, senza rendimenti in cifre."""
+    im, d = tela(w, h, (250, 246, 236, 255))
+    W, H = w * SS, h * SS
+    x0, x1, y0, y1 = W * 0.12, W * 0.90, H * 0.16, H * 0.72
+    d.line((x0, y1, x1, y1), fill=LINEA, width=6 * SS)
+    d.line((x0, y0, x0, y1), fill=LINEA, width=6 * SS)
+    k = min(1, t / 1.6)
+    n = max(2, int(60 * k))
+    def punto(i, curva):
+        u = i / 59
+        v = u * 0.55 + (0.45 * (math.exp(2.6 * u) - 1 - 2.6 * u) / (math.exp(2.6) - 1 - 2.6) if curva else 0)   # mai sotto la retta
+        return x0 + (x1 - x0) * u, y1 - (y1 - y0) * v
+    d.line([punto(i, False) for i in range(n)], fill=(150, 150, 160, 255), width=10 * SS)
+    d.line([punto(i, True) for i in range(n)], fill=C20, width=14 * SS, joint='curve')
+    xe, ye = punto(n - 1, True)
+    moneta_oro(d, xe, ye - 10 * SS, 34 * SS)
+    g = font(42)
+    if k > 0.6:
+        xa, ya = punto(59, False)
+        d.text((xa - 300 * SS, ya + 40 * SS), 'solo da parte', font=g, fill=(120, 120, 130, 255))
+        d.text((W * 0.20, H * 0.18), 'con l\'interesse composto', font=g, fill=C20[:3] + (255,), stroke_width=2 * SS, stroke_fill=LINEA)
+    d.text((x1 - 140 * SS, y1 + 16 * SS), 'anni', font=font(38), fill=SCURO)
+    etichetta(d, W, H, 'i soldi crescono sui soldi', y=0.78, col=SCURO, dim=52)
+    etichetta(d, W, H, 'investire comporta dei rischi', y=0.87, col=(120, 104, 94, 255), dim=34)
+    return fine(im, w, h)
+
+
 SCENE = {'busta': busta, 'quindici': quindici, 'portafoglio': portafoglio, 'regola': regola, 'torta': torta,
-         'necessita': necessita, 'desideri': desideri, 'salvadanaio': salvadanaio, 'subito': subito, 'anno': anno}
+         'necessita': necessita, 'desideri': desideri, 'salvadanaio': salvadanaio, 'subito': subito, 'anno': anno, 'composto': composto}
 
 if __name__ == '__main__':
     S = sys.argv[1]

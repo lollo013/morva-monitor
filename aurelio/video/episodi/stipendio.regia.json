@@ -1,6 +1,6 @@
 {
  "nome": "stipendio",
- "audio": "stipendio.mp3",
+ "audio": "stipendio-v2.mp3",
  "frasi": [
   "Duemila euro.",
   "Più o meno, è lo stipendio medio di un lavoratore in Italia.",
@@ -14,6 +14,7 @@
   "Il trenta per cento va a quello che ti piace: uscite, vestiti, hobby.",
   "Cioè seicento euro.",
   "E il venti per cento, quattrocento euro, lo metti da parte: risparmi, o debiti da chiudere.",
+  "Quei quattrocento euro puoi metterli da parte, oppure investirli e sfruttare l'interesse composto per farli crescere nel tempo.",
   "Il trucco?",
   "Quel venti lo togli subito, appena arriva lo stipendio.",
   "Così i soldi non spariscono: hanno già un posto.",
@@ -38,7 +39,11 @@
   "subito",
   "cinquemila",
   "utile",
-  "seguimi"
+  "seguimi",
+  "investirli",
+  "interesse",
+  "composto",
+  "crescere"
  ],
  "inquadrature": [
   {
@@ -127,6 +132,16 @@
    "da": "metti",
    "tipo": "affiancati",
    "scena": "salvadanaio"
+  },
+  {
+   "da": "quei",
+   "tipo": "angolo_sx",
+   "scena": "salvadanaio"
+  },
+  {
+   "da": "investirli",
+   "tipo": "angolo_dx",
+   "scena": "composto"
   },
   {
    "da": "trucco",
