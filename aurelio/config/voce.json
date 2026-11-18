@@ -15,19 +15,34 @@
     "speed": 1.0
   },
 
-  "durata_massima_secondi": 90,
+  "durata_massima_secondi": 60,
+  "silenzio_iniziale_massimo_secondi": 0.2,
+  "ritmo_minimo_parole_al_minuto": 145,
+  "ritmo_massimo_parole_al_minuto": 195,
   "soglia_errore_pronuncia": 0.12,
 
   "progettazione": {
     "strumento": "ElevenLabs Voice Design",
     "modello": "eleven_ttv_v3",
-    "descrizione": "An elderly Italian male professor, approximately 75 years old, with a deep, warm, slightly raspy and naturally aged voice. Wise, thoughtful, respectful and reassuring. Native Italian pronunciation, calm and articulate delivery, natural pauses, subtle emotional expression and a gentle sense of curiosity. Sounds like an experienced scholar explaining fascinating discoveries. Authentic human warmth, never robotic, exaggerated or theatrical.",
-    "frase_di_prova": "Vi siete mai chiesti perché il cielo è azzurro? Ebbene, la luce del Sole contiene tutti i colori, ma l'aria diffonde soprattutto quello blu. E sapete una cosa sorprendente? Al tramonto vediamo il rosso proprio per lo stesso motivo. La natura, cari ragazzi, è più semplice di quanto sembri.",
+    "giro": 2,
     "generata_il": "2026-11-18",
+    "descrizione": "A charismatic, captivating Italian male narrator in his late 50s, with a rich, warm, resonant and confident voice. He sounds like a brilliant and passionate storyteller who can make even ordinary facts fascinating. Energetic, intellectually curious, expressive and naturally engaging. Native standard Italian pronunciation, dynamic pacing, compelling intonation, precise articulation and subtle dramatic emphasis. His opening questions immediately spark curiosity and make listeners want to hear the answer. Mature and wise, but youthful in vocal energy. Smooth, magnetic and conversational. Never frail, shaky, sleepy, excessively slow, monotonous, robotic or theatrical. Perfect for high-retention educational TikTok videos.",
+    "frase_di_prova": "Ti sei mai chiesto perché, anche quando chiudi gli occhi, continui a vedere delle piccole luci? La risposta è molto più interessante di quanto immagini.",
     "candidati": [
-      { "lettera": "A", "generated_voice_id": "ghVUuouA1iEFQai5LW8B" },
-      { "lettera": "B", "generated_voice_id": "ZZbGidXFPMma4DFRCLez" },
-      { "lettera": "C", "generated_voice_id": "GOB3BfxF6C68n4r9uj1D" }
-    ]
+      { "codice": "A1", "interpretazione": "carismatica e autorevole", "generated_voice_id": "MwdxN8R4CYFfxiXG50eb" },
+      { "codice": "A2", "interpretazione": "carismatica e autorevole", "generated_voice_id": "UOl5JI32jkrWAPR4HFIZ" },
+      { "codice": "A3", "interpretazione": "carismatica e autorevole", "generated_voice_id": "nM7k2MTOLrIbgEXsaRuB" },
+      { "codice": "B1", "interpretazione": "dinamica e molto coinvolgente", "generated_voice_id": "56NTzLKbID2tuSCNOfNU" },
+      { "codice": "B2", "interpretazione": "dinamica e molto coinvolgente", "generated_voice_id": "S8F4KIvopzhK5iBjy0FA" },
+      { "codice": "B3", "interpretazione": "dinamica e molto coinvolgente", "generated_voice_id": "C6d3irMspNPYI1QPPuwR" },
+      { "codice": "C1", "interpretazione": "misteriosa, curiosa e magnetica", "generated_voice_id": "ampQSZks41fjxTTUGkmS" },
+      { "codice": "C2", "interpretazione": "misteriosa, curiosa e magnetica", "generated_voice_id": "vjiQJH5FTuoRmEn8RZcK" },
+      { "codice": "C3", "interpretazione": "misteriosa, curiosa e magnetica", "generated_voice_id": "Wk3X9MVErL157zaVRybT" }
+    ],
+    "scartate": {
+      "giro": 1,
+      "motivo": "Troppo anziana, lenta, debole e poco coinvolgente per TikTok.",
+      "generated_voice_ids": ["ghVUuouA1iEFQai5LW8B", "ZZbGidXFPMma4DFRCLez", "GOB3BfxF6C68n4r9uj1D"]
+    }
   }
 }

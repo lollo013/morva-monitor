@@ -27,19 +27,22 @@ export function erroreParole(atteso, sentito) {
   return prec[b.length] / a.length;
 }
 
-/* Ritmo in parole al minuto: un professore riflessivo sta fra 110 e 170. */
+/* Ritmo in parole al minuto: dinamico ma mai frettoloso. */
 export function ritmo(numeroParole, secondi) {
   return secondi > 0 ? (numeroParole / secondi) * 60 : 0;
 }
 
-export function verifica({ durata, numeroParole, errore, config }) {
+export function verifica({ durata, numeroParole, errore, avvio = 0, config }) {
   const problemi = [];
   if (durata > config.durata_massima_secondi) {
     problemi.push(`Durata ${durata.toFixed(1)} s oltre il massimo di ${config.durata_massima_secondi} s.`);
   }
   const ppm = ritmo(numeroParole, durata);
-  if (ppm < 110) problemi.push(`Ritmo troppo lento: ${Math.round(ppm)} parole al minuto.`);
-  if (ppm > 170) problemi.push(`Ritmo troppo veloce: ${Math.round(ppm)} parole al minuto.`);
+  if (ppm < config.ritmo_minimo_parole_al_minuto) problemi.push(`Ritmo troppo lento: ${Math.round(ppm)} parole al minuto.`);
+  if (ppm > config.ritmo_massimo_parole_al_minuto) problemi.push(`Ritmo troppo veloce: ${Math.round(ppm)} parole al minuto.`);
+  if (avvio > config.silenzio_iniziale_massimo_secondi) {
+    problemi.push(`La voce parte dopo ${avvio.toFixed(2)} s di silenzio: deve iniziare subito.`);
+  }
   if (errore !== null && errore > config.soglia_errore_pronuncia) {
     problemi.push(`Pronuncia da ricontrollare: ${(errore * 100).toFixed(1)}% di parole non riconosciute.`);
   }

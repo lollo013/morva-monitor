@@ -3,7 +3,7 @@
   "verificato": true,
   "fonti": ["Diffusione di Rayleigh: la luce a lunghezza d'onda corta viene diffusa più di quella lunga."],
   "parti": [
-    { "fase": "domanda", "testo": "Vi siete mai chiesti perché il cielo è azzurro?" },
+    { "fase": "apertura", "testo": "Ti sei mai chiesto perché il cielo è azzurro?" },
     { "fase": "spiegazione", "testo": "Ebbene, la luce del Sole contiene tutti i colori, ma l'aria diffonde soprattutto quello blu." },
     { "fase": "scoperta", "testo": "E sapete una cosa sorprendente? Al tramonto vediamo il rosso proprio per lo stesso motivo." },
     { "fase": "conclusione", "testo": "La natura, cari ragazzi, è più semplice di quanto sembri." }

@@ -19,7 +19,7 @@ function allinea(testo) {
 const copione = {
   verificato: true,
   parti: [
-    { fase: 'domanda', testo: 'Perché il cielo è azzurro?' },
+    { fase: 'apertura', testo: 'Perché il cielo è azzurro?' },
     { fase: 'conclusione', testo: 'La natura è semplice.' }
   ]
 };
@@ -39,7 +39,8 @@ test('un copione non verificato viene rifiutato', () => {
 });
 
 test('le fasi diventano indicazioni solo con eleven_v3', () => {
-  assert.match(testoDaLeggere(copione, 'eleven_v3'), /^\[thoughtful\] Perché/);
+  assert.equal(testoDaLeggere(copione, 'eleven_v3'), '[curious] Perché il cielo è azzurro? [satisfied] La natura è semplice.');
+  assert.match(testoDaLeggere({ parti: [{ fase: 'domanda', testo: 'Ti sei mai chiesto?' }] }, 'eleven_v3'), /^\[curious\]/);
   assert.doesNotMatch(testoDaLeggere(copione, 'eleven_multilingual_v2'), /\[/);
   assert.equal(testoPulito(copione), 'Perché il cielo è azzurro? La natura è semplice.');
 });
@@ -68,10 +69,13 @@ test('la bocca si chiude su m, b, p e riposa nelle pause', () => {
 test('controllo pronuncia e ritmo', () => {
   assert.equal(erroreParole('Il cielo è azzurro.', 'il cielo è azzurro'), 0);
   assert.equal(erroreParole('il cielo è azzurro', 'il cielo e azzurro'), 0.25);
-  const config = { durata_massima_secondi: 90, soglia_errore_pronuncia: 0.12 };
-  assert.equal(verifica({ durata: 20, numeroParole: 48, errore: 0.02, config }).ok, true);
-  assert.equal(verifica({ durata: 20, numeroParole: 80, errore: 0.02, config }).ok, false);
-  assert.equal(verifica({ durata: 20, numeroParole: 48, errore: 0.3, config }).ok, false);
+  const config = { durata_massima_secondi: 60, soglia_errore_pronuncia: 0.12, silenzio_iniziale_massimo_secondi: 0.2,
+    ritmo_minimo_parole_al_minuto: 145, ritmo_massimo_parole_al_minuto: 195 };
+  assert.equal(verifica({ durata: 20, numeroParole: 57, errore: 0.02, avvio: 0.1, config }).ok, true);
+  assert.equal(verifica({ durata: 20, numeroParole: 40, errore: 0.02, config }).ok, false, 'troppo lenta');
+  assert.equal(verifica({ durata: 20, numeroParole: 70, errore: 0.02, config }).ok, false, 'troppo veloce');
+  assert.equal(verifica({ durata: 20, numeroParole: 57, errore: 0.3, config }).ok, false, 'pronuncia');
+  assert.equal(verifica({ durata: 20, numeroParole: 57, errore: 0.02, avvio: 0.6, config }).ok, false, 'silenzio iniziale');
 });
 
 test('se ElevenLabs non trova la voce si ferma, senza ripiego', async () => {

@@ -1,24 +1,30 @@
 /* =====================================================================
-   Dal copione verificato al testo da far leggere.
+   Dal copione verificato al testo da far interpretare.
 
    Un copione e' una lista di parti, ognuna con la sua fase:
-     domanda      tono pensieroso, curioso, leggermente misterioso
-     spiegazione  chiaro, autorevole, coinvolgente
-     scoperta     leggera enfasi sulla notizia sorprendente
-     conclusione  rassicurante, soddisfatto, riflessivo
+     apertura     0-5 s: energica, intrigante, curiosa. Parte subito,
+                  intonazione crescente sulla domanda ("Ti sei mai
+                  chiesto perche'...?")
+     spiegazione  dinamica, espressiva, sicura; mai una lettura uniforme
+     scoperta     enfasi sulla notizia sorprendente
+     conclusione  chiara, incisiva, soddisfacente: una piccola
+                  rivelazione, senza esagerare
 
-   Con eleven_v3 l'intonazione si guida con un'indicazione tra parentesi
-   quadre all'inizio di ogni parte. Le indicazioni sono volutamente
-   sobrie: il Professore non recita, racconta.
+   Con eleven_v3 l'interpretazione si guida con un'indicazione tra
+   parentesi quadre all'inizio di ogni parte. Niente toni da trailer o da
+   pubblicita': il Professore racconta, non vende.
    ===================================================================== */
 import { ErroreVoce } from './errori.mjs';
 
 export const FASI = {
-  domanda: '[thoughtful]',
-  spiegazione: '[calm]',
+  apertura: '[curious]',
+  spiegazione: '[engaged]',
   scoperta: '[intrigued]',
-  conclusione: '[warmly]'
+  conclusione: '[satisfied]'
 };
+/* nomi usati nei primi copioni */
+const SINONIMI = { domanda: 'apertura' };
+const fase = p => SINONIMI[p.fase] || p.fase;
 
 export function validaCopione(copione) {
   if (!Array.isArray(copione?.parti) || copione.parti.length === 0) {
@@ -29,7 +35,7 @@ export function validaCopione(copione) {
       'Il copione non e\' segnato come verificato: la voce non lo legge.');
   }
   for (const [i, p] of copione.parti.entries()) {
-    if (!FASI[p.fase]) {
+    if (!FASI[fase(p)]) {
       throw new ErroreVoce('COPIONE_NON_VALIDO',
         `Parte ${i + 1}: fase "${p.fase}" sconosciuta (usa ${Object.keys(FASI).join(', ')}).`);
     }
@@ -44,8 +50,8 @@ export function validaCopione(copione) {
 export function testoDaLeggere(copione, modello) {
   const conIndicazioni = modello === 'eleven_v3';
   return copione.parti
-    .map(p => (conIndicazioni ? FASI[p.fase] + ' ' : '') + pulisci(p.testo))
-    .join('\n\n');
+    .map(p => (conIndicazioni ? FASI[fase(p)] + ' ' : '') + pulisci(p.testo))
+    .join(' ');   // nessuna pausa inutile fra le parti
 }
 
 /* Testo come lo legge una persona: per sottotitoli e controllo pronuncia. */

@@ -8,7 +8,10 @@ sempre la stessa, in ogni video.
 
 `config/voce.json` → `"stato": "in_attesa_di_approvazione"`.
 
-Le tre voci candidate (A, B, C) si ascoltano nella dashboard privata.
+Secondo giro: nove voci da narratore carismatico sui 55–60 anni, in tre
+interpretazioni (A carismatica e autorevole, B dinamica e coinvolgente,
+C misteriosa e magnetica). Si ascoltano nella dashboard privata. Le voci
+del primo giro, troppo anziane e lente, sono scartate.
 Finché una non viene approvata lì, `narra.mjs` si rifiuta di partire.
 
 Dopo l'approvazione la voce scelta viene salvata nella libreria
@@ -23,12 +26,14 @@ node aurelio/narra.mjs aurelio/esempi/cielo-azzurro.json uscita/
 ```
 
 1. **Copione verificato**: un JSON con `"verificato": true` e le parti
-   divise per fase (`domanda`, `spiegazione`, `scoperta`, `conclusione`).
-2. **Audio**: ElevenLabs legge il copione con la voce approvata. Ogni
-   fase riceve un'indicazione sobria di tono (pensieroso, calmo,
-   incuriosito, caloroso).
-3. **Controlli**: durata massima, ritmo fra 110 e 170 parole al minuto,
-   e pronuncia: l'audio viene ritrascritto e confrontato col copione.
+   divise per fase (`apertura`, `spiegazione`, `scoperta`, `conclusione`).
+2. **Audio**: ElevenLabs interpreta il copione con la voce approvata.
+   Ogni fase riceve un'indicazione di tono: curiosa in apertura,
+   coinvolta nella spiegazione, intrigata sulla scoperta, soddisfatta
+   nella conclusione. Le parti sono unite senza pause inutili.
+3. **Controlli**: la voce deve partire entro 0,2 s, ritmo fra 145 e 195
+   parole al minuto, durata massima 60 s, e pronuncia: l'audio viene
+   ritrascritto e confrontato col copione.
 4. **Sottotitoli**: `sottotitoli.srt`, sincronizzati sui tempi reali di
    ogni parola.
 5. **Bocca**: `bocca.json`, le forme della bocca nel tempo (labbra

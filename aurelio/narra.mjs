@@ -42,17 +42,19 @@ try {
   const { audio, allineamento } = await sintetizza(testoDaLeggere(copione, config.modello_tts), config);
   await scrivi('narrazione.mp3', audio);
 
-  // 3. controlli: durata, ritmo, pronuncia
+  // 3. controlli: avvio immediato, durata, ritmo, pronuncia
   const listaParole = parole(allineamento);
   const durata = allineamento.character_end_times_seconds.at(-1) || 0;
   const atteso = testoPulito(copione);
   const sentito = await trascrivi(audio, config);
   const errore = erroreParole(atteso, sentito);
-  const esito = verifica({ durata, numeroParole: listaParole.length, errore, config });
+  const avvio = listaParole[0]?.inizio ?? 0;
+  const esito = verifica({ durata, numeroParole: listaParole.length, errore, avvio, config });
   await scrivi('rapporto.json', {
     durataSecondi: Math.round(durata * 100) / 100,
     parole: listaParole.length,
     paroleAlMinuto: esito.paroleAlMinuto,
+    avvioSecondi: Math.round(avvio * 100) / 100,
     erroreParole: Math.round(errore * 1000) / 1000,
     trascrizione: sentito,
     problemi: esito.problemi
