@@ -6,17 +6,13 @@ sempre la stessa, in ogni video.
 
 ## Stato attuale
 
-`config/voce.json` → `"stato": "in_attesa_di_approvazione"`.
+`config/voce.json` → `"stato": "approvata"`, voce **A2** (terzo giro),
+salvata nella libreria ElevenLabs come «Professor Aurelio»
+(`voice_id` `Urn0f9O0p74gbKH8ERH3`). È l'unica voce che `narra.mjs`
+usa. Le voci degli altri giri sono scartate.
 
-Terzo giro: voci da divulgatore moderno ad alta energia (A energia 8/10,
-B energia 9/10). Si ascoltano, anche tutte di seguito, nella dashboard
-privata. Le voci dei primi due giri sono scartate perché troppo lente.
-Finché una non viene approvata lì, `narra.mjs` si rifiuta di partire.
-
-Dopo l'approvazione la voce scelta viene salvata nella libreria
-ElevenLabs come «Professor Aurelio», e il suo `voice_id` va in
-`config/voce.json` con `"stato": "approvata"`. Da quel momento non si
-cambia senza una nuova approvazione.
+Primo video pronto da narrare: `esempi/sogni.json` («Perché
+dimentichiamo i sogni?»), con le fonti nel file.
 
 ## Come nasce la narrazione di un video
 

@@ -1,0 +1,15 @@
+{
+  "titolo": "Perché dimentichiamo i sogni?",
+  "verificato": true,
+  "fonti": [
+    "Durante il sonno REM la noradrenalina, legata al consolidamento della memoria, è quasi assente (attività del locus coeruleus soppressa).",
+    "Izawa et al., Science 365:1308 (2019): nei topi i neuroni MCH dell'ipotalamo, attivi durante il sonno REM, favoriscono l'oblio di ricordi recenti.",
+    "Ci si ricorda di più un sogno se ci si sveglia durante il sonno REM o subito dopo."
+  ],
+  "parti": [
+    { "fase": "apertura", "testo": "Ti sei mai chiesto perché il nostro cervello ci fa dimenticare i sogni? E se ti dicessi che la risposta è nascosta proprio nel modo in cui dormiamo?" },
+    { "fase": "spiegazione", "testo": "I sogni più vividi nascono nella fase REM. Lì il cervello è attivissimo, ma una sostanza chiave per la memoria, la noradrenalina, quasi sparisce. Senza di lei, il sogno non viene fissato." },
+    { "fase": "scoperta", "testo": "E c'è di più. Nel 2019, uno studio sui topi ha scoperto un gruppo di neuroni che, proprio durante il sonno REM, lavora per farci *dimenticare*." },
+    { "fase": "conclusione", "testo": "Ecco perché ricordi un sogno solo se ti svegli mentre lo stai facendo. Il trucco? Tieni un quaderno accanto al letto, e scrivilo *subito*." }
+  ]
+}

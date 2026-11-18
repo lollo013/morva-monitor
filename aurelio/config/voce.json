@@ -1,8 +1,8 @@
 {
   "personaggio": "Professor Aurelio",
-  "stato": "in_attesa_di_approvazione",
-  "voice_id": null,
-  "approvata_il": null,
+  "stato": "approvata",
+  "voice_id": "Urn0f9O0p74gbKH8ERH3",
+  "approvata_il": "2026-11-18",
   "modello_tts": "eleven_v3",
   "lingua": "it",
   "formato_audio": "mp3_44100_128",
@@ -90,6 +90,12 @@
         "interpretazione": "energia 10/10, massima espressività senza urlare",
         "motivo": "ElevenLabs ha restituito errore due volte"
       }
-    ]
+    ],
+    "approvata": {
+      "codice": "A2",
+      "generated_voice_id": "Urn0f9O0p74gbKH8ERH3",
+      "nome_libreria": "Professor Aurelio",
+      "approvata_da": "dashboard privata"
+    }
   }
 }
