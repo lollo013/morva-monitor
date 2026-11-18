@@ -1,0 +1,432 @@
+{
+ "nome": "youtube-interesse-composto",
+ "formato": "youtube",
+ "audio": "youtube-interesse-composto.mp3",
+ "frasi": [
+  "C'è una frase che gira da anni su internet: l'interesse composto è l'ottava meraviglia del mondo.",
+  "La attribuiscono ad Ainstain, ma quasi sicuramente non l'ha mai detta.",
+  "Però una cosa è vera: l'interesse composto può cambiare il tuo futuro.",
+  "Oggi ti spiego come funziona, come risparmiare davvero, e perché l'investimento sicuro al cento per cento non esiste.",
+  "Mettiti comodo.",
+  "Partiamo dalla base.",
+  "Metti da parte mille euro, e ti danno il quattro per cento all'anno.",
+  "Dopo un anno hai quaranta euro di interessi.",
+  "Fin qui, niente di magico.",
+  "Ma l'anno dopo, il quattro per cento lo calcoli su mille e quaranta, non più su mille.",
+  "Gli interessi producono altri interessi.",
+  "È come una palla di neve che rotola giù: più cresce, più neve raccoglie.",
+  "E c'è un trucco per fare i conti a mente: la regola del settantadue.",
+  "Dividi settantadue per il tasso, e scopri in quanti anni raddoppi i soldi.",
+  "Al quattro per cento, circa diciotto anni.",
+  "Adesso guarda questo esempio.",
+  "Anna comincia a venticinque anni e mette cento euro al mese, fino a sessantacinque.",
+  "Marco fa esattamente lo stesso, ma comincia a trentacinque.",
+  "Con un quattro per cento all'anno, senza contare tasse e costi, Anna arriva a circa centodiciottomila euro.",
+  "Marco, a circa sessantanovemila.",
+  "Dieci anni di ritardo, e quasi cinquantamila euro in meno.",
+  "Il segreto non è quanto metti: è quando cominci.",
+  "E attenzione: anche lasciare i soldi fermi ha un costo.",
+  "Con l'inflazione al due per cento, diecimila euro sotto il materasso, dopo vent'anni, comprano come seimilasettecento euro di oggi.",
+  "E nel duemilaventidue, in Italia, l'inflazione ha superato l'otto per cento.",
+  "Allora, come si comincia?",
+  "Primo: un fondo di emergenza.",
+  "Da tre a sei mesi di spese, in un posto sicuro e sempre disponibile.",
+  "Così un imprevisto non ti costringe a fare debiti.",
+  "Secondo: risparmia per primo, non per ultimo.",
+  "Appena arriva lo stipendio, sposta subito una cifra fissa, anche piccola.",
+  "E adesso parliamo dell'investimento sicuro.",
+  "Te lo dico da amico: il rischio zero non esiste.",
+  "Esiste una scala.",
+  "In basso ci sono il conto e il conto deposito: in Italia i depositi sono protetti fino a centomila euro, per persona e per banca, ma rendono poco.",
+  "Poi i titoli di Stato, come i Bi Ti Pi: rischio basso, ma se li vendi prima della scadenza il prezzo può cambiare.",
+  "Più in alto, le azioni e i fondi che le contengono: nel lungo periodo hanno reso di più, ma possono anche scendere parecchio.",
+  "Più rendimento vuol dire più rischio.",
+  "Sempre.",
+  "Tre regole per non sbagliare.",
+  "Uno: diversifica.",
+  "Non mettere tutte le uova nello stesso paniere.",
+  "Due: guarda i costi.",
+  "Nell'esempio di Marco, se un prodotto ti toglie l'uno per cento all'anno, invece di sessantanovemila euro arrivi a circa cinquantottomila.",
+  "Tre: diffida di chi ti promette guadagni alti e garantiti.",
+  "Quella non è finanza: spesso è una truffa.",
+  "E ricorda: questo video ti spiega i concetti, non è una consulenza.",
+  "Prima di investire, informati bene, o parla con un professionista.",
+  "Se questo video ti è stato utile, lascia un mi piace, iscriviti al canale, e scrivimi nei commenti a che età hai cominciato a risparmiare.",
+  "Ci vediamo alla prossima lezione!"
+ ],
+ "chiave": [
+  "interesse",
+  "composto",
+  "meraviglia",
+  "futuro",
+  "sicuro",
+  "mille",
+  "quattro",
+  "quaranta",
+  "interessi",
+  "neve",
+  "settantadue",
+  "raddoppi",
+  "diciotto",
+  "anna",
+  "marco",
+  "centodiciottomila",
+  "sessantanovemila",
+  "cinquantamila",
+  "quando",
+  "inflazione",
+  "seimilasettecento",
+  "otto",
+  "emergenza",
+  "debiti",
+  "primo",
+  "rischio",
+  "zero",
+  "scala",
+  "centomila",
+  "stato",
+  "azioni",
+  "diversifica",
+  "costi",
+  "cinquantottomila",
+  "truffa",
+  "consulenza",
+  "professionista",
+  "iscriviti",
+  "commenti",
+  "piace"
+ ],
+ "inquadrature": [
+  {
+   "tipo": "angolo_dx",
+   "scena": "meraviglia",
+   "testo_grande": "L'interesse composto|ti cambia la vita?",
+   "da": 0
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "attribuiscono"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "meraviglia",
+   "parametri": {
+    "falso": 0
+   },
+   "da": "quasi"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "però"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "programma",
+   "da": "oggi"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "programma",
+   "da": "perché"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "mettiti"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "mille",
+   "parametri": {
+    "anno": 1
+   },
+   "da": "partiamo"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "mille",
+   "parametri": {
+    "anno": 1
+   },
+   "da": "dopo"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "fin"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "mille",
+   "parametri": {
+    "anno": 2
+   },
+   "da": "ma#2"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "mille",
+   "parametri": {
+    "anno": 2
+   },
+   "da": "gli"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "neve",
+   "da": "palla"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "neve",
+   "da": "più#2"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "trucco"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "regola72",
+   "da": "regola"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "regola72",
+   "da": "dividi"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "regola72",
+   "da": "circa"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "adesso"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "anna_marco",
+   "parametri": {
+    "solo": "Anna",
+    "totali": 2
+   },
+   "da": "anna"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "anna_marco",
+   "parametri": {
+    "totali": 2
+   },
+   "da": "marco"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "anna_marco",
+   "parametri": {
+    "totali": 0,
+    "pieno": 1
+   },
+   "da": "con"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "anna_marco",
+   "parametri": {
+    "totali": 0,
+    "pieno": 1
+   },
+   "da": "marco#2"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "ritardo",
+   "da": "dieci"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "segreto"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "ritardo",
+   "da": "quando"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "attenzione"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "materasso",
+   "da": "diecimila"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "materasso",
+   "da": "comprano"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "inflazione",
+   "da": "duemilaventidue"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "inflazione",
+   "da": "superato"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "allora"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "emergenza",
+   "da": "primo"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "emergenza",
+   "da": "da#3"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "emergenza",
+   "da": "così"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "prima_tu",
+   "da": "secondo"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "prima_tu",
+   "da": "appena"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "parliamo"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "te"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "scala_rischio",
+   "parametri": {
+    "livello": 0
+   },
+   "da": "esiste#3"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "scala_rischio",
+   "parametri": {
+    "livello": 1
+   },
+   "da": "basso"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "garanzia",
+   "da": "protetti"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "scala_rischio",
+   "parametri": {
+    "livello": 2
+   },
+   "da": "poi"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "se"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "scala_rischio",
+   "parametri": {
+    "livello": 3
+   },
+   "da": "alto"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "scala_rischio",
+   "parametri": {
+    "livello": 3
+   },
+   "da": "possono"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "rendimento"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "tre#2"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "uova",
+   "da": "uno"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "uova",
+   "da": "non#9"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "costi",
+   "da": "due#2"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "costi",
+   "da": "invece"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "truffa",
+   "da": "diffida"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "truffa",
+   "da": "quella"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "ricorda"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "informati",
+   "da": "prima#2"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "iscriviti",
+   "da": "se#3"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "iscriviti",
+   "da": "scrivimi"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "ci#2"
+  }
+ ],
+ "stupore": [
+  "adesso",
+  "anna"
+ ],
+ "sorriso_da": "se#3",
+ "coda": 1.0
+}

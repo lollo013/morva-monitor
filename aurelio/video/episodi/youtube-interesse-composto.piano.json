@@ -1,0 +1,386 @@
+[
+ {
+  "frase": "C'è una frase",
+  "parola": "c'è",
+  "tipo": "angolo_dx",
+  "scena": "meraviglia",
+  "testo_grande": "L'interesse composto|ti cambia la vita?"
+ },
+ {
+  "frase": "La attribuiscono",
+  "parola": "attribuiscono",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "La attribuiscono",
+  "parola": "quasi",
+  "tipo": "angolo_sx",
+  "scena": "meraviglia",
+  "parametri": {
+   "falso": 0
+  }
+ },
+ {
+  "frase": "Però una cosa",
+  "parola": "però",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Oggi ti spiego",
+  "parola": "oggi",
+  "tipo": "affiancati",
+  "scena": "programma"
+ },
+ {
+  "frase": "Oggi ti spiego",
+  "parola": "perché",
+  "tipo": "angolo_dx",
+  "scena": "programma"
+ },
+ {
+  "frase": "Mettiti comodo",
+  "parola": "mettiti",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Partiamo dalla base",
+  "parola": "partiamo",
+  "tipo": "mezzo_busto",
+  "scena": "mille",
+  "parametri": {
+   "anno": 1
+  }
+ },
+ {
+  "frase": "Dopo un anno hai",
+  "parola": "dopo",
+  "tipo": "angolo_sx",
+  "scena": "mille",
+  "parametri": {
+   "anno": 1
+  }
+ },
+ {
+  "frase": "Fin qui",
+  "parola": "fin",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Ma l'anno dopo",
+  "parola": "ma",
+  "tipo": "angolo_dx",
+  "scena": "mille",
+  "parametri": {
+   "anno": 2
+  }
+ },
+ {
+  "frase": "Gli interessi producono",
+  "parola": "gli",
+  "tipo": "mezzo_busto",
+  "scena": "mille",
+  "parametri": {
+   "anno": 2
+  }
+ },
+ {
+  "frase": "palla di neve",
+  "parola": "palla",
+  "tipo": "affiancati",
+  "scena": "neve"
+ },
+ {
+  "frase": "palla di neve",
+  "parola": "più",
+  "tipo": "angolo_sx",
+  "scena": "neve"
+ },
+ {
+  "frase": "E c'è un trucco",
+  "parola": "trucco",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "E c'è un trucco",
+  "parola": "regola",
+  "tipo": "angolo_dx",
+  "scena": "regola72"
+ },
+ {
+  "frase": "Dividi settantadue",
+  "parola": "dividi",
+  "tipo": "mezzo_busto",
+  "scena": "regola72"
+ },
+ {
+  "frase": "Al quattro per cento, circa diciotto",
+  "parola": "circa",
+  "tipo": "angolo_sx",
+  "scena": "regola72"
+ },
+ {
+  "frase": "Adesso guarda",
+  "parola": "adesso",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Anna comincia",
+  "parola": "anna",
+  "tipo": "affiancati",
+  "scena": "anna_marco",
+  "parametri": {
+   "solo": "Anna",
+   "totali": 2
+  }
+ },
+ {
+  "frase": "Marco fa esattamente",
+  "parola": "marco",
+  "tipo": "angolo_dx",
+  "scena": "anna_marco",
+  "parametri": {
+   "totali": 2
+  }
+ },
+ {
+  "frase": "Con un quattro per cento",
+  "parola": "con",
+  "tipo": "mezzo_busto",
+  "scena": "anna_marco",
+  "parametri": {
+   "totali": 0,
+   "pieno": 1
+  }
+ },
+ {
+  "frase": "Marco, a circa",
+  "parola": "marco",
+  "tipo": "angolo_sx",
+  "scena": "anna_marco",
+  "parametri": {
+   "totali": 0,
+   "pieno": 1
+  }
+ },
+ {
+  "frase": "Dieci anni di ritardo",
+  "parola": "dieci",
+  "tipo": "affiancati",
+  "scena": "ritardo"
+ },
+ {
+  "frase": "Il segreto non",
+  "parola": "segreto",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Il segreto non",
+  "parola": "quando",
+  "tipo": "angolo_dx",
+  "scena": "ritardo"
+ },
+ {
+  "frase": "E attenzione",
+  "parola": "attenzione",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Con l'inflazione al due",
+  "parola": "diecimila",
+  "tipo": "mezzo_busto",
+  "scena": "materasso"
+ },
+ {
+  "frase": "Con l'inflazione al due",
+  "parola": "comprano",
+  "tipo": "angolo_sx",
+  "scena": "materasso"
+ },
+ {
+  "frase": "duemilaventidue",
+  "parola": "duemilaventidue",
+  "tipo": "affiancati",
+  "scena": "inflazione"
+ },
+ {
+  "frase": "duemilaventidue",
+  "parola": "superato",
+  "tipo": "angolo_dx",
+  "scena": "inflazione"
+ },
+ {
+  "frase": "Allora, come si comincia",
+  "parola": "allora",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Primo: un fondo",
+  "parola": "primo",
+  "tipo": "mezzo_busto",
+  "scena": "emergenza"
+ },
+ {
+  "frase": "Da tre a sei",
+  "parola": "da",
+  "tipo": "angolo_sx",
+  "scena": "emergenza"
+ },
+ {
+  "frase": "Così un imprevisto",
+  "parola": "così",
+  "tipo": "affiancati",
+  "scena": "emergenza"
+ },
+ {
+  "frase": "Secondo: risparmia",
+  "parola": "secondo",
+  "tipo": "angolo_dx",
+  "scena": "prima_tu"
+ },
+ {
+  "frase": "Appena arriva",
+  "parola": "appena",
+  "tipo": "mezzo_busto",
+  "scena": "prima_tu"
+ },
+ {
+  "frase": "E adesso parliamo",
+  "parola": "parliamo",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Te lo dico da amico",
+  "parola": "te",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Esiste una scala",
+  "parola": "esiste",
+  "tipo": "angolo_sx",
+  "scena": "scala_rischio",
+  "parametri": {
+   "livello": 0
+  }
+ },
+ {
+  "frase": "In basso ci sono",
+  "parola": "basso",
+  "tipo": "mezzo_busto",
+  "scena": "scala_rischio",
+  "parametri": {
+   "livello": 1
+  }
+ },
+ {
+  "frase": "In basso ci sono",
+  "parola": "protetti",
+  "tipo": "affiancati",
+  "scena": "garanzia"
+ },
+ {
+  "frase": "Poi i titoli di Stato",
+  "parola": "poi",
+  "tipo": "angolo_dx",
+  "scena": "scala_rischio",
+  "parametri": {
+   "livello": 2
+  }
+ },
+ {
+  "frase": "Poi i titoli di Stato",
+  "parola": "se",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Più in alto, le azioni",
+  "parola": "alto",
+  "tipo": "angolo_sx",
+  "scena": "scala_rischio",
+  "parametri": {
+   "livello": 3
+  }
+ },
+ {
+  "frase": "Più in alto, le azioni",
+  "parola": "possono",
+  "tipo": "mezzo_busto",
+  "scena": "scala_rischio",
+  "parametri": {
+   "livello": 3
+  }
+ },
+ {
+  "frase": "Più rendimento vuol dire",
+  "parola": "rendimento",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Tre regole",
+  "parola": "tre",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Uno: diversifica",
+  "parola": "uno",
+  "tipo": "affiancati",
+  "scena": "uova"
+ },
+ {
+  "frase": "Non mettere tutte",
+  "parola": "non",
+  "tipo": "angolo_dx",
+  "scena": "uova"
+ },
+ {
+  "frase": "Due: guarda i costi",
+  "parola": "due",
+  "tipo": "mezzo_busto",
+  "scena": "costi"
+ },
+ {
+  "frase": "Nell'esempio di Marco",
+  "parola": "invece",
+  "tipo": "angolo_sx",
+  "scena": "costi"
+ },
+ {
+  "frase": "Tre: diffida",
+  "parola": "diffida",
+  "tipo": "affiancati",
+  "scena": "truffa"
+ },
+ {
+  "frase": "Quella non è finanza",
+  "parola": "quella",
+  "tipo": "angolo_dx",
+  "scena": "truffa"
+ },
+ {
+  "frase": "E ricorda",
+  "parola": "ricorda",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Prima di investire",
+  "parola": "prima",
+  "tipo": "mezzo_busto",
+  "scena": "informati"
+ },
+ {
+  "frase": "Se questo video",
+  "parola": "se",
+  "tipo": "affiancati",
+  "scena": "iscriviti"
+ },
+ {
+  "frase": "Se questo video",
+  "parola": "scrivimi",
+  "tipo": "angolo_sx",
+  "scena": "iscriviti"
+ },
+ {
+  "frase": "Ci vediamo",
+  "parola": "ci",
+  "tipo": "primo_piano"
+ }
+]

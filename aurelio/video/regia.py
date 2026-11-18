@@ -20,11 +20,12 @@ from PIL import Image, ImageDraw, ImageFont
 S = sys.argv[1]
 sys.path.insert(0, S)
 from anima import Figura
-import scene_cielo, scene_inception, scene_fortnite, scene_scuola, scene_larping, scene_stipendio, scene_procrastinazione, disegni, inspect
-SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE, **scene_larping.SCENE, **scene_stipendio.SCENE, **scene_procrastinazione.SCENE}
+import scene_cielo, scene_inception, scene_fortnite, scene_scuola, scene_larping, scene_stipendio, scene_procrastinazione, scene_youtube, disegni, inspect
+SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE, **scene_larping.SCENE, **scene_stipendio.SCENE, **scene_procrastinazione.SCENE, **scene_youtube.SCENE}
 
 R = json.load(open(sys.argv[2], encoding='utf8'))
-W, H, FPS = 1080, 1920, 30
+YT = R.get('formato') == 'youtube'   # 16:9 orizzontale per YouTube
+W, H, FPS = (1920, 1080, 30) if YT else (1080, 1920, 30)
 BG = (253, 252, 251)
 INK = (43, 33, 28)
 EVID = (205, 62, 48)
@@ -131,7 +132,7 @@ for i, s in enumerate(SHOT):
 # sottotitoli: gruppi di 1-3 parole, mai oltre la punteggiatura
 blocchi, cur = [], []
 for p in parole:
-    if cur and (len(cur) >= 3 or len(' '.join(x[0] for x in cur + [p])) > 16):
+    if cur and (len(cur) >= (4 if YT else 3) or len(' '.join(x[0] for x in cur + [p])) > (24 if YT else 16)):
         blocchi.append(cur); cur = []
     cur.append(p)
     if re.search(r'[,.;:?!]$', p[0]):
@@ -188,7 +189,8 @@ def scena_img(s, t, w, h):
             if nomep in firma: extra[nomep] = (v - s['inizio']) / dur
         for k in ('punto', 'bersaglio'):
             if k in s and k in firma: extra[k] = tuple(s[k])
-        rw = 760; rh = round(h * rw / w)        # base di disegno fissa: in grande gli elementi crescono
+        rw = 760; rh = round(h * rw / w)
+        if YT and rh < 480: rh = 480; rw = round(w * rh / h)        # base di disegno fissa: in grande gli elementi crescono
         return fn(p, lt, rw, rh, **extra).convert('RGB').resize((w, h), Image.BICUBIC)
     im = disegni.SCENE[nome](p, lt)          # 440x440 RGBA
     tela = Image.new('RGB', im.size, BG); tela.paste(im, (0, 0), im)
@@ -202,7 +204,7 @@ def angoli(im, r=36):
 def incolla_scena(fr, s, t, box):
     x0, y0, x1, y1 = box
     bw, bh = x1 - x0, y1 - y0
-    if bw / bh > 0.95:
+    if not YT and bw / bh > 0.95:
         # riquadro largo: la scena si disegna nelle sue proporzioni e si centra, senza schiacciarla
         sh = bh; sw = round(bh * 0.84)
         dentro = scena_img(s, t, sw, sh)
@@ -242,8 +244,39 @@ def professore(t, ritaglio, alt):
 # Sottotitoli, scene e volto del Professore stanno qui dentro.
 SX, DX, ALTO, BASSO = 60, W - 180, 230, 1480
 
+def componi_yt(s, t):
+    """YouTube 16:9: il Professore e' sempre in scena e protagonista; la scena e' la sua lavagna accanto a lui."""
+    fr = Image.new('RGB', (W, H), BG)
+    tipo = s['tipo']
+    if tipo == 'primo_piano' or 'scena' not in s:
+        f = professore(t, (0, 0, 600, 640), 1140)
+        fr.paste(f, ((W - f.width) // 2 - 60, 10), f)
+        area = (200, 900, W - 200, 1065)
+    elif tipo == 'mezzo_busto':     # lui grande a sinistra, la lavagna a destra
+        f = professore(t, (0, 0, 600, 860), 1100)
+        fr.paste(f, (-30, H - f.height + 30), f)
+        incolla_scena(fr, s, t, (780, 50, 1870, 850))
+        area = (780, 870, 1870, 1060)
+    elif tipo == 'angolo_dx':       # lavagna grande a sinistra, lui a destra
+        incolla_scena(fr, s, t, (50, 40, 1290, 900))
+        f = professore(t, (0, 0, 600, 860), 980)
+        fr.paste(f, (W - f.width + 40, H - f.height + 20), f)
+        area = (50, 910, 1290, 1070)
+    elif tipo == 'angolo_sx':       # lui a sinistra, lavagna grande a destra
+        f = professore(t, (0, 0, 600, 860), 980)
+        fr.paste(f, (-60, H - f.height + 20), f)
+        incolla_scena(fr, s, t, (630, 40, 1870, 900))
+        area = (630, 910, 1870, 1070)
+    else:                           # affiancati: lui intero a sinistra, la lavagna al centro-destra
+        f = professore(t, None, 1050)
+        fr.paste(f, (60, H - f.height - 10), f)
+        incolla_scena(fr, s, t, (640, 60, 1840, 820))
+        area = (640, 850, 1840, 1050)
+    return fr, area
+
 def componi(s, t):
     """Il Professore e' sempre in scena: cambia solo il punto di vista."""
+    if YT: return componi_yt(s, t)
     fr = Image.new('RGB', (W, H), BG)
     tipo = s['tipo']
     if tipo == 'sfondo':          # la scena fa da sfondo, lui davanti a mezzo busto
@@ -285,7 +318,7 @@ def camera(fr, s, t):
         if s['inizio'] <= k <= t < k + 0.3:
             z += 0.025 * math.sin(math.pi * (t - k) / 0.3)
     if abs(z - 1) < 1e-3: return fr
-    cx, cy = W / 2, H * 0.4
+    cx, cy = W / 2, H * (0.45 if YT else 0.4)
     w, h = W / z, H / z
     x0 = min(max(0, cx - w / 2), W - w); y0 = min(max(0, cy - h / 2), H - h)
     return fr.crop((round(x0), round(y0), round(x0 + w), round(y0 + h))).resize((W, H), Image.BILINEAR)
@@ -295,7 +328,7 @@ def sottotitolo(fr, t, area, grande=False):
     if not b: return
     x0, y0, x1, y1 = area
     larg = x1 - x0
-    dim = 128 if grande else 104
+    dim = (96 if grande else 80) if YT else (128 if grande else 104)
     righe = [b]
     while True:
         f = fnt(dim)
@@ -370,7 +403,10 @@ def quadro(t):
     # niente barra di avanzamento: TikTok ha la sua, e la nostra finirebbe sotto l'interfaccia
     return fr
 
-if __name__ == '__main__':
+if __name__ == '__main__' and sys.argv[4:5] == ['solo']:   # solo i fotogrammi di controllo
+    for t in map(float, sys.argv[3].split(',')):
+        quadro(t).save(f'{S}/quadro-{t:05.1f}.png')
+elif __name__ == '__main__':
     out = os.path.join(S, f"aurelio-{R['nome']}.mp4")
     cmd = ['ffmpeg', '-y', '-hide_banner', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}',
            '-r', str(FPS), '-i', '-', '-i', AUDIO, '-filter_complex', f'[1:a]apad=whole_dur={DURATA:.3f}[a]',
