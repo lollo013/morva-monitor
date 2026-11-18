@@ -20,7 +20,8 @@ from PIL import Image, ImageDraw, ImageFont
 S = sys.argv[1]
 sys.path.insert(0, S)
 from anima import Figura
-import scene_cielo, disegni
+import scene_cielo, scene_inception, disegni, inspect
+SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE}
 
 R = json.load(open(sys.argv[2], encoding='utf8'))
 W, H, FPS = 1080, 1920, 30
@@ -177,16 +178,18 @@ def ease(x): x = max(0.0, min(1.0, x)); return 1 - (1 - x) ** 3
 def scena_img(s, t, w, h):
     nome = s['scena']; lt = t - s['inizio']; dur = s['fine'] - s['inizio']
     p = min(1, lt / max(0.1, dur))
-    if nome in scene_cielo.SCENE:
-        extra = {}
-        if 'apri' in s['eventi']:
-            extra['apri'] = (s['eventi']['apri'] - s['inizio']) / dur
-        if 'colore' in s['eventi']:
-            extra['colore_da'] = (s['eventi']['colore'] - s['inizio']) / dur
+    if nome in SCENE_GRANDI:
+        fn = SCENE_GRANDI[nome]
+        firma = inspect.signature(fn).parameters
+        extra = {k: v for k, v in s.get('parametri', {}).items() if k in firma}
+        for k, v in s['eventi'].items():        # evento -> parametro in frazione della scena
+            if k == 'zoom': continue
+            nomep = {'colore': 'colore_da'}.get(k, k)
+            if nomep in firma: extra[nomep] = (v - s['inizio']) / dur
         for k in ('punto', 'bersaglio'):
-            if k in s: extra[k] = tuple(s[k])
+            if k in s and k in firma: extra[k] = tuple(s[k])
         rw = 760; rh = round(h * rw / w)        # base di disegno fissa: in grande gli elementi crescono
-        return scene_cielo.SCENE[nome](p, lt, rw, rh, **extra).convert('RGB').resize((w, h), Image.BICUBIC)
+        return fn(p, lt, rw, rh, **extra).convert('RGB').resize((w, h), Image.BICUBIC)
     im = disegni.SCENE[nome](p, lt)          # 440x440 RGBA
     tela = Image.new('RGB', im.size, BG); tela.paste(im, (0, 0), im)
     return tela.resize((w, h), Image.BICUBIC)
@@ -235,7 +238,8 @@ def componi(s, t):
         sc = scena_img(s, t, W, H); fr.paste(sc, (0, 0))
         f = professore(t, (0, 0, 600, 860), 1150)
         fr.paste(f, (-40, H - f.height + 20), f)
-        area = (60, 170, W - 60, 520)
+        # le etichette delle scene stanno in alto: il sottotitolo va sotto di loro
+        area = (60, 170, W - 60, 520) if s.get('testo_grande') else (60, 470, W - 60, 760)
     elif tipo == 'primo_piano':
         f = professore(t, (0, 0, 600, 640), 1240)
         fr.paste(f, ((W - f.width) // 2, 160), f)
@@ -315,10 +319,18 @@ def sottotitolo(fr, t, area, grande=False):
 def gancio_testo(fr, t, area, testo):
     """Frase d'apertura breve e grande, visibile dal primo fotogramma."""
     x0, y0, x1, y1 = area
-    dim = 112
-    f = fnt(dim)
-    ws = testo.split()
-    righe = [ws] if f.getlength(testo) <= x1 - x0 else [ws[:len(ws) // 2 + 1], ws[len(ws) // 2 + 1:]]
+    ws = testo.replace('|', ' ').split()
+    dim = 120
+    while True:   # 1, 2 o 3 righe; il carattere si riduce finche' tutto entra
+        f = fnt(dim)
+        scelta = None
+        prove = [[r.split() for r in testo.split('|')]] if '|' in testo else \
+                [[ws[i:i + math.ceil(len(ws) / n)] for i in range(0, len(ws), math.ceil(len(ws) / n))] for n in (1, 2, 3)]
+        for righe in prove:
+            if max(f.getlength(' '.join(r)) for r in righe) <= (x1 - x0) - 20 and dim * 1.15 * len(righe) <= (y1 - y0) + 40:
+                scelta = righe; break
+        if scelta or dim <= 60: righe = scelta or righe; break
+        dim -= 8
     k = 0.9 + 0.1 * ease(t / 0.15)
     lay = Image.new('RGBA', (x1 - x0, int(dim * 1.15 * len(righe) + 30)), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)

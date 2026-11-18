@@ -1,0 +1,330 @@
+{
+ "nome": "inception",
+ "audio": "inception.mp3",
+ "frasi": [
+  "Ehi, hai visto Inception e non ci hai capito niente?",
+  "Tranquillo, te lo spiego io in due minuti.",
+  "Dom Cobb è un ladro speciale: non ruba soldi, ruba idee.",
+  "Entra nei sogni delle persone e prende i loro segreti.",
+  "Un giorno un uomo potentissimo, Saito, gli chiede il contrario: non rubare un'idea, ma piantarne una.",
+  "Questo si chiama innesto, in inglese inception.",
+  "Il bersaglio è Robert Fischer, l'erede di un impero enorme.",
+  "L'idea da piantare: dividere l'azienda del padre.",
+  "In cambio, Cobb potrà finalmente tornare a casa dai suoi figli.",
+  "Ma un'idea, per attecchire, deve sembrare tua.",
+  "Così la squadra scende in profondità: un sogno dentro un sogno, dentro un altro sogno.",
+  "Ed ecco il trucco: più scendi, più il tempo rallenta.",
+  "Dieci ore di volo diventano una settimana nel primo sogno, sei mesi nel secondo, dieci anni nel terzo.",
+  "Per svegliarsi serve un calcio, cioè una caduta improvvisa, e deve arrivare in tutti i livelli insieme.",
+  "Il pericolo?",
+  "Sono sedati così forte che, se muoiono nel sogno, non si svegliano: finiscono nel limbo, un sogno senza fine.",
+  "E nel limbo c'è il fantasma di Cobb: Mal, sua moglie.",
+  "Anni prima, proprio lì, lui le aveva innestato un'idea: questo mondo non è reale.",
+  "Tornati alla realtà, lei ha continuato a crederlo, e Cobb l'ha persa per sempre.",
+  "Alla fine, però, l'innesto riesce: Fischer si convince che suo padre voleva che diventasse sé stesso, non una sua copia.",
+  "Cobb torna a casa.",
+  "Fa girare la sua trottola, il totem che usa per capire se sta sognando: se cade, è la realtà; se gira per sempre, è un sogno.",
+  "Ma lui non la guarda.",
+  "Va dai suoi figli.",
+  "La trottola vacilla, e lo schermo diventa nero.",
+  "Allora era un sogno?",
+  "Forse il punto è proprio questo: per Cobb, ormai, non importa più.",
+  "Ti è piaciuto?",
+  "Scrivimi nei commenti quale film vuoi capire la prossima volta, e seguici!"
+ ],
+ "chiave": [
+  "inception",
+  "idee",
+  "sogni",
+  "piantarne",
+  "innesto",
+  "fischer",
+  "dividere",
+  "figli",
+  "sogno",
+  "rallenta",
+  "dieci",
+  "calcio",
+  "limbo",
+  "mal",
+  "reale",
+  "stesso",
+  "trottola",
+  "nero",
+  "commenti",
+  "seguici"
+ ],
+ "inquadrature": [
+  {
+   "da": 0,
+   "tipo": "sfondo",
+   "scena": "i_gancio",
+   "testo_grande": "Inception spiegato|in 2 minuti"
+  },
+  {
+   "da": "tranquillo",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "dom",
+   "tipo": "affiancati",
+   "scena": "ladro"
+  },
+  {
+   "da": "entra",
+   "tipo": "sfondo",
+   "scena": "sogni"
+  },
+  {
+   "da": "giorno",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "contrario",
+   "tipo": "angolo_sx",
+   "scena": "ladro"
+  },
+  {
+   "da": "piantarne",
+   "tipo": "mezzo_busto",
+   "scena": "seme"
+  },
+  {
+   "da": "questo",
+   "tipo": "angolo_dx",
+   "scena": "seme",
+   "eventi": {
+    "zoom": "inception#2"
+   },
+   "zoom": 1.3,
+   "fuoco": [
+    0.5,
+    0.3
+   ]
+  },
+  {
+   "da": "bersaglio",
+   "tipo": "affiancati",
+   "scena": "impero",
+   "parametri": {
+    "crepa": 9
+   },
+   "eventi": {
+    "zoom": "impero"
+   },
+   "zoom": 1.2,
+   "fuoco": [
+    0.5,
+    0.4
+   ]
+  },
+  {
+   "da": "dividere",
+   "tipo": "sfondo",
+   "scena": "impero",
+   "eventi": {
+    "crepa": "dividere"
+   }
+  },
+  {
+   "da": "cambio",
+   "tipo": "mezzo_busto",
+   "scena": "casa",
+   "eventi": {
+    "zoom": "figli"
+   },
+   "zoom": 1.3,
+   "fuoco": [
+    0.5,
+    0.25
+   ]
+  },
+  {
+   "da": "attecchire",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "così",
+   "tipo": "angolo_sx",
+   "scena": "livelli",
+   "eventi": {
+    "zoom": "altro"
+   },
+   "zoom": 1.35,
+   "fuoco": [
+    0.5,
+    0.82
+   ]
+  },
+  {
+   "da": "ecco",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "dieci",
+   "tipo": "affiancati",
+   "scena": "orologi"
+  },
+  {
+   "da": "sei",
+   "tipo": "mezzo_busto",
+   "scena": "orologi",
+   "parametri": {},
+   "eventi": {
+    "zoom": "dieci#2"
+   },
+   "zoom": 1.4,
+   "fuoco": [
+    0.5,
+    0.78
+   ]
+  },
+  {
+   "da": "svegliarsi",
+   "tipo": "sfondo",
+   "scena": "calcio"
+  },
+  {
+   "da": "tutti",
+   "tipo": "angolo_dx",
+   "scena": "calcio"
+  },
+  {
+   "da": "pericolo",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "sedati",
+   "tipo": "mezzo_busto",
+   "scena": "sogni"
+  },
+  {
+   "da": "finiscono",
+   "tipo": "sfondo",
+   "scena": "limbo",
+   "eventi": {
+    "zoom": "senza"
+   },
+   "zoom": 1.25,
+   "fuoco": [
+    0.5,
+    0.45
+   ]
+  },
+  {
+   "da": "fantasma",
+   "tipo": "affiancati",
+   "scena": "fantasma"
+  },
+  {
+   "da": "anni#2",
+   "tipo": "mezzo_busto",
+   "scena": "seme"
+  },
+  {
+   "da": "questo#2",
+   "tipo": "sfondo",
+   "scena": "fantasma"
+  },
+  {
+   "da": "tornati",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "persa",
+   "tipo": "mezzo_busto",
+   "scena": "fantasma"
+  },
+  {
+   "da": "alla#2",
+   "tipo": "affiancati",
+   "scena": "padre"
+  },
+  {
+   "da": "fischer#2",
+   "tipo": "mezzo_busto",
+   "scena": "padre",
+   "eventi": {
+    "zoom": "stesso"
+   },
+   "zoom": 1.3,
+   "fuoco": [
+    0.7,
+    0.35
+   ]
+  },
+  {
+   "da": "cobb#5",
+   "tipo": "sfondo",
+   "scena": "casa"
+  },
+  {
+   "da": "fa",
+   "tipo": "mezzo_busto",
+   "scena": "finale",
+   "parametri": {
+    "nero": 9
+   }
+  },
+  {
+   "da": "se#3",
+   "tipo": "angolo_dx",
+   "scena": "domanda"
+  },
+  {
+   "da": "gira",
+   "tipo": "mezzo_busto",
+   "scena": "finale",
+   "parametri": {
+    "nero": 9
+   }
+  },
+  {
+   "da": "ma#3",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "va",
+   "tipo": "affiancati",
+   "scena": "casa"
+  },
+  {
+   "da": "vacilla",
+   "tipo": "sfondo",
+   "scena": "finale",
+   "eventi": {
+    "nero": "nero"
+   }
+  },
+  {
+   "da": "allora",
+   "tipo": "sfondo",
+   "scena": "domanda"
+  },
+  {
+   "da": "forse",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "importa",
+   "tipo": "sfondo",
+   "scena": "casa"
+  },
+  {
+   "da": "ti",
+   "tipo": "mezzo_busto",
+   "scena": "invito"
+  },
+  {
+   "da": "seguici",
+   "tipo": "angolo_sx",
+   "scena": "invito"
+  }
+ ],
+ "stupore": [
+  "ecco",
+  "dieci"
+ ],
+ "sorriso_da": "ti",
+ "coda": 0.8
+}

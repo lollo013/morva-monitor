@@ -1,0 +1,17 @@
+{
+  "titolo": "Inception spiegato in 2 minuti",
+  "verificato": true,
+  "tono": "amico: parla a tu per tu, semplice, nessun termine tecnico non spiegato",
+  "stile": "ritmo visivo alto, Professore sempre in scena; nessuna immagine del film, solo illustrazioni originali",
+  "fonti": [
+    "Inception (2010), scritto e diretto da Christopher Nolan: trama, regole dei livelli del sogno, calcio, limbo, totem e finale aperto come mostrati nel film.",
+    "Nel film: dieci ore di volo diventano una settimana nel primo livello, sei mesi nel secondo, dieci anni nel terzo."
+  ],
+  "parti": [
+    { "fase": "apertura", "testo": "Ehi, hai visto Inception e non ci hai capito niente? Tranquillo, te lo spiego io in due minuti." },
+    { "fase": "spiegazione", "testo": "Dom Cobb è un ladro speciale: non ruba soldi, ruba *idee*. Entra nei sogni delle persone e prende i loro segreti. Un giorno un uomo potentissimo, Saito, gli chiede il contrario: non rubare un'idea, ma *piantarne* una. Questo si chiama innesto, in inglese inception. Il bersaglio è Robert Fischer, l'erede di un impero enorme. L'idea da piantare: dividere l'azienda del padre. In cambio, Cobb potrà finalmente tornare a casa dai suoi figli. Ma un'idea, per attecchire, deve sembrare tua. Così la squadra scende in profondità: un sogno dentro un sogno, dentro un altro sogno." },
+    { "fase": "scoperta", "testo": "Ed ecco il trucco: più scendi, più il tempo *rallenta*. Dieci ore di volo diventano una settimana nel primo sogno, sei mesi nel secondo, dieci anni nel terzo. Per svegliarsi serve un calcio, cioè una caduta improvvisa, e deve arrivare in tutti i livelli insieme. Il pericolo? Sono sedati così forte che, se muoiono nel sogno, non si svegliano: finiscono nel limbo, un sogno senza fine. E nel limbo c'è il fantasma di Cobb: Mal, sua moglie. Anni prima, proprio lì, lui le aveva innestato un'idea: questo mondo non è reale. Tornati alla realtà, lei ha continuato a crederlo, e Cobb l'ha persa per sempre. Alla fine, però, l'innesto riesce: Fischer si convince che suo padre voleva che diventasse sé stesso, non una sua copia." },
+    { "fase": "conclusione", "testo": "Cobb torna a casa. Fa girare la sua trottola, il totem che usa per capire se sta sognando: se cade, è la realtà; se gira per sempre, è un sogno. Ma lui non la guarda. Va dai suoi figli. La trottola vacilla, e lo schermo diventa nero. Allora era un sogno? Forse il punto è proprio questo: per Cobb, ormai, non importa più." },
+    { "fase": "invito", "testo": "Ti è piaciuto? Scrivimi nei commenti quale film vuoi capire la prossima volta, e seguici!" }
+  ]
+}
