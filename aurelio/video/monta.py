@@ -151,7 +151,8 @@ SCHEDE = [
     (t_parola('rem'), t_parola('senza'), "FASE REM", "il sogno più vivido"),
     (t_parola('noradrenalina'), t_parola('sai') - 0.3, "NORADRENALINA", "quasi a zero: il ricordo\nnon resta"),
     (t_parola('2019'), t_parola('ecco'), "2019", "studio sui topi:\nneuroni che fanno\ndimenticare"),
-    (t_parola('quaderno'), DURATA_TESTO, "QUADERNO", "accanto al letto:\nscrivi il sogno subito"),
+    (t_parola('quaderno'), t_parola('piaciuto') - 0.2, "QUADERNO", "accanto al letto:\nscrivi il sogno subito"),
+    (t_parola('like'), DURATA, "SEGUICI", "lascia un like: arrivano\naltre curiosità"),
 ]
 
 # ---------------------------------------------------------------- figura
