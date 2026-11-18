@@ -1,0 +1,33 @@
+{
+  "personaggio": "Professor Aurelio",
+  "stato": "in_attesa_di_approvazione",
+  "voice_id": null,
+  "approvata_il": null,
+
+  "modello_tts": "eleven_v3",
+  "lingua": "it",
+  "formato_audio": "mp3_44100_128",
+  "impostazioni_voce": {
+    "stability": 0.5,
+    "similarity_boost": 0.8,
+    "style": 0,
+    "use_speaker_boost": true,
+    "speed": 1.0
+  },
+
+  "durata_massima_secondi": 90,
+  "soglia_errore_pronuncia": 0.12,
+
+  "progettazione": {
+    "strumento": "ElevenLabs Voice Design",
+    "modello": "eleven_ttv_v3",
+    "descrizione": "An elderly Italian male professor, approximately 75 years old, with a deep, warm, slightly raspy and naturally aged voice. Wise, thoughtful, respectful and reassuring. Native Italian pronunciation, calm and articulate delivery, natural pauses, subtle emotional expression and a gentle sense of curiosity. Sounds like an experienced scholar explaining fascinating discoveries. Authentic human warmth, never robotic, exaggerated or theatrical.",
+    "frase_di_prova": "Vi siete mai chiesti perché il cielo è azzurro? Ebbene, la luce del Sole contiene tutti i colori, ma l'aria diffonde soprattutto quello blu. E sapete una cosa sorprendente? Al tramonto vediamo il rosso proprio per lo stesso motivo. La natura, cari ragazzi, è più semplice di quanto sembri.",
+    "generata_il": "2026-11-18",
+    "candidati": [
+      { "lettera": "A", "generated_voice_id": "ghVUuouA1iEFQai5LW8B" },
+      { "lettera": "B", "generated_voice_id": "ZZbGidXFPMma4DFRCLez" },
+      { "lettera": "C", "generated_voice_id": "GOB3BfxF6C68n4r9uj1D" }
+    ]
+  }
+}

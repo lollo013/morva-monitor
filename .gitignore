@@ -5,3 +5,8 @@ package-lock.json
 # i rapporti restano su GitHub come allegati del lavoro, non nel codice
 rapporti/
 *.png
+
+# narrazioni prodotte e chiavi: mai nel codice
+uscita/
+*.mp3
+.env

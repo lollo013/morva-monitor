@@ -5,7 +5,9 @@
   "type": "module",
   "description": "Controllo automatico del sito MORVA: percorre il sito come una persona e registra cosa non funziona.",
   "scripts": {
-    "controlla": "node controlla.mjs"
+    "controlla": "node controlla.mjs",
+    "narra": "node aurelio/narra.mjs",
+    "test": "node --test aurelio/voce/voce.test.mjs"
   },
   "dependencies": {
     "playwright": "^1.49.0"
