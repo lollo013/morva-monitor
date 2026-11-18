@@ -295,23 +295,35 @@ def cuore(d, cx, cy, s, col, bordo=True):
 
 
 def invito(p, t):
-    """Like e Segui: un cuore che pulsa e il pulsante che si preme."""
+    """Commenta, like e segui: fumetto del commento, cuore che pulsa, pulsante «+ Segui»."""
     im, d = tela()
+    # fumetto del commento, con i puntini che si scrivono
+    x0, y0, x1, y1 = L * 0.06, L * 0.08, L * 0.52, L * 0.42
+    d.rounded_rectangle((x0, y0, x1, y1), radius=40 * SS, fill=CREMA, outline=LINEA, width=W)
+    d.polygon([(x0 + 60 * SS, y1 - 4 * SS), (x0 + 120 * SS, y1 - 4 * SS), (x0 + 50 * SS, y1 + 60 * SS)], fill=CREMA, outline=LINEA, width=W)
+    d.line((x0 + 64 * SS, y1 - 4 * SS, x0 + 114 * SS, y1 - 4 * SS), fill=CREMA, width=W + 2 * SS)
+    n = int(t * 3) % 4
+    for i in range(3):
+        cx = (x0 + x1) / 2 + (i - 1) * 46 * SS
+        col = NOTTE if i < n else GRIGIO
+        d.ellipse((cx - 14 * SS, (y0 + y1) / 2 - 14 * SS, cx + 14 * SS, (y0 + y1) / 2 + 14 * SS), fill=col)
+    # cuore
     batt = 1 + 0.08 * max(0, math.sin(t * 6))
-    cuore(d, L * 0.5, L * 0.36, 112 * SS * batt, ROSSO)
+    cuore(d, L * 0.74, L * 0.36, 92 * SS * batt, ROSSO)
     for i in range(3):
         f = (t * 0.7 + i / 3) % 1
         a = int(200 * (1 - f))
-        x = (0.12, 0.88, 0.80)[i]
-        cuore(d, L * x, L * (0.52 - 0.40 * f), 30 * SS, (226, 128, 136, a), bordo=False)
+        x = (0.60, 0.94, 0.86)[i]
+        cuore(d, L * x, L * (0.56 - 0.40 * f), 26 * SS, (226, 128, 136, a), bordo=False)
+    # pulsante segui
     premuto = (t % 1.6) > 1.1
     y = L * 0.70 + (6 * SS if premuto else 0)
     testo = '+ Segui'
     tw = d.textlength(testo, font=zfont)
-    x0, x1 = (L - tw) / 2 - 50 * SS, (L + tw) / 2 + 50 * SS
+    bx0, bx1 = (L - tw) / 2 - 50 * SS, (L + tw) / 2 + 50 * SS
     if not premuto:
-        d.rounded_rectangle((x0, y + 12 * SS, x1, y + 120 * SS), radius=56 * SS, fill=LINEA)
-    d.rounded_rectangle((x0, y, x1, y + 108 * SS), radius=54 * SS, fill=ORO, outline=LINEA, width=W)
+        d.rounded_rectangle((bx0, y + 12 * SS, bx1, y + 120 * SS), radius=56 * SS, fill=LINEA)
+    d.rounded_rectangle((bx0, y, bx1, y + 108 * SS), radius=54 * SS, fill=ORO, outline=LINEA, width=W)
     d.text(((L - tw) / 2, y + 22 * SS), testo, font=zfont, fill=LINEA)
     return fine(im)
 

@@ -49,9 +49,9 @@ FRASI = [  # (fase, frase) nell'ordine in cui le dice
     ("conclusione", "Tieni un quaderno accanto al letto, e scrivilo subito."),
     ("conclusione", "Fidati."),
     ("invito", "Ti è piaciuto questo video?"),
-    ("invito", "Lascia un like e comincia a seguirci, per non perderti altri video come questo!"),
+    ("invito", "Scrivimelo nei commenti, lascia un like e comincia a seguirci, per non perderti altri video come questo!"),
 ]
-CHIAVE = {"like", "seguirci", "piaciuto", "sogni", "rem", "noradrenalina", "2019", "neuroni", "dimenticare", "subito", "quaderno", "dormiamo", "sparisce", "amico", "fidati", "incredibile"}
+CHIAVE = {"commenti,", "commenti", "like", "seguirci", "piaciuto", "sogni", "rem", "noradrenalina", "2019", "neuroni", "dimenticare", "subito", "quaderno", "dormiamo", "sparisce", "amico", "fidati", "incredibile"}
 
 def durata_audio(f):
     return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]))
@@ -117,7 +117,7 @@ for (fase, fr), (k, j) in zip(FRASI, gruppi):
         parole.append((w, s, reale(tv * acc / sum(pw) - 1e-6), fase))
     frasi.append([pezzi[0][0], pezzi[-1][1]])
 DURATA_TESTO = FINE_VOCE + 0.2
-CODA = 2.2
+CODA = 1.2
 DURATA = DURATA_TESTO + CODA
 
 # sottotitoli: blocchi brevi, spezzati a fine frase
@@ -152,7 +152,7 @@ SCHEDE = [
     (t_parola('noradrenalina'), t_parola('sai') - 0.3, "NORADRENALINA", "quasi a zero: il ricordo\nnon resta"),
     (t_parola('2019'), t_parola('ecco'), "2019", "studio sui topi:\nneuroni che fanno\ndimenticare"),
     (t_parola('quaderno'), t_parola('piaciuto') - 0.2, "QUADERNO", "accanto al letto:\nscrivi il sogno subito"),
-    (t_parola('like'), DURATA, "SEGUICI", "lascia un like: arrivano\naltre curiosità"),
+    (t_parola('commenti'), DURATA, "SEGUICI", "commenta, lascia un like:\narrivano altre curiosità"),
 ]
 
 # ---------------------------------------------------------------- figura
@@ -243,11 +243,6 @@ def quadro(t):
     im.paste(f, (FIG_X, FIG_Y))
     scena(im, t)
     stelle(d, t)
-    # testata
-    testo = "IL PROFESSOR AURELIO  ·  SCIENZA"
-    tw = chip.getlength(testo)
-    d.rounded_rectangle((60, 90, 60 + tw + 48, 146), radius=28, fill=(241, 233, 222))
-    d.text((84, 100), testo, font=chip, fill=SAIO)
     # sottotitoli
     if t < DURATA_TESTO:
         b = next((b for b in blocchi if b[0][1] - 0.05 <= t <= b[-1][2] + 0.25), None)
@@ -283,13 +278,6 @@ def quadro(t):
             d.text((x0 + 44, y0 + 30 + (54 - fg.size) * 0.6), grande, font=fg, fill=SCIARPA)
             for i, r in enumerate(righe):
                 d.text((x0 + 44, y0 + 102 + 42 * i), r, font=card_small, fill=INK)
-    # chiusura
-    if t > DURATA_TESTO:
-        k = ease((t - DURATA_TESTO) / 0.5)
-        for i, r in enumerate(["Perché dimentichiamo", "i sogni?"]):
-            tw = titolo.getlength(r)
-            d.text(((W - tw) / 2, 270 + i * 100 + (1 - k) * 30), r, font=titolo, fill=INK)
-        d.line((W / 2 - 90, 488, W / 2 + 90, 488), fill=ALLORO, width=5)
     # barra di avanzamento
     d.rectangle((0, H - 10, W * min(1, t / DURATA), H), fill=ALLORO)
     return im

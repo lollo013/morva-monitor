@@ -11,4 +11,4 @@ l'audio della voce approvata. L'immagine non è nel repository, che è pubblico.
 
 `monta.py` legge `narrazione.mp3` (la voce A2) e ancora ogni fine frase a una
 pausa vera della voce: sottotitoli, scene ed espressioni seguono il parlato.
-Alla fine del video c'è solo il titolo: le fonti restano nel copione.
+Il video finisce sulla scena dell'invito (commenta, like, segui): niente titolo, niente scritte in alto, le fonti restano nel copione.
