@@ -40,7 +40,8 @@
   "lavoro",
   "costume",
   "commenti",
-  "seguici"
+  "seguici",
+  "soldi"
  ],
  "inquadrature": [
   {
@@ -93,7 +94,7 @@
   {
    "da": "ricco",
    "tipo": "angolo_dx",
-   "scena": "finto"
+   "scena": "soldi"
   },
   {
    "da": "presa",
@@ -114,7 +115,7 @@
   },
   {
    "da": "poi",
-   "tipo": "mezzo_busto",
+   "tipo": "angolo_dx",
    "scena": "scala",
    "parametri": {
     "gradino": 1
@@ -122,20 +123,20 @@
   },
   {
    "da": "forza",
-   "tipo": "angolo_sx",
+   "tipo": "mezzo_busto",
    "scena": "scala",
    "parametri": {
     "gradino": 2
    }
   },
   {
-   "da": "gli",
-   "tipo": "affiancati",
-   "scena": "specchio"
+   "da": "l'hai",
+   "tipo": "angolo_sx",
+   "scena": "lusso"
   },
   {
    "da": "guardando",
-   "tipo": "sfondo",
+   "tipo": "affiancati",
    "scena": "specchio"
   },
   {

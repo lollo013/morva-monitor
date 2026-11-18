@@ -184,8 +184,104 @@ def costume(p, t, w, h):
     return fine(im, w, h)
 
 
+VERDE_SOLDI = (120, 186, 120, 255)
+VERDE_SCURO = (70, 130, 80, 255)
+ORO_SCURO = (214, 150, 40, 255)
+
+
+def banconota(d, cx, cy, s, ang=0.0):
+    """Banconota generica (non una copia di quelle vere): rettangolo verde con il simbolo dell'euro."""
+    a = math.radians(ang); c, si = math.cos(a), math.sin(a)
+    rot = lambda x, y: (cx + x * c - y * si, cy + x * si + y * c)
+    d.polygon([rot(-s, -s * 0.5), rot(s, -s * 0.5), rot(s, s * 0.5), rot(-s, s * 0.5)], fill=VERDE_SOLDI, outline=LINEA, width=max(2, 4 * SS))
+    d.polygon([rot(-s * 0.85, -s * 0.36), rot(s * 0.85, -s * 0.36), rot(s * 0.85, s * 0.36), rot(-s * 0.85, s * 0.36)], outline=VERDE_SCURO, width=max(2, 3 * SS))
+    r = s * 0.28
+    x, y = rot(0, 0)
+    d.ellipse((x - r, y - r, x + r, y + r), fill=(170, 220, 160, 255), outline=VERDE_SCURO, width=max(2, 3 * SS))
+    f = font(max(10, int(s * 0.38 / SS)))
+    tw = d.textlength('€', font=f)
+    d.text((x - tw / 2, y - s * 0.24), '€', font=f, fill=VERDE_SCURO)
+
+
+def moneta_oro(d, cx, cy, r):
+    d.ellipse((cx - r, cy - r * 0.45 + 6 * SS, cx + r, cy + r * 0.45 + 6 * SS), fill=ORO_SCURO, outline=LINEA, width=4 * SS)
+    d.ellipse((cx - r, cy - r * 0.45, cx + r, cy + r * 0.45), fill=ORO, outline=LINEA, width=4 * SS)
+
+
+def soldi(p, t, w, h):
+    """Ricco: pioggia di banconote, pile di monete d'oro e un sacco di soldi."""
+    im, d = tela(w, h)
+    W, H = w * SS, h * SS
+    gradiente(im, (255, 236, 180), (255, 250, 230))
+    d = ImageDraw.Draw(im, 'RGBA')
+    for i in range(16):   # banconote che cadono ondeggiando
+        f = (t * 0.35 + i * 0.137) % 1
+        x = W * ((i * 0.173) % 1) + 50 * SS * math.sin(t * 2 + i)
+        y = -H * 0.1 + f * H * 1.15
+        banconota(d, x, y, 70 * SS, ang=25 * math.sin(t * 3 + i))
+    # pile di monete
+    for k, (x, n) in enumerate(((0.62, 7), (0.76, 10), (0.90, 5))):
+        for j in range(n):
+            moneta_oro(d, W * x, H * 0.86 - j * 26 * SS, 60 * SS)
+    # sacco di soldi
+    cx, cy = W * 0.30, H * 0.72
+    d.ellipse((cx - 170 * SS, cy - 150 * SS, cx + 170 * SS, cy + 160 * SS), fill=(186, 140, 90, 255), outline=LINEA, width=7 * SS)
+    d.polygon([(cx - 60 * SS, cy - 140 * SS), (cx + 60 * SS, cy - 140 * SS), (cx + 90 * SS, cy - 220 * SS), (cx - 90 * SS, cy - 220 * SS)], fill=(186, 140, 90, 255), outline=LINEA, width=6 * SS)
+    d.line((cx - 70 * SS, cy - 145 * SS, cx + 70 * SS, cy - 145 * SS), fill=ORO_SCURO, width=12 * SS)
+    g = font(150)
+    tw = d.textlength('€', font=g)
+    d.text((cx - tw / 2, cy - 90 * SS), '€', font=g, fill=ORO, stroke_width=5 * SS, stroke_fill=LINEA)
+    etichetta(d, W, H, 'fare il ricco', y=0.05, col=(43, 33, 28, 255), dim=58)
+    return fine(im, w, h)
+
+
+def lusso(p, t, w, h):
+    """Ce l'hai: villa, auto sportiva, orologio d'oro e diamante che brilla."""
+    im, d = tela(w, h)
+    W, H = w * SS, h * SS
+    gradiente(im, (120, 186, 240), (240, 248, 255))
+    d = ImageDraw.Draw(im, 'RGBA')
+    d.rectangle((0, H * 0.66, W, H), fill=(120, 190, 110, 255))
+    # villa con colonne
+    x0, x1, y0, y1 = W * 0.10, W * 0.90, H * 0.30, H * 0.66
+    d.rectangle((x0, y0, x1, y1), fill=(250, 244, 230, 255), outline=LINEA, width=7 * SS)
+    d.polygon([(x0 - 30 * SS, y0), (W * 0.5, H * 0.16), (x1 + 30 * SS, y0)], fill=(230, 220, 200, 255), outline=LINEA, width=7 * SS)
+    for i in range(6):
+        cx = x0 + (x1 - x0) * (0.08 + 0.168 * i)
+        d.rectangle((cx - 16 * SS, y0 + 20 * SS, cx + 16 * SS, y1), fill=(255, 252, 244, 255), outline=LINEA, width=4 * SS)
+    d.rectangle((W * 0.44, H * 0.50, W * 0.56, y1), fill=SAIO, outline=LINEA, width=5 * SS)
+    # piscina
+    d.rounded_rectangle((W * 0.06, H * 0.70, W * 0.40, H * 0.80), radius=30 * SS, fill=(100, 190, 240, 255), outline=LINEA, width=5 * SS)
+    # auto sportiva che entra
+    k = min(1, t / 0.9)
+    ax, ay = W * 1.2 - k * W * 0.55, H * 0.85
+    d.rounded_rectangle((ax - 230 * SS, ay - 50 * SS, ax + 230 * SS, ay + 40 * SS), radius=40 * SS, fill=ROSSO, outline=LINEA, width=6 * SS)
+    d.polygon([(ax - 110 * SS, ay - 50 * SS), (ax - 40 * SS, ay - 120 * SS), (ax + 90 * SS, ay - 120 * SS), (ax + 160 * SS, ay - 50 * SS)], fill=ROSSO, outline=LINEA, width=6 * SS)
+    d.polygon([(ax - 80 * SS, ay - 55 * SS), (ax - 30 * SS, ay - 108 * SS), (ax + 80 * SS, ay - 108 * SS), (ax + 130 * SS, ay - 55 * SS)], fill=(190, 226, 250, 255))
+    for ox in (-140, 140):
+        d.ellipse((ax + ox * SS - 45 * SS, ay + 5 * SS, ax + ox * SS + 45 * SS, ay + 95 * SS), fill=LINEA)
+        d.ellipse((ax + ox * SS - 20 * SS, ay + 30 * SS, ax + ox * SS + 20 * SS, ay + 70 * SS), fill=(190, 190, 200, 255))
+    # diamante che brilla
+    dx, dy, r = W * 0.84, H * 0.10, 70 * SS
+    d.polygon([(dx - r, dy), (dx - r * 0.5, dy - r * 0.6), (dx + r * 0.5, dy - r * 0.6), (dx + r, dy), (dx, dy + r * 1.1)], fill=(180, 230, 255, 255), outline=LINEA, width=5 * SS)
+    d.line((dx - r, dy, dx + r, dy), fill=LINEA, width=3 * SS)
+    if math.sin(t * 7) > 0.3:
+        for a in range(4):
+            aa = a * math.pi / 2 + math.pi / 4
+            d.line((dx + math.cos(aa) * r * 1.2, dy + math.sin(aa) * r * 1.2, dx + math.cos(aa) * r * 1.6, dy + math.sin(aa) * r * 1.6), fill=(255, 255, 255, 255), width=6 * SS)
+    # orologio d'oro
+    ox, oy = W * 0.16, H * 0.10
+    d.rounded_rectangle((ox - 24 * SS, oy - 110 * SS, ox + 24 * SS, oy + 110 * SS), radius=12 * SS, fill=ORO_SCURO, outline=LINEA, width=4 * SS)
+    d.ellipse((ox - 66 * SS, oy - 66 * SS, ox + 66 * SS, oy + 66 * SS), fill=ORO, outline=LINEA, width=6 * SS)
+    d.ellipse((ox - 48 * SS, oy - 48 * SS, ox + 48 * SS, oy + 48 * SS), fill=CREMA, outline=LINEA, width=3 * SS)
+    am = -math.pi / 2 + t * 2
+    d.line((ox, oy, ox + math.cos(am) * 38 * SS, oy + math.sin(am) * 38 * SS), fill=LINEA, width=4 * SS)
+    d.line((ox, oy, ox + 22 * SS, oy), fill=LINEA, width=6 * SS)
+    return fine(im, w, h)
+
+
 SCENE = {'l_gancio': l_gancio, 'sigla': sigla, 'cavalieri': cavalieri, 'finto': finto, 'scala': scala,
-         'specchio': specchio, 'costume': costume}
+         'specchio': specchio, 'costume': costume, 'soldi': soldi, 'lusso': lusso}
 
 if __name__ == '__main__':
     S = sys.argv[1]
