@@ -9,6 +9,6 @@ Uso: `python3 aurelio/video/monta.py <cartella>`. La cartella deve contenere
 `figura_pulita.png` (la figura intera ritagliata dalla scheda originale) e
 l'audio della voce approvata. L'immagine non è nel repository, che è pubblico.
 
-Per ora `monta.py` è tarato sull'anteprima «Perché dimentichiamo i sogni?».
-Quando la narrazione completa sarà disponibile, i tempi verranno dai tempi
-reali della voce invece che dalla stima.
+`monta.py` legge `narrazione.mp3` (la voce A2) e ancora ogni fine frase a una
+pausa vera della voce: sottotitoli, scene ed espressioni seguono il parlato.
+Alla fine del video c'è solo il titolo: le fonti restano nel copione.

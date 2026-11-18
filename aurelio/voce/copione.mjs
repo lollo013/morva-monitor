@@ -19,7 +19,7 @@
 import { ErroreVoce } from './errori.mjs';
 
 export const FASI = {
-  apertura: '[curious]',
+  apertura: '[warmly] [curious]',
   spiegazione: '[excited]',
   scoperta: '[surprised]',
   conclusione: '[warmly]'

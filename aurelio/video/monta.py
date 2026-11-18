@@ -29,47 +29,88 @@ titolo = ImageFont.truetype('/usr/share/fonts/truetype/crosextra/Caladea-Bold.tt
 fonte = ImageFont.truetype(F + 'Inter-Medium.otf', 28)
 
 # ---------------------------------------------------------------- copione
-APERTURA = [
-    ("Ti sei mai chiesto perché il nostro cervello ci fa dimenticare i sogni?", 0.10, 3.44),
-    ("E se ti dicessi che la risposta è nascosta proprio nel modo in cui dormiamo?", 3.68, 7.28),
-]
-RESTO = [
+AUDIO = f'{S}/narrazione.mp3'
+FRASI = [  # (fase, frase) nell'ordine in cui le dice
+    ("apertura", "Ehi, ti sei mai chiesto perché il nostro cervello ci fa dimenticare i sogni?"),
+    ("apertura", "E se ti dicessi che la risposta è nascosta proprio nel modo in cui dormiamo?"),
     ("apertura", "Te lo spiego io."),
-    ("spiegazione", "I sogni più vividi nascono nella fase REM."),
-    ("spiegazione", "Lì il cervello è attivissimo, ma una sostanza chiave per la memoria, la noradrenalina, quasi sparisce."),
-    ("spiegazione", "Senza di lei, il sogno non viene fissato."),
-    ("scoperta", "E c'è di più."),
-    ("scoperta", "Nel 2019, uno studio sui topi ha scoperto un gruppo di neuroni che, proprio durante il sonno REM, lavora per farci dimenticare."),
-    ("conclusione", "Ecco perché ricordi un sogno solo se ti svegli mentre lo stai facendo."),
-    ("conclusione", "Il trucco? Tieni un quaderno accanto al letto, e scrivilo subito."),
+    ("spiegazione", "Allora: i sogni più vividi li facciamo nella fase REM."),
+    ("spiegazione", "Lì il cervello è attivissimo, ma una sostanza che serve alla memoria, la noradrenalina, quasi sparisce."),
+    ("spiegazione", "E senza di lei, il sogno non resta."),
+    ("scoperta", "Ma sai qual è la cosa più incredibile?"),
+    ("scoperta", "Nel 2019 hanno scoperto, nei topi, dei neuroni che durante il sonno REM lavorano proprio per farci dimenticare."),
+    ("conclusione", "Ecco perché ti ricordi un sogno solo se ti svegli mentre lo stai facendo."),
+    ("conclusione", "Un consiglio da amico?"),
+    ("conclusione", "Tieni un quaderno accanto al letto, e scrivilo subito."),
+    ("conclusione", "Fidati."),
 ]
-CHIAVE = {"sogni", "rem", "noradrenalina", "2019", "neuroni", "dimenticare", "subito", "quaderno", "dormiamo", "sparisce"}
-PPM = 175  # ritmo di riferimento per la parte non ancora narrata
+CHIAVE = {"sogni", "rem", "noradrenalina", "2019", "neuroni", "dimenticare", "subito", "quaderno", "dormiamo", "sparisce", "amico", "fidati", "incredibile"}
 
-def distribuisci(frase, t0, t1):
-    ws = frase.split()
-    pesi = [len(w) + 2 for w in ws]
-    tot = sum(pesi); t = t0; out = []
-    for w, p in zip(ws, pesi):
-        d = (t1 - t0) * p / tot
-        out.append((w, t, t + d)); t += d
-    return out
+def durata_audio(f):
+    return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]))
 
-parole = []
-frasi = []  # (inizio, fine) di ogni frase, nell'ordine del copione
-for frase, a, b in APERTURA:
-    parole += [(w, s, e, 'apertura') for w, s, e in distribuisci(frase, a, b)]
-    frasi.append((a, b))
-FINE_VOCE = 7.63
-t = FINE_VOCE + 0.15
-for fase, frase in RESTO:
-    n = len(frase.split())
-    d = n * 60 / PPM
-    parole += [(w, s, e, fase) for w, s, e in distribuisci(frase, t, t + d)]
-    frasi.append((t, t + d))
-    t += d + 0.25
-DURATA_TESTO = t
-CODA = 3.0
+def parlato(f, soglia='-38dB', minimo=0.16):
+    """Intervalli in cui la voce parla (fra i silenzi)."""
+    out = subprocess.run(['ffmpeg', '-hide_banner', '-i', f, '-af', f'silencedetect=noise={soglia}:d={minimo}', '-f', 'null', '-'],
+                         capture_output=True, text=True).stderr
+    ini = [float(x) for x in re.findall(r'silence_start: ([0-9.]+)', out)]
+    fin = [float(x) for x in re.findall(r'silence_end: ([0-9.]+)', out)]
+    tot = durata_audio(f)
+    silenzi = list(zip(ini, fin + [tot] * (len(ini) - len(fin))))
+    voce, t = [], 0.0
+    for a, b in silenzi:
+        if a > t + 0.03: voce.append((t, a))
+        t = b
+    if tot > t + 0.03: voce.append((t, tot))
+    return voce
+
+FINE_VOCE = durata_audio(AUDIO)
+VOCE = parlato(AUDIO)
+TOT_VOCE = sum(b - a for a, b in VOCE)
+
+def tempo_reale(x):
+    """Da secondi di solo parlato a secondi del file audio."""
+    for a, b in VOCE:
+        if x <= b - a: return a + x
+        x -= b - a
+    return VOCE[-1][1]
+
+# ogni fine frase cade su una pausa vera della voce: si scelgono le pause che
+# rendono la durata di ogni frase piu' vicina a quella attesa dalle sue lettere
+peso_frase = [sum(len(w) + 2 for w in fr.split()) for _, fr in FRASI]
+attesa = [TOT_VOCE * p / sum(peso_frase) for p in peso_frase]
+n, P = len(FRASI), len(VOCE)
+INF = float('inf')
+# costo[i][j]: frasi 0..i-1 coprono gli intervalli di voce 0..j-1
+costo = [[INF] * (P + 1) for _ in range(n + 1)]; da = [[0] * (P + 1) for _ in range(n + 1)]
+costo[0][0] = 0
+for i in range(1, n + 1):
+    for j in range(i, P + 1):
+        for k in range(i - 1, j):
+            if costo[i - 1][k] == INF: continue
+            dur = sum(b - a for a, b in VOCE[k:j])
+            c = costo[i - 1][k] + (dur - attesa[i - 1]) ** 2
+            if c < costo[i][j]: costo[i][j] = c; da[i][j] = k
+gruppi, j = [], P
+for i in range(n, 0, -1):
+    k = da[i][j]; gruppi.append((k, j)); j = k
+gruppi.reverse()
+
+parole, frasi = [], []
+for (fase, fr), (k, j) in zip(FRASI, gruppi):
+    pezzi = VOCE[k:j]; tv = sum(b - a for a, b in pezzi)
+    def reale(x, pezzi=pezzi):
+        for a, b in pezzi:
+            if x <= b - a: return a + x
+            x -= b - a
+        return pezzi[-1][1]
+    ws = fr.split(); pw = [len(w) + 2 for w in ws]; acc = 0
+    for w, p in zip(ws, pw):
+        s = reale(tv * acc / sum(pw)); acc += p
+        parole.append((w, s, reale(tv * acc / sum(pw) - 1e-6), fase))
+    frasi.append([pezzi[0][0], pezzi[-1][1]])
+DURATA_TESTO = FINE_VOCE + 0.2
+CODA = 2.2
 DURATA = DURATA_TESTO + CODA
 
 # sottotitoli: blocchi brevi, spezzati a fine frase
@@ -101,7 +142,7 @@ def t_parola(testo):
 
 SCHEDE = [
     (t_parola('rem'), t_parola('senza'), "FASE REM", "il sogno più vivido"),
-    (t_parola('noradrenalina'), t_parola('c\'è') - 0.3, "NORADRENALINA", "quasi a zero: il ricordo\nnon si fissa"),
+    (t_parola('noradrenalina'), t_parola('sai') - 0.3, "NORADRENALINA", "quasi a zero: il ricordo\nnon resta"),
     (t_parola('2019'), t_parola('ecco'), "2019", "studio sui topi:\nneuroni che fanno\ndimenticare"),
     (t_parola('quaderno'), DURATA_TESTO, "QUADERNO", "accanto al letto:\nscrivi il sogno subito"),
 ]
@@ -113,7 +154,7 @@ SCALA = FIG_H / figura.base.height
 FIG_X, FIG_Y = 10, H - FIG_H - 20
 
 # volume della voce, quadro per quadro, per muovere la bocca
-pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{S}/voci3/A2.mp3', '-ac', '1', '-ar', '16000', '-f', 's16le', '-'],
+pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', AUDIO, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'],
                      capture_output=True, check=True).stdout
 campioni = np.frombuffer(pcm, dtype=np.int16).astype(np.float32) / 32768
 passo = 16000 // FPS
@@ -121,7 +162,7 @@ VOLUME = np.array([np.sqrt(np.mean(campioni[i:i + passo] ** 2)) for i in range(0
 VOLUME = np.clip((VOLUME - 0.015) / (np.percentile(VOLUME, 95) - 0.015), 0, 1)
 
 # scene: indice della frase -> disegno
-SCENA_DI_FRASE = ['sogno', 'sogno', 'sogno', 'cervello', 'noradrenalina', 'ricordo', 'scoperta', 'scoperta', 'sveglia', 'quaderno']
+SCENA_DI_FRASE = ['sogno', 'sogno', 'sogno', 'cervello', 'noradrenalina', 'ricordo', 'scoperta', 'scoperta', 'sveglia', 'quaderno', 'quaderno', 'quaderno']
 scene = []
 for i, nome in enumerate(SCENA_DI_FRASE):
     a, b = frasi[i]
@@ -147,8 +188,7 @@ def stato_figura(t):
     sc = frasi[6]; sc2 = frasi[7]
     if sc[0] - 0.1 <= t <= sc2[0] + 1.2:
         stupore = True
-    trucco = frasi[9]
-    if t >= trucco[0] + 1.2:
+    if t >= frasi[9][0]:
         occhi = 'felici'
     if occhi == 'aperti' and not stupore and ((t - 1.7) % 3.1) < 0.13:
         occhi = 'chiusi'
@@ -200,11 +240,6 @@ def quadro(t):
     tw = chip.getlength(testo)
     d.rounded_rectangle((60, 90, 60 + tw + 48, 146), radius=28, fill=(241, 233, 222))
     d.text((84, 100), testo, font=chip, fill=SAIO)
-    if t > FINE_VOCE:
-        avviso = "ANTEPRIMA · voce in arrivo"
-        aw = fonte.getlength(avviso)
-        d.rounded_rectangle((60, 160, 60 + aw + 40, 208), radius=24, fill=SCIARPA)
-        d.text((80, 168), avviso, font=fonte, fill=(255, 245, 238))
     # sottotitoli
     if t < DURATA_TESTO:
         b = next((b for b in blocchi if b[0][1] - 0.05 <= t <= b[-1][2] + 0.25), None)
@@ -247,9 +282,6 @@ def quadro(t):
             tw = titolo.getlength(r)
             d.text(((W - tw) / 2, 270 + i * 100 + (1 - k) * 30), r, font=titolo, fill=INK)
         d.line((W / 2 - 90, 488, W / 2 + 90, 488), fill=ALLORO, width=5)
-        for i, r in enumerate(["Fonte: Izawa et al., Science, 2019", "(neuroni MCH e oblio nel sonno REM)"]):
-            tw = fonte.getlength(r)
-            d.text(((W - tw) / 2, 512 + i * 40), r, font=fonte, fill=TENUE)
     # barra di avanzamento
     d.rectangle((0, H - 10, W * min(1, t / DURATA), H), fill=ALLORO)
     return im
@@ -259,8 +291,8 @@ if __name__ == '__main__':
     n = round(DURATA * FPS)
     cmd = ['ffmpeg', '-y', '-hide_banner', '-loglevel', 'error',
            '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
-           '-i', f'{S}/voci3/A2.mp3',
-           '-filter_complex', f'[1:a]apad=whole_dur={DURATA:.3f},afade=t=out:st={FINE_VOCE - 0.1:.2f}:d=0.1[a]',
+           '-i', AUDIO,
+           '-filter_complex', f'[1:a]apad=whole_dur={DURATA:.3f}[a]',
            '-map', '0:v', '-map', '[a]', '-c:v', 'libx264', '-preset', 'medium', '-crf', '24',
            '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', '-t', f'{DURATA:.3f}', out]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)

@@ -39,8 +39,8 @@ test('un copione non verificato viene rifiutato', () => {
 });
 
 test('le fasi diventano indicazioni solo con eleven_v3', () => {
-  assert.equal(testoDaLeggere(copione, 'eleven_v3'), '[curious] Perché il cielo è azzurro? [warmly] La natura è semplice.');
-  assert.match(testoDaLeggere({ parti: [{ fase: 'domanda', testo: 'Ti sei mai chiesto?' }] }, 'eleven_v3'), /^\[curious\]/);
+  assert.equal(testoDaLeggere(copione, 'eleven_v3'), '[warmly] [curious] Perché il cielo è azzurro? [warmly] La natura è semplice.');
+  assert.match(testoDaLeggere({ parti: [{ fase: 'domanda', testo: 'Ti sei mai chiesto?' }] }, 'eleven_v3'), /^\[warmly\] \[curious\]/);
   assert.doesNotMatch(testoDaLeggere(copione, 'eleven_multilingual_v2'), /\[/);
   assert.equal(testoPulito(copione), 'Perché il cielo è azzurro? La natura è semplice.');
 });
