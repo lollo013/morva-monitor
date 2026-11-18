@@ -1,7 +1,7 @@
 # Stile di montaggio del Professor Aurelio — ritmo visivo alto
 
-Stato: **in attesa di approvazione** (demo «Perché il cielo è azzurro?» nella dashboard privata).
-Quando viene approvato, vale per tutti i video successivi; fino ad allora resta lo stile precedente.
+Stato: **approvato** il 18 novembre 2026 dalla dashboard privata (demo «Perché il cielo è azzurro?»).
+Vale per tutti i video successivi.
 
 ## Regole
 1. **Un cambio visivo significativo ogni 2–3 secondi**, sempre con uno scopo narrativo:
