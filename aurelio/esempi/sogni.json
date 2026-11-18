@@ -8,9 +8,25 @@
     "Ci si ricorda di più un sogno se ci si sveglia durante il sonno REM o subito dopo."
   ],
   "parti": [
-    { "fase": "apertura", "testo": "Ehi, ti sei mai chiesto perché il nostro cervello ci fa dimenticare i sogni? E se ti dicessi che la risposta è nascosta proprio nel modo in cui dormiamo? Te lo spiego io." },
-    { "fase": "spiegazione", "testo": "Allora: i sogni più vividi li facciamo nella fase REM. Lì il cervello è attivissimo, ma una sostanza che serve alla memoria, la noradrenalina, quasi sparisce. E senza di lei, il sogno non resta." },
-    { "fase": "scoperta", "testo": "Ma sai qual è la cosa più incredibile? Nel 2019 hanno scoperto, nei topi, dei neuroni che durante il sonno REM lavorano proprio per farci *dimenticare*." },
-    { "fase": "conclusione", "testo": "Ecco perché ti ricordi un sogno solo se ti svegli mentre lo stai facendo. Un consiglio da amico? Tieni un quaderno accanto al letto, e scrivilo *subito*. Fidati." }
+    {
+      "fase": "apertura",
+      "testo": "Ehi, ti sei mai chiesto perché il nostro cervello ci fa dimenticare i sogni? E se ti dicessi che la risposta è nascosta proprio nel modo in cui dormiamo? Te lo spiego io."
+    },
+    {
+      "fase": "spiegazione",
+      "testo": "Allora: i sogni più vividi li facciamo nella fase REM. Lì il cervello è attivissimo, ma una sostanza che serve alla memoria, la noradrenalina, quasi sparisce. E senza di lei, il sogno non resta."
+    },
+    {
+      "fase": "scoperta",
+      "testo": "Ma sai qual è la cosa più incredibile? Nel 2019 hanno scoperto, nei topi, dei neuroni che durante il sonno REM lavorano proprio per farci *dimenticare*."
+    },
+    {
+      "fase": "conclusione",
+      "testo": "Ecco perché ti ricordi un sogno solo se ti svegli mentre lo stai facendo. Un consiglio da amico? Tieni un quaderno accanto al letto, e scrivilo *subito*. Fidati."
+    },
+    {
+      "fase": "invito",
+      "testo": "Ti è piaciuto questo video? Lascia un like e comincia a seguirci, per non perderti altri video come questo!"
+    }
   ]
 }

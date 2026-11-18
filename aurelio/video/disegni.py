@@ -284,8 +284,40 @@ def quaderno(p, t):
     return fine(im)
 
 
+def cuore(d, cx, cy, s, col, bordo=True):
+    pts = []
+    for i in range(80):
+        a = i / 80 * 2 * math.pi
+        x = 16 * math.sin(a) ** 3
+        y = -(13 * math.cos(a) - 5 * math.cos(2 * a) - 2 * math.cos(3 * a) - math.cos(4 * a))
+        pts.append((cx + x * s / 16, cy + y * s / 16))
+    d.polygon(pts, fill=col, outline=LINEA if bordo else None, width=W if bordo else 0)
+
+
+def invito(p, t):
+    """Like e Segui: un cuore che pulsa e il pulsante che si preme."""
+    im, d = tela()
+    batt = 1 + 0.08 * max(0, math.sin(t * 6))
+    cuore(d, L * 0.5, L * 0.36, 112 * SS * batt, ROSSO)
+    for i in range(3):
+        f = (t * 0.7 + i / 3) % 1
+        a = int(200 * (1 - f))
+        x = (0.12, 0.88, 0.80)[i]
+        cuore(d, L * x, L * (0.52 - 0.40 * f), 30 * SS, (226, 128, 136, a), bordo=False)
+    premuto = (t % 1.6) > 1.1
+    y = L * 0.70 + (6 * SS if premuto else 0)
+    testo = '+ Segui'
+    tw = d.textlength(testo, font=zfont)
+    x0, x1 = (L - tw) / 2 - 50 * SS, (L + tw) / 2 + 50 * SS
+    if not premuto:
+        d.rounded_rectangle((x0, y + 12 * SS, x1, y + 120 * SS), radius=56 * SS, fill=LINEA)
+    d.rounded_rectangle((x0, y, x1, y + 108 * SS), radius=54 * SS, fill=ORO, outline=LINEA, width=W)
+    d.text(((L - tw) / 2, y + 22 * SS), testo, font=zfont, fill=LINEA)
+    return fine(im)
+
+
 SCENE = {'sogno': sogno, 'cervello': cervello, 'noradrenalina': noradrenalina, 'ricordo': ricordo,
-         'scoperta': scoperta, 'sveglia': sveglia, 'quaderno': quaderno}
+         'scoperta': scoperta, 'sveglia': sveglia, 'quaderno': quaderno, 'invito': invito}
 
 if __name__ == '__main__':
     import sys

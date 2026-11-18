@@ -6,6 +6,7 @@
      spiegazione  energica, dinamica, sicura; mai una lettura uniforme
      scoperta     sorpresa autentica sulla notizia
      conclusione  calda e incisiva: una piccola rivelazione
+     invito       chiusura da amico: like e segui per altri video
 
    Con eleven_v3 l'interpretazione si guida con le indicazioni tra
    parentesi quadre documentate da ElevenLabs ([curious], [excited],
@@ -22,7 +23,8 @@ export const FASI = {
   apertura: '[warmly] [curious]',
   spiegazione: '[excited]',
   scoperta: '[surprised]',
-  conclusione: '[warmly]'
+  conclusione: '[warmly]',
+  invito: '[warmly]'
 };
 /* nomi usati nei primi copioni */
 const SINONIMI = { domanda: 'apertura' };

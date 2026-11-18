@@ -29,7 +29,12 @@ titolo = ImageFont.truetype('/usr/share/fonts/truetype/crosextra/Caladea-Bold.tt
 fonte = ImageFont.truetype(F + 'Inter-Medium.otf', 28)
 
 # ---------------------------------------------------------------- copione
-AUDIO = f'{S}/narrazione.mp3'
+AUDIO = f'{S}/narrazione_completa.mp3'
+if not __import__('os').path.exists(AUDIO):
+    # narrazione + breve respiro + invito finale, tutto con la voce A2
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', f'{S}/narrazione.mp3', '-i', f'{S}/invito.mp3',
+                    '-filter_complex', '[0:a]apad=pad_dur=0.30[a0];[a0][1:a]concat=n=2:v=0:a=1[a]',
+                    '-map', '[a]', '-c:a', 'libmp3lame', '-b:a', '160k', AUDIO], check=True)
 FRASI = [  # (fase, frase) nell'ordine in cui le dice
     ("apertura", "Ehi, ti sei mai chiesto perché il nostro cervello ci fa dimenticare i sogni?"),
     ("apertura", "E se ti dicessi che la risposta è nascosta proprio nel modo in cui dormiamo?"),
@@ -43,8 +48,10 @@ FRASI = [  # (fase, frase) nell'ordine in cui le dice
     ("conclusione", "Un consiglio da amico?"),
     ("conclusione", "Tieni un quaderno accanto al letto, e scrivilo subito."),
     ("conclusione", "Fidati."),
+    ("invito", "Ti è piaciuto questo video?"),
+    ("invito", "Lascia un like e comincia a seguirci, per non perderti altri video come questo!"),
 ]
-CHIAVE = {"sogni", "rem", "noradrenalina", "2019", "neuroni", "dimenticare", "subito", "quaderno", "dormiamo", "sparisce", "amico", "fidati", "incredibile"}
+CHIAVE = {"like", "seguirci", "piaciuto", "sogni", "rem", "noradrenalina", "2019", "neuroni", "dimenticare", "subito", "quaderno", "dormiamo", "sparisce", "amico", "fidati", "incredibile"}
 
 def durata_audio(f):
     return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]))
@@ -162,7 +169,7 @@ VOLUME = np.array([np.sqrt(np.mean(campioni[i:i + passo] ** 2)) for i in range(0
 VOLUME = np.clip((VOLUME - 0.015) / (np.percentile(VOLUME, 95) - 0.015), 0, 1)
 
 # scene: indice della frase -> disegno
-SCENA_DI_FRASE = ['sogno', 'sogno', 'sogno', 'cervello', 'noradrenalina', 'ricordo', 'scoperta', 'scoperta', 'sveglia', 'quaderno', 'quaderno', 'quaderno']
+SCENA_DI_FRASE = ['sogno', 'sogno', 'sogno', 'cervello', 'noradrenalina', 'ricordo', 'scoperta', 'scoperta', 'sveglia', 'quaderno', 'quaderno', 'quaderno', 'invito', 'invito']
 scene = []
 for i, nome in enumerate(SCENA_DI_FRASE):
     a, b = frasi[i]
