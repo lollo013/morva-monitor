@@ -1,0 +1,18 @@
+{
+  "titolo": "Perché il cielo è azzurro?",
+  "verificato": true,
+  "tono": "amico: parla a tu per tu, caldo e complice, mai da lezione",
+  "stile": "ritmo visivo alto: un cambio di scena ogni 2-3 secondi",
+  "fonti": [
+    "Diffusione di Rayleigh: l'intensità della luce diffusa dalle molecole dell'aria è proporzionale a 1/λ⁴, quindi il blu (onde corte) è diffuso molto più del rosso (onde lunghe).",
+    "La luce del Sole contiene tutto lo spettro visibile: un prisma la separa nei colori dell'arcobaleno.",
+    "Al tramonto la luce attraversa molta più atmosfera: il blu viene diffuso via lungo il percorso e arrivano soprattutto arancione e rosso."
+  ],
+  "parti": [
+    { "fase": "apertura", "testo": "Ehi, perché il cielo è azzurro? Te lo spiego io." },
+    { "fase": "spiegazione", "testo": "La luce del Sole sembra bianca, ma contiene tutti i colori dell'arcobaleno. Quando attraversa l'aria, le molecole sparpagliano soprattutto il blu, che ha onde più corte." },
+    { "fase": "scoperta", "testo": "Così il blu arriva ai tuoi occhi da ogni punto del cielo." },
+    { "fase": "conclusione", "testo": "E al tramonto? La luce fa più strada, il blu si perde lungo il viaggio e restano l'arancione e il rosso." },
+    { "fase": "invito", "testo": "Ti è piaciuto? Scrivilo nei commenti e seguici!" }
+  ]
+}

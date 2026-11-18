@@ -1,0 +1,108 @@
+{
+ "nome": "cielo",
+ "audio": "cielo.mp3",
+ "frasi": [
+  "Ehi, perché il cielo è azzurro?",
+  "Te lo spiego io.",
+  "La luce del Sole sembra bianca, ma contiene tutti i colori dell'arcobaleno.",
+  "Quando attraversa l'aria, le molecole sparpagliano soprattutto il blu, che ha onde più corte.",
+  "Così il blu arriva ai tuoi occhi da ogni punto del cielo.",
+  "E al tramonto?",
+  "La luce fa più strada, il blu si perde lungo il viaggio e restano l'arancione e il rosso.",
+  "Ti è piaciuto?",
+  "Scrivilo nei commenti e seguici!"
+ ],
+ "chiave": [
+  "azzurro",
+  "bianca",
+  "colori",
+  "molecole",
+  "blu",
+  "corte",
+  "occhi",
+  "tramonto",
+  "strada",
+  "arancione",
+  "rosso",
+  "commenti",
+  "seguici"
+ ],
+ "inquadrature": [
+  {
+   "da": 0,
+   "tipo": "piena",
+   "scena": "gancio",
+   "testo_grande": "Perché il cielo è azzurro?"
+  },
+  {
+   "da": "te",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "la",
+   "tipo": "piena",
+   "scena": "prisma",
+   "eventi": {
+    "apri": "contiene",
+    "zoom": "colori"
+   },
+   "zoom": 1.14,
+   "fuoco": [
+    0.72,
+    0.4
+   ]
+  },
+  {
+   "da": "quando",
+   "tipo": "angolo_dx",
+   "scena": "molecole",
+   "eventi": {
+    "zoom": "molecole"
+   },
+   "zoom": 1.25,
+   "fuoco": [
+    0.4,
+    0.5
+   ]
+  },
+  {
+   "da": "che",
+   "tipo": "piena",
+   "scena": "schema_onde"
+  },
+  {
+   "da": "così",
+   "tipo": "affiancati",
+   "scena": "occhi_cielo"
+  },
+  {
+   "da": "e",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "luce#2",
+   "tipo": "piena",
+   "scena": "tramonto",
+   "eventi": {
+    "colore": "restano",
+    "zoom": "perde"
+   },
+   "zoom": 1.3,
+   "fuoco": [
+    0.3,
+    0.48
+   ]
+  },
+  {
+   "da": "ti",
+   "tipo": "angolo_sx",
+   "scena": "invito"
+  }
+ ],
+ "stupore": [
+  "e",
+  "luce#2"
+ ],
+ "sorriso_da": "ti",
+ "coda": 0.7
+}
