@@ -169,6 +169,25 @@ for p in parole:
         blocchi.append(cur); cur = []
 if cur: blocchi.append(cur)
 
+FRASI_INTERE = R.get('sottotitoli') == 'frasi'
+if FRASI_INTERE:
+    # una frase intera per volta; le frasi lunghe si dividono a una virgola (o a metà) per stare in 2 righe
+    MAX = 84
+    blocchi, cur = [], []
+    def chiudi(g):
+        while len(' '.join(x[0] for x in g)) > MAX:
+            tagli = [k for k in range(1, len(g)) if re.search(r'[,;:]$', g[k - 1][0])]
+            lun = lambda k: len(' '.join(x[0] for x in g[:k]))
+            buoni = [k for k in tagli if 20 <= lun(k) <= MAX]
+            k = max(buoni) if buoni else max(1, len(g) // 2)
+            blocchi.append(g[:k]); g = g[k:]
+        blocchi.append(g)
+    for p_ in parole:
+        cur.append(p_)
+        if re.search(r'[.?!]$', p_[0]):
+            chiudi(cur); cur = []
+    if cur: chiudi(cur)
+
 # volume per la bocca
 pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', AUDIO, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'],
                      capture_output=True, check=True).stdout
@@ -353,6 +372,40 @@ def camera(fr, s, t):
     x0 = min(max(0, cx - w / 2), W - w); y0 = min(max(0, cy - h / 2), H - h)
     return fr.crop((round(x0), round(y0), round(x0 + w), round(y0 + h))).resize((W, H), Image.BILINEAR)
 
+def sottotitolo_frase(fr, t):
+    b = next((b for b in blocchi if b[0][1] - 0.04 <= t <= b[-1][2] + 0.25), None)
+    if not b: return
+    dim, larg = 54, 1680
+    f = fnt(dim)
+    righe, riga = [], []
+    for w in b:
+        if riga and f.getlength(' '.join(x[0] for x in riga + [w])) > larg:
+            righe.append(riga); riga = []
+        riga.append(w)
+    if riga: righe.append(riga)
+    if len(righe) == 2 and len(righe[1]) <= 3 and len(b) > 6:
+        m = (len(b) + 1) // 2; righe = [b[:m], b[m:]]
+    if len(righe) > 2:            # non dovrebbe succedere: si stringe il carattere
+        dim = 46; f = fnt(dim)
+    alt = dim * 1.22
+    lw = max(f.getlength(' '.join(x[0] for x in r)) for r in righe)
+    box_h = alt * len(righe) + 28
+    x0 = (W - lw) / 2 - 26; y0 = H - 18 - box_h
+    lay = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    d.rounded_rectangle((x0, y0, x0 + lw + 52, y0 + box_h), radius=18, fill=(255, 253, 250, 225))
+    y = y0 + 12
+    for r in righe:
+        x = (W - f.getlength(' '.join(w[0] for w in r))) / 2
+        for w in r:
+            ww = f.getlength(w[0])
+            chiave = norm(w[0]) in CHIAVE
+            col = EVID if chiave else INK
+            d.text((x, y), w[0], font=f, fill=col)
+            x += f.getlength(w[0] + ' ')
+        y += alt
+    fr.paste(lay, (0, 0), lay)
+
 def sottotitolo(fr, t, area, grande=False):
     b = next((b for b in blocchi if b[0][1] - 0.04 <= t <= b[-1][2] + 0.12), None)
     if not b: return
@@ -429,7 +482,7 @@ def quadro(t):
     if s.get('testo_grande'):
         gancio_testo(fr, t, area, s['testo_grande'])
     else:
-        sottotitolo(fr, t, area)
+        sottotitolo_frase(fr, t) if FRASI_INTERE else sottotitolo(fr, t, area)
     # niente barra di avanzamento: TikTok ha la sua, e la nostra finirebbe sotto l'interfaccia
     return fr
 

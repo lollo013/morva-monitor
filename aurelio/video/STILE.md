@@ -47,3 +47,5 @@ parola che la fa partire (`"da": "luce#2"` = seconda volta che dice «luce»).
   Scelta dall'utente (US1) il 19/11/2026. Per l'italiano resta A2.
 - Formato 16:9, 1920×1080; il Professore resta in scena in ogni inquadratura (primo piano, accanto alla lavagna, figura intera).
 - Cifre in dollari e dati internazionali; mai «not financial advice» omesso nei video di finanza.
+- Sottotitoli YouTube: **frasi intere** (1-2 righe, banda chiara in basso), tempi presi parola per parola dalla
+  trascrizione ElevenLabs dell'audio (`tempi_parole` nella regia), parole chiave solo in rosso. Si allega anche il file .srt.
