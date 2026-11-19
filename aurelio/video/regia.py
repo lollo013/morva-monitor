@@ -87,9 +87,36 @@ def distribuisci(testo, pezzi):
         out.append((w, s, reale(tv * acc / sum(pw) - 1e-6)))
     return out
 
+def da_trascrizione(percorso):
+    """Tempi veri di ogni parola: allinea le parole del copione a quelle trascritte (con i tempi).
+    Le parole che non combaciano (numeri scritti in cifre, ecc.) prendono il tempo interpolato fra i vicini."""
+    import difflib
+    tr = json.load(open(percorso, encoding='utf8'))          # [[parola, inizio, fine], ...]
+    sc = [w for f in R['frasi'] for w in f.split()]
+    nz = lambda w: re.sub(r"[^a-z0-9']", '', w.lower().replace('’', "'"))
+    a, b = [nz(w) for w in sc], [nz(w[0]) for w in tr]
+    t = [None] * len(sc)
+    for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks():
+        for k in range(blk.size):
+            t[blk.a + k] = (tr[blk.b + k][1], tr[blk.b + k][2])
+    # interpolazione dei buchi fra due parole ancorate, in proporzione alla lunghezza
+    i = 0
+    while i < len(sc):
+        if t[i] is not None: i += 1; continue
+        j = i
+        while j < len(sc) and t[j] is None: j += 1
+        ini = t[i - 1][1] if i > 0 else 0.0
+        fin = t[j][0] if j < len(sc) else FINE_VOCE
+        pesi = [len(w) + 2 for w in sc[i:j]]; tot = sum(pesi); acc = 0
+        for k in range(i, j):
+            s0 = ini + (fin - ini) * acc / tot; acc += pesi[k - i]
+            t[k] = (s0, ini + (fin - ini) * acc / tot)
+        i = j
+    return [(w, s0, e0) for w, (s0, e0) in zip(sc, t)]
+
 # 1) ogni frase finisce su una pausa vera
 parole = []   # (testo, inizio, fine)
-for frase, (k, j) in zip(R['frasi'], allinea(R['frasi'], VOCE)):
+for frase, (k, j) in ([] if R.get('tempi_parole') else zip(R['frasi'], allinea(R['frasi'], VOCE))):
     pezzi = VOCE[k:j]
     clausole = [u.strip() for u in re.findall(r'[^,;:]+[,;:]*', frase) if u.strip()]
     # 2) dentro la frase, le virgole usano le pause interne quando corrispondono una a una
@@ -101,6 +128,9 @@ for frase, (k, j) in zip(R['frasi'], allinea(R['frasi'], VOCE)):
             parole += distribuisci(c, pezzi[a:b])
     else:
         parole += distribuisci(frase, pezzi)
+
+if R.get('tempi_parole'):
+    parole = da_trascrizione(os.path.join(S, R['tempi_parole']))
 
 def norm(w): return re.sub(r"[^\w']", '', w.lower())
 
