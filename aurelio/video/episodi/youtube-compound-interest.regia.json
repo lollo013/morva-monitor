@@ -31,10 +31,17 @@
   "And in twenty twenty-two, inflation in the US, the UK and the eurozone reached eight percent or more.",
   "So, how do you start?",
   "First: an emergency fund.",
-  "Three to six months of expenses, somewhere safe and always available.",
+  "Three to six months of expenses, somewhere safe and always available, like a savings account.",
   "That way, a surprise doesn't push you into debt.",
   "Second: pay yourself first, not last.",
   "As soon as your paycheck arrives, move a fixed amount, even a small one.",
+  "Even better, make it automatic: set up a transfer for the day after payday, so you never even see that money.",
+  "Start with ten percent.",
+  "If that's too much, start with five.",
+  "The habit matters more than the amount.",
+  "And one more thing: if you have credit card debt, pay it off first.",
+  "Credit card rates are often above twenty percent a year.",
+  "That's compound interest working against you.",
   "Now, let's talk about safe investments.",
   "I'll be honest with you, as a friend: zero risk doesn't exist.",
   "There's a ladder.",
@@ -44,14 +51,27 @@
   "Higher up, stocks and the funds that hold them: over the long run they've returned more, but they can also drop a lot.",
   "More return means more risk.",
   "Always.",
-  "Three rules so you don't get burned.",
+  "So how do you choose?",
+  "Ask yourself one question: when will I need this money?",
+  "Money for the next few years stays at the bottom of the ladder.",
+  "Money you won't touch for ten years or more can climb higher, because time gives it the chance to recover from the drops.",
+  "Now, three rules so you don't get burned.",
   "One: diversify.",
   "Don't put all your eggs in one basket.",
+  "Many people do it with index funds: one single fund that holds hundreds, even thousands of companies, often with very low fees.",
+  "If one company fails, you barely notice.",
   "Two: watch the fees.",
   "In Mark's example, if a product takes one percent a year, instead of sixty-nine thousand dollars you end up with about fifty-eight thousand.",
   "Three: be wary of anyone promising high, guaranteed returns.",
-  "That's not finance.",
+  "If it sounds too good to be true, it probably is.",
   "Often, it's a scam.",
+  "So, let's recap.",
+  "Start early.",
+  "Build your emergency fund.",
+  "Pay yourself first.",
+  "Get rid of expensive debt.",
+  "Invest for the long term, diversified and with low fees.",
+  "Time and patience will do the rest.",
   "And remember: this video explains the concepts, it's not financial advice.",
   "Before you invest, do your research, or talk to a professional.",
   "If this video helped you, hit like, subscribe to the channel, and tell me in the comments how old you were when you started saving.",
@@ -94,7 +114,15 @@
   "professional",
   "like",
   "subscribe",
-  "comments"
+  "comments",
+  "automatic",
+  "habit",
+  "credit",
+  "twenty",
+  "index",
+  "thousands",
+  "recap",
+  "patience"
  ],
  "inquadrature": [
   {
@@ -305,6 +333,39 @@
    "da": "paycheck"
   },
   {
+   "tipo": "affiancati",
+   "scena": "automatico_en",
+   "da": "automatic"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "automatico_en",
+   "da": "start#4"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "habit"
+  },
+  {
+   "tipo": "primo_piano",
+   "da": "thing#2"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "debito_en",
+   "da": "credit"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "debito_en",
+   "da": "rates"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "debito_en",
+   "da": "working"
+  },
+  {
    "tipo": "primo_piano",
    "da": "talk"
   },
@@ -332,6 +393,11 @@
    "tipo": "affiancati",
    "scena": "garanzia_en",
    "da": "protected"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "garanzia_en",
+   "da": "pay#3"
   },
   {
    "tipo": "angolo_dx",
@@ -367,6 +433,25 @@
   },
   {
    "tipo": "primo_piano",
+   "da": "choose"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "orizzonte_en",
+   "da": "question"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "orizzonte_en",
+   "da": "next#2"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "orizzonte_en",
+   "da": "touch"
+  },
+  {
+   "tipo": "primo_piano",
    "da": "rules"
   },
   {
@@ -381,8 +466,18 @@
   },
   {
    "tipo": "mezzo_busto",
+   "scena": "indice_en",
+   "da": "index"
+  },
+  {
+   "tipo": "angolo_sx",
+   "scena": "indice_en",
+   "da": "fails"
+  },
+  {
+   "tipo": "mezzo_busto",
    "scena": "costi_en",
-   "da": "fees#2"
+   "da": "fees#3"
   },
   {
    "tipo": "angolo_sx",
@@ -395,9 +490,28 @@
    "da": "wary"
   },
   {
+   "tipo": "primo_piano",
+   "da": "sounds"
+  },
+  {
    "tipo": "angolo_dx",
    "scena": "truffa_en",
    "da": "scam"
+  },
+  {
+   "tipo": "affiancati",
+   "scena": "riepilogo_en",
+   "da": "recap"
+  },
+  {
+   "tipo": "angolo_dx",
+   "scena": "riepilogo_en",
+   "da": "invest"
+  },
+  {
+   "tipo": "mezzo_busto",
+   "scena": "riepilogo_en",
+   "da": "patience"
   },
   {
    "tipo": "primo_piano",
@@ -420,13 +534,13 @@
   },
   {
    "tipo": "primo_piano",
-   "da": "see"
+   "da": "see#2"
   }
  ],
  "stupore": [
   "now",
   "anna"
  ],
- "sorriso_da": "if#3",
+ "sorriso_da": "if#7",
  "coda": 1.0
 }

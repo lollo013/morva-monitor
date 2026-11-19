@@ -417,7 +417,112 @@ def iscriviti(p, t, w, h):
 SCENE_IT = {'meraviglia': meraviglia, 'programma': programma, 'mille': mille, 'neve': neve, 'regola72': regola72,
          'anna_marco': anna_marco, 'ritardo': ritardo, 'materasso': materasso, 'inflazione': inflazione,
          'emergenza': emergenza, 'prima_tu': prima_tu, 'scala_rischio': scala_rischio, 'garanzia': garanzia,
-         'uova': uova, 'costi': costi, 'truffa': truffa, 'do your research': informati, 'iscriviti': iscriviti}
+         'uova': uova, 'costi': costi, 'truffa': truffa, 'informati': informati, 'iscriviti': iscriviti}
+
+
+# ------------------------------------------------------------------ 4-minute version: extra scenes
+def automatico(p, t, w, h):
+    """Automatic transfer the day after payday: 10% (or 5%) goes to savings before you see it."""
+    im, d = tela(w, h, (240, 246, 252, 255)); W, H = w * SS, h * SS; k = K(w, h)
+    tc(d, W / 2, H * 0.03, 'make it automatic', int(48 * k), BLU)
+    # calendario
+    x0, y0 = W * 0.06, H * 0.2
+    for i in range(14):
+        c, r = i % 7, i // 7
+        cx = x0 + c * W * 0.075; cy = y0 + r * H * 0.16
+        g = i + 1
+        col = ORO if g == 1 else (VERDE2 if g == 2 else CARTA)
+        d.rounded_rectangle((cx, cy, cx + W * 0.065, cy + H * 0.13), radius=8 * SS, fill=col, outline=LINEA, width=3 * SS)
+        tc(d, cx + W * 0.0325, cy + H * 0.03, str(g), int(26 * k), SCURO)
+    tc(d, x0 + W * 0.03, y0 + H * 0.34, 'payday', int(22 * k), ORO_SCURO)
+    tc(d, x0 + W * 0.12, y0 + H * 0.4, 'auto transfer', int(22 * k), VERDE2)
+    # freccia e salvadanaio
+    f = (t * 0.6) % 1
+    banconota(d, W * (0.62 + 0.14 * e(f * 1.3)), H * 0.42, W * 0.06)
+    cx, cy = W * 0.86, H * 0.45
+    d.ellipse((cx - W * 0.1, cy - H * 0.13, cx + W * 0.1, cy + H * 0.13), fill=ROSA, outline=LINEA, width=6 * SS)
+    tc(d, W * 0.3, H * 0.66, '10%', int(80 * k), VERDE2)
+    tc(d, W * 0.72, H * 0.7, 'or start with 5%', int(30 * k), GRIGIO)
+    tc(d, W / 2, H * 0.88, 'the habit matters more than the amount', int(30 * k), SCURO)
+    return fine(im, w, h)
+
+
+def debito(p, t, w, h):
+    """Credit card debt: rates often above 20% a year - compound interest working against you."""
+    im, d = tela(w, h, (255, 238, 234, 255)); W, H = w * SS, h * SS; k = K(w, h)
+    cx, cy = W * 0.28, H * 0.5
+    d.rounded_rectangle((cx - W * 0.2, cy - H * 0.22, cx + W * 0.2, cy + H * 0.22), radius=24 * SS, fill=(60, 70, 110, 255), outline=LINEA, width=6 * SS)
+    d.rectangle((cx - W * 0.2, cy - H * 0.12, cx + W * 0.2, cy - H * 0.04), fill=LINEA)
+    d.rounded_rectangle((cx - W * 0.15, cy + H * 0.02, cx - W * 0.07, cy + H * 0.1), radius=6 * SS, fill=ORO)
+    q = 1 + 0.05 * math.sin(t * 6)
+    tc(d, W * 0.72, H * 0.12, 'credit card rates', int(36 * k))
+    tc(d, W * 0.72, H * 0.26, '20%+', int(int(110 * k) * q), ROSSO)
+    tc(d, W * 0.72, H * 0.52, 'a year', int(36 * k))
+    # curva del debito che sale
+    pts = [(W * (0.5 + 0.42 * i / 40), H * 0.8 - H * 0.2 * ((1.2 ** (i / 4) - 1) / (1.2 ** 10 - 1))) for i in range(int(40 * min(1, t * 0.6)) + 1)]
+    if len(pts) > 1: d.line(pts, fill=ROSSO, width=10 * SS, joint='curve')
+    tc(d, W / 2, H * 0.9, 'pay it off first', int(40 * k), ROSSO)
+    return fine(im, w, h)
+
+
+def orizzonte(p, t, w, h):
+    """When will I need this money? Few years: bottom of the ladder. 10+ years: can climb higher."""
+    im, d = tela(w, h); W, H = w * SS, h * SS; k = K(w, h)
+    tc(d, W / 2, H * 0.03, 'when will I need this money?', int(42 * k))
+    d.line((W * 0.08, H * 0.62, W * 0.92, H * 0.62), fill=LINEA, width=8 * SS)
+    d.polygon([(W * 0.95, H * 0.62), (W * 0.91, H * 0.58), (W * 0.91, H * 0.66)], fill=LINEA)
+    for x, et in ((0.1, 'today'), (0.35, '3 years'), (0.85, '10+ years')):
+        d.line((W * x, H * 0.59, W * x, H * 0.65), fill=LINEA, width=6 * SS)
+        tc(d, W * x, H * 0.67, et, int(28 * k), GRIGIO)
+    a = e(t * 1.3)
+    d.rounded_rectangle((W * 0.1, H * 0.3, W * (0.1 + 0.25 * a), H * 0.52), radius=14 * SS, fill=VERDE2, outline=LINEA, width=4 * SS)
+    if a > 0.9: tc(d, W * 0.225, H * 0.37, 'safe', int(32 * k), CREMA)
+    b = e(t * 1.3 - 0.8)
+    if b > 0:
+        d.rounded_rectangle((W * 0.36, H * 0.3, W * (0.36 + 0.49 * b), H * 0.52), radius=14 * SS, fill=ROSSO, outline=LINEA, width=4 * SS)
+        if b > 0.9: tc(d, W * 0.6, H * 0.37, 'can climb higher', int(32 * k), CREMA)
+    tc(d, W / 2, H * 0.82, 'time helps recover from the drops', int(34 * k), BLU)
+    return fine(im, w, h)
+
+
+def indice(p, t, w, h):
+    """Index fund: one fund holding hundreds or thousands of companies; one fails, you barely notice."""
+    im, d = tela(w, h, (236, 244, 252, 255)); W, H = w * SS, h * SS; k = K(w, h)
+    tc(d, W / 2, H * 0.03, 'index fund', int(54 * k), BLU)
+    cx, cy, R = W * 0.36, H * 0.56, H * 0.34
+    d.ellipse((cx - R, cy - R, cx + R, cy + R), fill=(255, 255, 255, 255), outline=LINEA, width=6 * SS)
+    n = min(120, int(t * 80) + 10)
+    for i in range(n):
+        a = i * 2.39996; rr = R * 0.9 * math.sqrt((i + 0.5) / 120)
+        x, y = cx + rr * math.cos(a), cy + rr * math.sin(a)
+        col = ROSSO if (i == 37 and t > 1.4) else [BLU, VERDE2, ORO, ARANCIO][i % 4]
+        s = R * 0.05
+        d.rectangle((x - s, y - s, x + s, y + s), fill=col, outline=LINEA)
+    tc(d, W * 0.78, H * 0.3, 'hundreds or', int(32 * k))
+    tc(d, W * 0.78, H * 0.4, 'thousands', int(44 * k), BLU)
+    tc(d, W * 0.78, H * 0.52, 'of companies', int(32 * k))
+    tc(d, W * 0.78, H * 0.7, 'low fees', int(36 * k), VERDE2)
+    if t > 1.4:
+        tc(d, W * 0.78, H * 0.84, 'one fails? barely felt', int(26 * k), ROSSO)
+    return fine(im, w, h)
+
+
+def riepilogo(p, t, w, h):
+    """Recap checklist: six points ticked one after another."""
+    im, d = tela(w, h, LAVAGNA); W, H = w * SS, h * SS; k = K(w, h)
+    d.rectangle((0, 0, W, H), outline=(150, 104, 70, 255), width=24 * SS)
+    tc(d, W / 2, H * 0.05, 'recap', int(52 * k), CREMA)
+    voci = ['start early', 'emergency fund', 'pay yourself first', 'kill expensive debt', 'long term, diversified, low fees', 'time and patience']
+    for i, v in enumerate(voci):
+        a = e(t * 1.6 - i * 0.45)
+        if a <= 0: continue
+        y = H * (0.2 + 0.12 * i)
+        d.line((W * 0.1, y + H * 0.04, W * 0.12, y + H * 0.07, W * 0.15, y + H * 0.01), fill=VERDE2, width=7 * SS)
+        d.text((W * 0.19, y), v, font=font(int(38 * k)), fill=(255, 255, 255, int(255 * a)))
+    return fine(im, w, h)
+
+
+SCENE_IT.update({'automatico': automatico, 'debito': debito, 'orizzonte': orizzonte, 'indice': indice, 'riepilogo': riepilogo})
 
 SCENE = {k + '_en': v for k, v in SCENE_IT.items()}
 

@@ -1,61 +1,490 @@
 [
- {"frase":"There's a quote","parola":"there's","tipo":"angolo_dx","scena":"meraviglia_en","testo_grande":"Can compound interest|change your life?"},
- {"frase":"People say Einstein","parola":"people","tipo":"primo_piano"},
- {"frase":"People say Einstein","parola":"almost","tipo":"angolo_sx","scena":"meraviglia_en","parametri":{"falso":0}},
- {"frase":"One thing is true","parola":"true","tipo":"primo_piano"},
- {"frase":"Today I'll show you","parola":"today","tipo":"affiancati","scena":"programma_en"},
- {"frase":"Today I'll show you","parola":"why","tipo":"angolo_dx","scena":"programma_en"},
- {"frase":"Get comfortable","parola":"get","tipo":"primo_piano"},
- {"frase":"Let's start with the basics","parola":"basics","tipo":"mezzo_busto","scena":"mille_en","parametri":{"anno":1}},
- {"frase":"After one year","parola":"after","tipo":"angolo_sx","scena":"mille_en","parametri":{"anno":1}},
- {"frase":"Nothing magical","parola":"nothing","tipo":"primo_piano"},
- {"frase":"But the next year","parola":"next","tipo":"angolo_dx","scena":"mille_en","parametri":{"anno":2}},
- {"frase":"Your interest starts","parola":"your","tipo":"mezzo_busto","scena":"mille_en","parametri":{"anno":2}},
- {"frase":"snowball rolling","parola":"snowball","tipo":"affiancati","scena":"neve_en"},
- {"frase":"snowball rolling","parola":"bigger","tipo":"angolo_sx","scena":"neve_en"},
- {"frase":"And here's a trick","parola":"trick","tipo":"primo_piano"},
- {"frase":"And here's a trick","parola":"rule","tipo":"angolo_dx","scena":"regola72_en"},
- {"frase":"Divide seventy-two","parola":"divide","tipo":"mezzo_busto","scena":"regola72_en"},
- {"frase":"At four percent, about eighteen","parola":"about","tipo":"angolo_sx","scena":"regola72_en"},
- {"frase":"Now look at this","parola":"look","tipo":"primo_piano"},
- {"frase":"Anna starts","parola":"anna","tipo":"affiancati","scena":"anna_marco_en","parametri":{"solo":"Anna","totali":2}},
- {"frase":"Mark does exactly","parola":"mark","tipo":"angolo_dx","scena":"anna_marco_en","parametri":{"totali":2}},
- {"frase":"At four percent a year, before","parola":"before","tipo":"mezzo_busto","scena":"anna_marco_en","parametri":{"totali":0,"pieno":1}},
- {"frase":"Mark, with about","parola":"mark","tipo":"angolo_sx","scena":"anna_marco_en","parametri":{"totali":0,"pieno":1}},
- {"frase":"Ten years late","parola":"ten","tipo":"affiancati","scena":"ritardo_en"},
- {"frase":"The secret isn't","parola":"secret","tipo":"primo_piano"},
- {"frase":"WHEN you start","parola":"when","tipo":"angolo_dx","scena":"ritardo_en"},
- {"frase":"And careful","parola":"careful","tipo":"primo_piano"},
- {"frase":"With two percent inflation","parola":"mattress","tipo":"mezzo_busto","scena":"materasso_en"},
- {"frase":"With two percent inflation","parola":"buy","tipo":"angolo_sx","scena":"materasso_en"},
- {"frase":"twenty twenty-two","parola":"twenty-two","tipo":"affiancati","scena":"inflazione_en"},
- {"frase":"twenty twenty-two","parola":"reached","tipo":"angolo_dx","scena":"inflazione_en"},
- {"frase":"So, how do you start","parola":"so","tipo":"primo_piano"},
- {"frase":"First: an emergency","parola":"first","tipo":"mezzo_busto","scena":"emergenza_en"},
- {"frase":"Three to six months","parola":"three","tipo":"angolo_sx","scena":"emergenza_en"},
- {"frase":"That way, a surprise","parola":"surprise","tipo":"affiancati","scena":"emergenza_en"},
- {"frase":"Second: pay yourself","parola":"second","tipo":"angolo_dx","scena":"prima_tu_en"},
- {"frase":"As soon as your paycheck","parola":"paycheck","tipo":"mezzo_busto","scena":"prima_tu_en"},
- {"frase":"Now, let's talk","parola":"talk","tipo":"primo_piano"},
- {"frase":"I'll be honest","parola":"honest","tipo":"primo_piano"},
- {"frase":"There's a ladder","parola":"ladder","tipo":"angolo_sx","scena":"scala_rischio_en","parametri":{"livello":0}},
- {"frase":"At the bottom","parola":"bottom","tipo":"mezzo_busto","scena":"scala_rischio_en","parametri":{"livello":1}},
- {"frase":"At the bottom","parola":"protected","tipo":"affiancati","scena":"garanzia_en"},
- {"frase":"Then government bonds","parola":"government","tipo":"angolo_dx","scena":"scala_rischio_en","parametri":{"livello":2}},
- {"frase":"Then government bonds","parola":"sell","tipo":"primo_piano"},
- {"frase":"Higher up, stocks","parola":"higher","tipo":"angolo_sx","scena":"scala_rischio_en","parametri":{"livello":3}},
- {"frase":"Higher up, stocks","parola":"drop","tipo":"mezzo_busto","scena":"scala_rischio_en","parametri":{"livello":3}},
- {"frase":"More return means","parola":"return","tipo":"primo_piano"},
- {"frase":"Three rules","parola":"rules","tipo":"primo_piano"},
- {"frase":"One: diversify","parola":"diversify","tipo":"affiancati","scena":"uova_en"},
- {"frase":"Don't put all","parola":"eggs","tipo":"angolo_dx","scena":"uova_en"},
- {"frase":"Two: watch the fees","parola":"fees","tipo":"mezzo_busto","scena":"costi_en"},
- {"frase":"In Mark's example","parola":"instead","tipo":"angolo_sx","scena":"costi_en"},
- {"frase":"Three: be wary","parola":"wary","tipo":"affiancati","scena":"truffa_en"},
- {"frase":"Often, it's a scam","parola":"scam","tipo":"angolo_dx","scena":"truffa_en"},
- {"frase":"And remember","parola":"remember","tipo":"primo_piano"},
- {"frase":"Before you invest","parola":"research","tipo":"mezzo_busto","scena":"informati_en"},
- {"frase":"If this video helped","parola":"helped","tipo":"affiancati","scena":"iscriviti_en"},
- {"frase":"If this video helped","parola":"comments","tipo":"angolo_sx","scena":"iscriviti_en"},
- {"frase":"See you in the next","parola":"see","tipo":"primo_piano"}
+ {
+  "frase": "There's a quote",
+  "parola": "there's",
+  "tipo": "angolo_dx",
+  "scena": "meraviglia_en",
+  "testo_grande": "Can compound interest|change your life?"
+ },
+ {
+  "frase": "People say Einstein",
+  "parola": "people",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "People say Einstein",
+  "parola": "almost",
+  "tipo": "angolo_sx",
+  "scena": "meraviglia_en",
+  "parametri": {
+   "falso": 0
+  }
+ },
+ {
+  "frase": "One thing is true",
+  "parola": "true",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Today I'll show you",
+  "parola": "today",
+  "tipo": "affiancati",
+  "scena": "programma_en"
+ },
+ {
+  "frase": "Today I'll show you",
+  "parola": "why",
+  "tipo": "angolo_dx",
+  "scena": "programma_en"
+ },
+ {
+  "frase": "Get comfortable",
+  "parola": "get",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Let's start with the basics",
+  "parola": "basics",
+  "tipo": "mezzo_busto",
+  "scena": "mille_en",
+  "parametri": {
+   "anno": 1
+  }
+ },
+ {
+  "frase": "After one year",
+  "parola": "after",
+  "tipo": "angolo_sx",
+  "scena": "mille_en",
+  "parametri": {
+   "anno": 1
+  }
+ },
+ {
+  "frase": "Nothing magical",
+  "parola": "nothing",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "But the next year",
+  "parola": "next",
+  "tipo": "angolo_dx",
+  "scena": "mille_en",
+  "parametri": {
+   "anno": 2
+  }
+ },
+ {
+  "frase": "Your interest starts",
+  "parola": "your",
+  "tipo": "mezzo_busto",
+  "scena": "mille_en",
+  "parametri": {
+   "anno": 2
+  }
+ },
+ {
+  "frase": "snowball rolling",
+  "parola": "snowball",
+  "tipo": "affiancati",
+  "scena": "neve_en"
+ },
+ {
+  "frase": "snowball rolling",
+  "parola": "bigger",
+  "tipo": "angolo_sx",
+  "scena": "neve_en"
+ },
+ {
+  "frase": "And here's a trick",
+  "parola": "trick",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "And here's a trick",
+  "parola": "rule",
+  "tipo": "angolo_dx",
+  "scena": "regola72_en"
+ },
+ {
+  "frase": "Divide seventy-two",
+  "parola": "divide",
+  "tipo": "mezzo_busto",
+  "scena": "regola72_en"
+ },
+ {
+  "frase": "At four percent, about eighteen",
+  "parola": "about",
+  "tipo": "angolo_sx",
+  "scena": "regola72_en"
+ },
+ {
+  "frase": "Now look at this",
+  "parola": "look",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Anna starts",
+  "parola": "anna",
+  "tipo": "affiancati",
+  "scena": "anna_marco_en",
+  "parametri": {
+   "solo": "Anna",
+   "totali": 2
+  }
+ },
+ {
+  "frase": "Mark does exactly",
+  "parola": "mark",
+  "tipo": "angolo_dx",
+  "scena": "anna_marco_en",
+  "parametri": {
+   "totali": 2
+  }
+ },
+ {
+  "frase": "At four percent a year, before",
+  "parola": "before",
+  "tipo": "mezzo_busto",
+  "scena": "anna_marco_en",
+  "parametri": {
+   "totali": 0,
+   "pieno": 1
+  }
+ },
+ {
+  "frase": "Mark, with about",
+  "parola": "mark",
+  "tipo": "angolo_sx",
+  "scena": "anna_marco_en",
+  "parametri": {
+   "totali": 0,
+   "pieno": 1
+  }
+ },
+ {
+  "frase": "Ten years late",
+  "parola": "ten",
+  "tipo": "affiancati",
+  "scena": "ritardo_en"
+ },
+ {
+  "frase": "The secret isn't",
+  "parola": "secret",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "WHEN you start",
+  "parola": "when",
+  "tipo": "angolo_dx",
+  "scena": "ritardo_en"
+ },
+ {
+  "frase": "And careful",
+  "parola": "careful",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "With two percent inflation",
+  "parola": "mattress",
+  "tipo": "mezzo_busto",
+  "scena": "materasso_en"
+ },
+ {
+  "frase": "With two percent inflation",
+  "parola": "buy",
+  "tipo": "angolo_sx",
+  "scena": "materasso_en"
+ },
+ {
+  "frase": "twenty twenty-two",
+  "parola": "twenty-two",
+  "tipo": "affiancati",
+  "scena": "inflazione_en"
+ },
+ {
+  "frase": "twenty twenty-two",
+  "parola": "reached",
+  "tipo": "angolo_dx",
+  "scena": "inflazione_en"
+ },
+ {
+  "frase": "So, how do you start",
+  "parola": "so",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "First: an emergency",
+  "parola": "first",
+  "tipo": "mezzo_busto",
+  "scena": "emergenza_en"
+ },
+ {
+  "frase": "Three to six months",
+  "parola": "three",
+  "tipo": "angolo_sx",
+  "scena": "emergenza_en"
+ },
+ {
+  "frase": "That way, a surprise",
+  "parola": "surprise",
+  "tipo": "affiancati",
+  "scena": "emergenza_en"
+ },
+ {
+  "frase": "Second: pay yourself",
+  "parola": "second",
+  "tipo": "angolo_dx",
+  "scena": "prima_tu_en"
+ },
+ {
+  "frase": "As soon as your paycheck",
+  "parola": "paycheck",
+  "tipo": "mezzo_busto",
+  "scena": "prima_tu_en"
+ },
+ {
+  "frase": "Even better, make it automatic",
+  "parola": "automatic",
+  "tipo": "affiancati",
+  "scena": "automatico_en"
+ },
+ {
+  "frase": "Start with ten percent",
+  "parola": "start",
+  "tipo": "angolo_sx",
+  "scena": "automatico_en"
+ },
+ {
+  "frase": "The habit matters",
+  "parola": "habit",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "And one more thing",
+  "parola": "thing",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "And one more thing",
+  "parola": "credit",
+  "tipo": "angolo_dx",
+  "scena": "debito_en"
+ },
+ {
+  "frase": "Credit card rates are often",
+  "parola": "rates",
+  "tipo": "mezzo_busto",
+  "scena": "debito_en"
+ },
+ {
+  "frase": "That's compound interest working",
+  "parola": "working",
+  "tipo": "affiancati",
+  "scena": "debito_en"
+ },
+ {
+  "frase": "Now, let's talk",
+  "parola": "talk",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "I'll be honest",
+  "parola": "honest",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "There's a ladder",
+  "parola": "ladder",
+  "tipo": "angolo_sx",
+  "scena": "scala_rischio_en",
+  "parametri": {
+   "livello": 0
+  }
+ },
+ {
+  "frase": "At the bottom",
+  "parola": "bottom",
+  "tipo": "mezzo_busto",
+  "scena": "scala_rischio_en",
+  "parametri": {
+   "livello": 1
+  }
+ },
+ {
+  "frase": "At the bottom",
+  "parola": "protected",
+  "tipo": "affiancati",
+  "scena": "garanzia_en"
+ },
+ {
+  "frase": "But they pay little",
+  "parola": "pay",
+  "tipo": "angolo_dx",
+  "scena": "garanzia_en"
+ },
+ {
+  "frase": "Then government bonds",
+  "parola": "government",
+  "tipo": "angolo_dx",
+  "scena": "scala_rischio_en",
+  "parametri": {
+   "livello": 2
+  }
+ },
+ {
+  "frase": "Then government bonds",
+  "parola": "sell",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Higher up, stocks",
+  "parola": "higher",
+  "tipo": "angolo_sx",
+  "scena": "scala_rischio_en",
+  "parametri": {
+   "livello": 3
+  }
+ },
+ {
+  "frase": "Higher up, stocks",
+  "parola": "drop",
+  "tipo": "mezzo_busto",
+  "scena": "scala_rischio_en",
+  "parametri": {
+   "livello": 3
+  }
+ },
+ {
+  "frase": "More return means",
+  "parola": "return",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "So how do you choose",
+  "parola": "choose",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Ask yourself one question",
+  "parola": "question",
+  "tipo": "affiancati",
+  "scena": "orizzonte_en"
+ },
+ {
+  "frase": "Money for the next few years",
+  "parola": "next",
+  "tipo": "angolo_dx",
+  "scena": "orizzonte_en"
+ },
+ {
+  "frase": "Money you won't touch",
+  "parola": "touch",
+  "tipo": "mezzo_busto",
+  "scena": "orizzonte_en"
+ },
+ {
+  "frase": "Now, three rules",
+  "parola": "rules",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "One: diversify",
+  "parola": "diversify",
+  "tipo": "affiancati",
+  "scena": "uova_en"
+ },
+ {
+  "frase": "Don't put all",
+  "parola": "eggs",
+  "tipo": "angolo_dx",
+  "scena": "uova_en"
+ },
+ {
+  "frase": "Many people do it with index",
+  "parola": "index",
+  "tipo": "mezzo_busto",
+  "scena": "indice_en"
+ },
+ {
+  "frase": "If one company fails",
+  "parola": "fails",
+  "tipo": "angolo_sx",
+  "scena": "indice_en"
+ },
+ {
+  "frase": "Two: watch the fees",
+  "parola": "fees",
+  "tipo": "mezzo_busto",
+  "scena": "costi_en"
+ },
+ {
+  "frase": "In Mark's example",
+  "parola": "instead",
+  "tipo": "angolo_sx",
+  "scena": "costi_en"
+ },
+ {
+  "frase": "Three: be wary",
+  "parola": "wary",
+  "tipo": "affiancati",
+  "scena": "truffa_en"
+ },
+ {
+  "frase": "If it sounds too good",
+  "parola": "sounds",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Often, it's a scam",
+  "parola": "scam",
+  "tipo": "angolo_dx",
+  "scena": "truffa_en"
+ },
+ {
+  "frase": "So, let's recap",
+  "parola": "recap",
+  "tipo": "affiancati",
+  "scena": "riepilogo_en"
+ },
+ {
+  "frase": "Invest for the long term",
+  "parola": "invest",
+  "tipo": "angolo_dx",
+  "scena": "riepilogo_en"
+ },
+ {
+  "frase": "Time and patience",
+  "parola": "patience",
+  "tipo": "mezzo_busto",
+  "scena": "riepilogo_en"
+ },
+ {
+  "frase": "And remember",
+  "parola": "remember",
+  "tipo": "primo_piano"
+ },
+ {
+  "frase": "Before you invest",
+  "parola": "research",
+  "tipo": "mezzo_busto",
+  "scena": "informati_en"
+ },
+ {
+  "frase": "If this video helped",
+  "parola": "helped",
+  "tipo": "affiancati",
+  "scena": "iscriviti_en"
+ },
+ {
+  "frase": "If this video helped",
+  "parola": "comments",
+  "tipo": "angolo_sx",
+  "scena": "iscriviti_en"
+ },
+ {
+  "frase": "See you in the next",
+  "parola": "see",
+  "tipo": "primo_piano"
+ }
 ]

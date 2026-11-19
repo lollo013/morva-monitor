@@ -34,7 +34,7 @@ if EN:
     chiave = ["compound", "interest", "wonder", "future", "safe", "thousand", "four", "forty", "snowball", "seventytwo", "double",
               "eighteen", "anna", "mark", "sixtynine", "fifty", "when", "inflation", "eight", "emergency", "debt", "first", "risk",
               "zero", "ladder", "protected", "bonds", "stocks", "diversify", "fees", "fiftyeight", "scam", "advice", "professional",
-              "like", "subscribe", "comments"]
+              "like", "subscribe", "comments", "automatic", "habit", "credit", "twenty", "index", "thousands", "recap", "patience"]
     out = {"nome": "youtube-compound-interest", "formato": "youtube", "audio": "youtube-compound-interest.mp3", "frasi": frasi,
            "chiave": chiave, "inquadrature": inq, "stupore": [ancora(trova('Now look'), 'now'), ancora(trova('Anna starts'), 'anna')],
            "sorriso_da": ancora(trova('If this video'), 'if'), "coda": 1.0}
