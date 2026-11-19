@@ -372,11 +372,13 @@ def iscriviti(p, t, w, h):
     """Mi piace, iscriviti, commenta: «a che età hai cominciato a risparmiare?»."""
     im, d = tela(w, h, (255, 246, 232, 255)); W, H = w * SS, h * SS; k = K(w, h)
     q = 1 + 0.06 * max(0, math.sin(t * 5))
-    # pollice
+    # cuore (mi piace)
     cx, cy = W * 0.2, H * 0.45
-    s = H * 0.14 * q
-    d.rounded_rectangle((cx - s, cy - s * 0.2, cx + s * 0.6, cy + s * 1.1), radius=16 * SS, fill=BLU, outline=LINEA, width=5 * SS)
-    d.rounded_rectangle((cx - s * 0.3, cy - s * 1.1, cx + s * 0.2, cy + s * 0.1), radius=16 * SS, fill=BLU, outline=LINEA, width=5 * SS)
+    s = H * 0.13 * q
+    d.ellipse((cx - s, cy - s * 0.9, cx, cy + s * 0.1), fill=ROSSO, outline=LINEA, width=5 * SS)
+    d.ellipse((cx, cy - s * 0.9, cx + s, cy + s * 0.1), fill=ROSSO, outline=LINEA, width=5 * SS)
+    d.polygon([(cx - s * 0.97, cy - s * 0.25), (cx + s * 0.97, cy - s * 0.25), (cx, cy + s * 1.05)], fill=ROSSO)
+    d.line([(cx - s * 0.97, cy - s * 0.25), (cx, cy + s * 1.05), (cx + s * 0.97, cy - s * 0.25)], fill=LINEA, width=5 * SS)
     tc(d, cx, cy + s * 1.3, 'mi piace', int(32 * k))
     # iscriviti
     a = e(t * 1.5 - 0.5)
