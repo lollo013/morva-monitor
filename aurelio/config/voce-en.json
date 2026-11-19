@@ -1,0 +1,18 @@
+{
+  "personaggio": "Professor Aurelio",
+  "lingua": "en-US",
+  "stato": "approvata",
+  "voice_id": "AF9AzE9ZXIFZ89nea5pS",
+  "nome_elevenlabs": "Professor Aurelio (US English)",
+  "approvata_il": "2026-11-19",
+  "scelta": "US1 su 3 proposte (scartate 2kiLwKDOEOFku0JaI7Uw, xrBx3Epd9tYBTknbzWmx)",
+  "modello_tts": "eleven_v3",
+  "formato_audio": "mp3_44100_128",
+  "uso": "tutti i video in inglese; per i video in italiano resta la voce A2 (config/voce.json)",
+  "progettazione": {
+    "strumento": "ElevenLabs Voice Design",
+    "modello": "eleven_ttv_v3",
+    "descrizione": "An exceptionally energetic, charismatic and captivating native American English male storyteller with a clear General American accent. Vocal energy of a passionate science communicator with the confident resonance of a mature presenter. Fast-paced but perfectly articulate, highly expressive, warm, magnetic and full of genuine curiosity. Lively pitch variations, punchy emphasis, natural conversational style for educational YouTube narration. Never elderly-sounding, sleepy, flat, breathy, robotic or overly formal; no artificial hype or shouting.",
+    "frase_di_prova": "There's a quote that's been going around the internet for years: compound interest is the eighth wonder of the world. ..."
+  }
+}

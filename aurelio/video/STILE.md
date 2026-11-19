@@ -41,3 +41,9 @@ spiegazione comprensibile.
 `python3 aurelio/video/regia.py <cartella> aurelio/video/episodi/<nome>.regia.json`
 Il file di regia contiene le frasi, le parole chiave e le inquadrature, ognuna agganciata alla
 parola che la fa partire (`"da": "luce#2"` = seconda volta che dice «luce»).
+
+## Video in inglese (YouTube)
+- Voce: **Professor Aurelio (US English)**, voice_id `AF9AzE9ZXIFZ89nea5pS` (config/voce-en.json), pronuncia americana standard.
+  Scelta dall'utente (US1) il 19/11/2026. Per l'italiano resta A2.
+- Formato 16:9, 1920×1080; il Professore resta in scena in ogni inquadratura (primo piano, accanto alla lavagna, figura intera).
+- Cifre in dollari e dati internazionali; mai «not financial advice» omesso nei video di finanza.
