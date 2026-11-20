@@ -2,6 +2,12 @@
  "nome": "voti",
  "audio": "voti.mp3",
  "tempi_parole": "tempi-voti.json",
+ "equivalenze": {
+  "73": "settantatré",
+  "5": "cinque",
+  "9": "nove",
+  "1912": "millenovecentododici"
+ },
  "frasi": [
   "Lo stesso compito, corretto da 73 professori.",
   "Voti?",

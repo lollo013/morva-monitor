@@ -2,6 +2,14 @@
  "nome": "scroll",
  "audio": "scroll.mp3",
  "tempi_parole": "tempi-scroll.json",
+ "equivalenze": {
+  "machine": "mascìn",
+  "skinner": "skìnner",
+  "2006": "duemilasei",
+  "designer": "disàiner",
+  "aza": "àsa",
+  "raskin": "ràskin"
+ },
  "frasi": [
   "Il tuo telefono funziona come una slot machine.",
   "E tu ci giochi ogni giorno.",
