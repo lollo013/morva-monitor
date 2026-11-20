@@ -68,3 +68,8 @@ parola che la fa partire (`"da": "luce#2"` = seconda volta che dice «luce»).
 ## Anteprima muta prima (regola fissa)
 - Per ogni nuovo video si manda **prima l'anteprima senza voce**: scene, inquadrature e sottotitoli con tempi stimati,
   il Professore che muove la bocca sulle parole. La voce ElevenLabs si genera **solo dopo il «Vai»** dell'utente.
+
+## Invito a commentare a metà video
+- Dopo il dato più forte, il Professore fa una domanda diretta in primo piano («Tu come studi?») e dice
+  «Scrivilo nei commenti. Ti do due secondi.»; poi appare la scheda grande con la domanda e il **conto alla rovescia 2, 1**
+  (scena `commenta`). La voce fa una pausa vera di 2 secondi (`pausa_dopo` nella scheda).

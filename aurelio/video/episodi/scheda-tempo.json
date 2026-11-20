@@ -9,6 +9,9 @@
   "E in tutta la vita, al lavoro, passerai più di 70.000 ore: più di otto anni, giorno e notte.",
   "Poi c'è il sonno: quasi un terzo della vita.",
   "E il telefono: tre ore al giorno sono 45 giorni all'anno.",
+  "Tu quante ore passi al telefono?",
+  "Guarda il tempo di utilizzo e scrivilo nei commenti.",
+  "Ti do due secondi.",
   "Alla fine, il tempo davvero nostro è pochissimo.",
   "Siamo così occupati a prepararci per vivere, che ci dimentichiamo di vivere.",
   "Non devi smettere di studiare o di lavorare.",
@@ -115,6 +118,30 @@
   ],
   [
    8,
+   "tu",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   9,
+   "scrivilo",
+   "angolo_dx",
+   "commenta",
+   {
+    "parametri": {
+     "domanda": "Quante ore passi al telefono?"
+    },
+    "eventi": {
+     "via": [
+      10,
+      "secondi"
+     ]
+    }
+   }
+  ],
+  [
+   11,
    "fine",
    "mezzo_busto",
    "torta_vita",
@@ -123,14 +150,14 @@
    }
   ],
   [
-   9,
+   12,
    "occupati",
    "angolo_dx",
    "ruota",
    null
   ],
   [
-   9,
+   12,
    "dimentichiamo",
    "affiancati",
    "ruota",
@@ -139,14 +166,14 @@
    }
   ],
   [
-   10,
+   13,
    "smettere",
    "primo_piano",
    null,
    null
   ],
   [
-   11,
+   14,
    "rimandare",
    "mezzo_busto",
    "ruota",
@@ -155,14 +182,14 @@
    }
   ],
   [
-   12,
+   15,
    "prenditi",
    "affiancati",
    "ora_tua",
    null
   ],
   [
-   13,
+   16,
    "domani",
    "angolo_dx",
    "ora_tua",
@@ -171,7 +198,7 @@
    }
   ],
   [
-   14,
+   17,
    "oggi",
    "mezzo_busto",
    "ora_tua",
@@ -180,7 +207,7 @@
    }
   ],
   [
-   15,
+   18,
    "se",
    "mezzo_busto",
    "invito",
@@ -204,7 +231,9 @@
   "vivere",
   "oggi",
   "utile",
-  "seguimi"
+  "seguimi",
+  "commenti",
+  "secondi"
  ],
  "stupore": [
   [
@@ -217,7 +246,11 @@
   ]
  ],
  "sorriso": [
-  15,
+  18,
   "se"
+ ],
+ "pausa_dopo": [
+  10,
+  2.0
  ]
 }

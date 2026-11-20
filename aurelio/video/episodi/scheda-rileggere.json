@@ -6,6 +6,10 @@
   "È il metodo.",
   "Rileggere è il metodo che usano quasi tutti.",
   "Ma una grande ricerca ha messo a confronto dieci tecniche di studio: rileggere e sottolineare sono finite tra le meno efficaci.",
+  "Ma prima: tu come studi?",
+  "Rileggi o ti interroghi?",
+  "Scrivilo nei commenti.",
+  "Ti do due secondi.",
   "E allora cosa funziona?",
   "Interrogarti da solo.",
   "In un esperimento, degli studenti hanno imparato parole in swahili.",
@@ -65,20 +69,44 @@
   ],
   [
    5,
-   "cosa",
+   "prima",
    "primo_piano",
    null,
    null
   ],
   [
    7,
+   "scrivilo",
+   "angolo_dx",
+   "commenta",
+   {
+    "parametri": {
+     "domanda": "Tu come studi? Rileggi o ti interroghi?"
+    },
+    "eventi": {
+     "via": [
+      8,
+      "secondi"
+     ]
+    }
+   }
+  ],
+  [
+   9,
+   "cosa",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   11,
    "esperimento",
    "affiancati",
    "swahili",
    null
   ],
   [
-   7,
+   11,
    "swahili",
    "angolo_sx",
    "swahili",
@@ -87,14 +115,14 @@
    }
   ],
   [
-   8,
+   12,
    "settimana",
    "mezzo_busto",
    "settimana_dopo",
    null
   ],
   [
-   9,
+   13,
    "interrogarsi",
    "angolo_dx",
    "settimana_dopo",
@@ -103,14 +131,14 @@
    }
   ],
   [
-   10,
+   14,
    "fatica",
    "affiancati",
    "fatica",
    null
   ],
   [
-   10,
+   14,
    "fissa",
    "angolo_sx",
    "fatica",
@@ -119,14 +147,14 @@
    }
   ],
   [
-   11,
+   15,
    "chiudi",
    "mezzo_busto",
    "metodo",
    null
   ],
   [
-   12,
+   16,
    "scrivi",
    "angolo_dx",
    "metodo",
@@ -135,7 +163,7 @@
    }
   ],
   [
-   13,
+   17,
    "riapri",
    "affiancati",
    "metodo",
@@ -144,14 +172,14 @@
    }
   ],
   [
-   14,
+   18,
    "funziona",
    "primo_piano",
    null,
    null
   ],
   [
-   15,
+   19,
    "se",
    "mezzo_busto",
    "invito",
@@ -174,20 +202,26 @@
   "scrivi",
   "controlla",
   "utile",
-  "seguimi"
+  "seguimi",
+  "commenti",
+  "secondi"
  ],
  "stupore": [
   [
-   9,
+   13,
    "interrogarsi"
   ],
   [
-   9,
+   13,
    "l'80"
   ]
  ],
  "sorriso": [
-  15,
+  19,
   "se"
+ ],
+ "pausa_dopo": [
+  8,
+  2.0
  ]
 }

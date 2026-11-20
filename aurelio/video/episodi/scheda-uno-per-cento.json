@@ -7,6 +7,9 @@
   "1,01, moltiplicato per sé stesso 365 volte, fa 37,8.",
   "E se invece peggiori dell'1% al giorno?",
   "0,99 alla 365: ti resta il 3%.",
+  "Tu in cosa vorresti migliorare dell'1%?",
+  "Scrivilo nei commenti.",
+  "Ti do due secondi.",
   "Ma l'1% è pochissimo: dieci minuti di studio, una pagina, un esercizio in più.",
   "Il problema è che per settimane non vedi nessuna differenza.",
   "Ed è proprio lì che quasi tutti mollano.",
@@ -86,13 +89,37 @@
   ],
   [
    6,
+   "tu",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   7,
+   "scrivilo",
+   "angolo_dx",
+   "commenta",
+   {
+    "parametri": {
+     "domanda": "In cosa vorresti migliorare dell'1%?"
+    },
+    "eventi": {
+     "via": [
+      8,
+      "secondi"
+     ]
+    }
+   }
+  ],
+  [
+   9,
    "pochissimo",
    "mezzo_busto",
    "piccolo",
    null
   ],
   [
-   6,
+   9,
    "pagina",
    "angolo_sx",
    "piccolo",
@@ -101,14 +128,14 @@
    }
   ],
   [
-   7,
+   10,
    "problema",
    "affiancati",
    "plateau",
    null
   ],
   [
-   8,
+   11,
    "lì",
    "angolo_dx",
    "plateau",
@@ -117,21 +144,21 @@
    }
   ],
   [
-   9,
+   12,
    "certo",
    "primo_piano",
    null,
    null
   ],
   [
-   10,
+   13,
    "principio",
    "mezzo_busto",
    "somma",
    null
   ],
   [
-   10,
+   13,
    "interessi",
    "angolo_sx",
    "somma",
@@ -140,21 +167,21 @@
    }
   ],
   [
-   11,
+   14,
    "allora",
    "primo_piano",
    null,
    null
   ],
   [
-   12,
+   15,
    "ogni",
    "affiancati",
    "catena",
    null
   ],
   [
-   13,
+   16,
    "segna",
    "angolo_dx",
    "catena",
@@ -163,7 +190,7 @@
    }
   ],
   [
-   14,
+   17,
    "spezzare",
    "mezzo_busto",
    "catena",
@@ -172,7 +199,7 @@
    }
   ],
   [
-   15,
+   18,
    "se",
    "mezzo_busto",
    "invito",
@@ -192,7 +219,9 @@
   "interessi",
   "catena",
   "utile",
-  "seguimi"
+  "seguimi",
+  "commenti",
+  "secondi"
  ],
  "stupore": [
   [
@@ -205,7 +234,11 @@
   ]
  ],
  "sorriso": [
-  15,
+  18,
   "se"
+ ],
+ "pausa_dopo": [
+  8,
+  2.0
  ]
 }

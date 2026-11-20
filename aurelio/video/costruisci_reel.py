@@ -8,7 +8,9 @@ nome, frasi, eq = scheda['nome'], scheda['frasi'], scheda.get('equivalenze', {})
 R = {'nome': nome, 'audio': f'{nome}.mp3', 'tempi_parole': f'tempi-{nome}.json'}
 if STIMA:
     t = 0.05; tempi = []
-    for f in frasi:
+    pausa = scheda.get('pausa_dopo')          # [frase, secondi]: silenzio vero dopo quella frase (conto alla rovescia)
+    for fi, f in enumerate(frasi):
+        if pausa and fi == pausa[0] + 1: t += pausa[1]
         for w in f.split():
             pul = w.strip('.,:;?!')
             n = len(eq.get(pul, pul))
@@ -33,7 +35,10 @@ inq = []
 for i, par, tipo, scena, extra in scheda['piano']:
     x = {'da': 0 if par is None else A(i, par), 'tipo': tipo}
     if scena: x['scena'] = scena
-    x.update(extra or {}); inq.append(x)
-R.update({'equivalenze': {norm(k): v for k, v in eq.items()}, 'frasi': frasi, 'inquadrature': inq, 'chiave': scheda['chiave'],
+    extra = dict(extra or {})
+    if 'eventi' in extra:
+        extra['eventi'] = {k2: A(*v) for k2, v in extra['eventi'].items()}
+    x.update(extra); inq.append(x)
+R.update({'pausa_dopo': scheda.get('pausa_dopo'), 'equivalenze': {norm(k): v for k, v in eq.items()}, 'frasi': frasi, 'inquadrature': inq, 'chiave': scheda['chiave'],
           'stupore': [A(*scheda['stupore'][0]), A(*scheda['stupore'][1])], 'sorriso_da': A(*scheda['sorriso']), 'coda': 0.8})
 json.dump(R, open(f"{S}/regia-{R['nome']}.json", 'w'), ensure_ascii=False, indent=1)
