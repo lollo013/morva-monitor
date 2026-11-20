@@ -1,0 +1,170 @@
+{
+ "nome": "voti",
+ "audio": "voti.mp3",
+ "tempi_parole": "tempi-voti.json",
+ "frasi": [
+  "Lo stesso compito, corretto da 73 professori.",
+  "Voti?",
+  "Dal 5 al 9 e mezzo.",
+  "Allora, i voti misurano davvero quanto sei intelligente?",
+  "Non è un caso isolato.",
+  "Già nel 1912, due ricercatori diedero lo stesso tema a più di cento insegnanti: i voti erano lontanissimi tra loro.",
+  "E perfino lo stesso professore, ricorreggendo lo stesso compito settimane dopo, spesso dà un voto diverso.",
+  "Un voto dipende anche da chi lo dà.",
+  "E c'è di più.",
+  "Uno studio su ragazzi di terza media ha scoperto che, per prevedere i voti di fine anno, contava più la costanza del quoziente intellettivo.",
+  "Il voto misura anche quanto sei organizzato, puntuale, costante.",
+  "Non quanto vali.",
+  "Quindi un brutto voto non dice che sei stupido.",
+  "Dice su cosa puoi lavorare.",
+  "E la costanza, a differenza del talento, si allena.",
+  "Prova così: una materia, venti minuti al giorno, per due settimane.",
+  "Poi guarda il voto.",
+  "Se ti è stato utile, seguimi!"
+ ],
+ "inquadrature": [
+  {
+   "da": 0,
+   "tipo": "angolo_dx",
+   "scena": "compito_voti",
+   "testo_grande": "Stesso compito,|voti dal 5 al 9½"
+  },
+  {
+   "da": "voti",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "dal",
+   "tipo": "angolo_dx",
+   "scena": "scala_voti"
+  },
+  {
+   "da": "allora",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "caso",
+   "tipo": "affiancati",
+   "scena": "anno1912"
+  },
+  {
+   "da": "già",
+   "tipo": "angolo_sx",
+   "scena": "anno1912"
+  },
+  {
+   "da": "voti#3",
+   "tipo": "mezzo_busto",
+   "scena": "anno1912"
+  },
+  {
+   "da": "perfino",
+   "tipo": "affiancati",
+   "scena": "stesso_prof"
+  },
+  {
+   "da": "settimane",
+   "tipo": "angolo_dx",
+   "scena": "stesso_prof"
+  },
+  {
+   "da": "dipende",
+   "tipo": "mezzo_busto",
+   "scena": "chi_lo_da"
+  },
+  {
+   "da": "più#2",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "studio",
+   "tipo": "angolo_sx",
+   "scena": "costanza_qi"
+  },
+  {
+   "da": "prevedere",
+   "tipo": "affiancati",
+   "scena": "costanza_qi"
+  },
+  {
+   "da": "costanza",
+   "tipo": "mezzo_busto",
+   "scena": "costanza_qi"
+  },
+  {
+   "da": "misura",
+   "tipo": "angolo_dx",
+   "scena": "cosa_misura"
+  },
+  {
+   "da": "non#2",
+   "tipo": "affiancati",
+   "scena": "cosa_misura"
+  },
+  {
+   "da": "quindi",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "stupido",
+   "tipo": "angolo_sx",
+   "scena": "brutto_voto"
+  },
+  {
+   "da": "lavorare",
+   "tipo": "mezzo_busto",
+   "scena": "brutto_voto"
+  },
+  {
+   "da": "allena",
+   "tipo": "affiancati",
+   "scena": "allena"
+  },
+  {
+   "da": "prova",
+   "tipo": "angolo_dx",
+   "scena": "allena"
+  },
+  {
+   "da": "venti",
+   "tipo": "mezzo_busto",
+   "scena": "allena"
+  },
+  {
+   "da": "guarda",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "se",
+   "tipo": "mezzo_busto",
+   "scena": "invito"
+  }
+ ],
+ "stupore": [
+  "più#2",
+  "costanza"
+ ],
+ "sorriso_da": "se",
+ "coda": 0.8,
+ "chiave": [
+  "compito",
+  "voti",
+  "intelligente",
+  "insegnanti",
+  "diverso",
+  "dipende",
+  "costanza",
+  "quoziente",
+  "organizzato",
+  "puntuale",
+  "costante",
+  "vali",
+  "stupido",
+  "lavorare",
+  "allena",
+  "venti",
+  "settimane",
+  "utile",
+  "seguimi"
+ ]
+}

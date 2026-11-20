@@ -1,0 +1,179 @@
+{
+ "nome": "scroll",
+ "audio": "scroll.mp3",
+ "tempi_parole": "tempi-scroll.json",
+ "frasi": [
+  "Il tuo telefono funziona come una slot machine.",
+  "E tu ci giochi ogni giorno.",
+  "Perché non riusciamo a smettere di scrollare?",
+  "Apri un video, poi un altro, e all'improvviso è passata un'ora.",
+  "Tranquillo: non è colpa tua.",
+  "È progettato così.",
+  "Il trucco si chiama ricompensa variabile.",
+  "Lo scoprì lo psicologo Skinner, negli anni Trenta: se un premio arriva a caso, continui a cercarlo molto più che se arriva sempre.",
+  "È lo stesso meccanismo delle slot machine.",
+  "E la dopamina?",
+  "Non è il piacere: è l'attesa.",
+  "Si accende soprattutto quando il premio è incerto: forse il prossimo video sarà quello giusto.",
+  "Poi c'è lo scroll infinito: nessuna fine pagina, nessun segnale di stop.",
+  "L'ha inventato nel 2006 un designer, Aza Raskin.",
+  "E oggi dice di essersene pentito.",
+  "Come difendersi?",
+  "Metti lo schermo in bianco e nero: negli studi, si usa il telefono dai venti ai cinquanta minuti in meno al giorno.",
+  "Senza colori, il premio attira meno.",
+  "E togli le notifiche delle app che ti rubano più tempo.",
+  "Se ti è stato utile, seguimi!"
+ ],
+ "inquadrature": [
+  {
+   "da": 0,
+   "tipo": "sfondo",
+   "scena": "slot_telefono",
+   "testo_grande": "Il tuo telefono|è una slot machine"
+  },
+  {
+   "da": "giochi",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "perché",
+   "tipo": "angolo_dx",
+   "scena": "scroll_ora"
+  },
+  {
+   "da": "apri",
+   "tipo": "affiancati",
+   "scena": "scroll_ora"
+  },
+  {
+   "da": "passata",
+   "tipo": "angolo_sx",
+   "scena": "scroll_ora"
+  },
+  {
+   "da": "tranquillo",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "progettato",
+   "tipo": "mezzo_busto",
+   "scena": "progettato"
+  },
+  {
+   "da": "trucco",
+   "tipo": "angolo_dx",
+   "scena": "premio"
+  },
+  {
+   "da": "psicologo",
+   "tipo": "affiancati",
+   "scena": "premio"
+  },
+  {
+   "da": "se",
+   "tipo": "angolo_sx",
+   "scena": "premio"
+  },
+  {
+   "da": "meccanismo",
+   "tipo": "mezzo_busto",
+   "scena": "slot_feed"
+  },
+  {
+   "da": "dopamina",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "piacere",
+   "tipo": "angolo_dx",
+   "scena": "dopamina"
+  },
+  {
+   "da": "accende",
+   "tipo": "affiancati",
+   "scena": "dopamina"
+  },
+  {
+   "da": "forse",
+   "tipo": "angolo_sx",
+   "scena": "dopamina"
+  },
+  {
+   "da": "scroll",
+   "tipo": "mezzo_busto",
+   "scena": "infinito"
+  },
+  {
+   "da": "nessun",
+   "tipo": "angolo_dx",
+   "scena": "infinito"
+  },
+  {
+   "da": "inventato",
+   "tipo": "affiancati",
+   "scena": "inventore"
+  },
+  {
+   "da": "oggi",
+   "tipo": "angolo_sx",
+   "scena": "inventore"
+  },
+  {
+   "da": "difendersi",
+   "tipo": "primo_piano"
+  },
+  {
+   "da": "metti",
+   "tipo": "mezzo_busto",
+   "scena": "bianco_nero"
+  },
+  {
+   "da": "studi",
+   "tipo": "angolo_dx",
+   "scena": "bianco_nero"
+  },
+  {
+   "da": "colori",
+   "tipo": "affiancati",
+   "scena": "bianco_nero"
+  },
+  {
+   "da": "togli",
+   "tipo": "angolo_sx",
+   "scena": "notifiche"
+  },
+  {
+   "da": "se#3",
+   "tipo": "mezzo_busto",
+   "scena": "invito"
+  }
+ ],
+ "stupore": [
+  "dopamina",
+  "piacere"
+ ],
+ "sorriso_da": "se#3",
+ "coda": 0.8,
+ "chiave": [
+  "slot",
+  "machine",
+  "scrollare",
+  "colpa",
+  "progettato",
+  "ricompensa",
+  "variabile",
+  "caso",
+  "dopamina",
+  "incerto",
+  "infinito",
+  "stop",
+  "pentito",
+  "bianco",
+  "nero",
+  "venti",
+  "cinquanta",
+  "notifiche",
+  "utile",
+  "seguimi"
+ ]
+}
