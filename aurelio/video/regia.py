@@ -93,8 +93,10 @@ def da_trascrizione(percorso):
     import difflib
     tr = json.load(open(percorso, encoding='utf8'))          # [[parola, inizio, fine], ...]
     sc = [w for f in R['frasi'] for w in f.split()]
-    nz = lambda w: re.sub(r"[^a-z0-9']", '', w.lower().replace('’', "'"))
-    a, b = [nz(w) for w in sc], [nz(w[0]) for w in tr]
+    nz = lambda w: re.sub(r"[^\w']", '', w.lower().replace('’', "'"))
+    # parole scritte in un modo e pronunciate in un altro (grafia fonetica, numeri): {"machine": "mascìn", "73": "settantatré"}
+    eq = {nz(k): nz(v) for k, v in R.get('equivalenze', {}).items()}
+    a, b = [eq.get(nz(w), nz(w)) for w in sc], [nz(w[0]) for w in tr]
     t = [None] * len(sc)
     for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks():
         for k in range(blk.size):
@@ -379,8 +381,19 @@ def camera(fr, s, t):
     x0 = min(max(0, cx - w / 2), W - w); y0 = min(max(0, cy - h / 2), H - h)
     return fr.crop((round(x0), round(y0), round(x0 + w), round(y0 + h))).resize((W, H), Image.BILINEAR)
 
+def blocco_attivo(t, coda):
+    """Il sottotitolo giusto all'istante t: l'ultimo gruppo gia' iniziato; resta dopo la sua ultima parola
+    solo per 'coda' secondi e mai oltre l'inizio del gruppo successivo."""
+    for i in range(len(blocchi) - 1, -1, -1):
+        b = blocchi[i]
+        if b[0][1] - 0.02 <= t:
+            fine = b[-1][2] + coda
+            if i + 1 < len(blocchi): fine = min(fine, blocchi[i + 1][0][1] - 0.02)
+            return b if t <= fine else None
+    return None
+
 def sottotitolo_frase(fr, t):
-    b = next((b for b in blocchi if b[0][1] - 0.04 <= t <= b[-1][2] + 0.25), None)
+    b = blocco_attivo(t, 0.25)
     if not b: return
     dim, larg = 54, 1680
     f = fnt(dim)
@@ -414,7 +427,7 @@ def sottotitolo_frase(fr, t):
     fr.paste(lay, (0, 0), lay)
 
 def sottotitolo(fr, t, area, grande=False):
-    b = next((b for b in blocchi if b[0][1] - 0.04 <= t <= b[-1][2] + 0.12), None)
+    b = blocco_attivo(t, 0.12)
     if not b: return
     x0, y0, x1, y1 = area
     larg = x1 - x0

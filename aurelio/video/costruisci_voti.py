@@ -51,7 +51,7 @@ for i, par, tipo, scena, extra in P:
     x = {'da': 0 if par is None else A(i, par), 'tipo': tipo}
     if scena: x['scena'] = scena
     x.update(extra); inq.append(x)
-R.update({'frasi': frasi, 'inquadrature': inq, 'stupore': [A(8, 'più'), A(9, 'costanza')], 'sorriso_da': A(17, 'se'), 'coda': 0.8,
+R.update({'equivalenze': {"73": "settantatré", "5": "cinque", "9": "nove", "1912": "millenovecentododici"}, 'frasi': frasi, 'inquadrature': inq, 'stupore': [A(8, 'più'), A(9, 'costanza')], 'sorriso_da': A(17, 'se'), 'coda': 0.8,
           'chiave': ['compito', 'voti', 'intelligente', 'insegnanti', 'diverso', 'dipende', 'costanza', 'quoziente', 'organizzato',
                      'puntuale', 'costante', 'vali', 'stupido', 'lavorare', 'allena', 'venti', 'settimane', 'utile', 'seguimi']})
 json.dump(R, open(f"{S}/regia-{R['nome']}.json", 'w'), ensure_ascii=False, indent=1)

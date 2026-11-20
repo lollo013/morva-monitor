@@ -56,3 +56,11 @@ parola che la fa partire (`"da": "luce#2"` = seconda volta che dice «luce»).
 - Temi che funzionano: scuola e studio, soldi e primo stipendio, vita da ragazzi; tono da amico che sta dalla loro parte,
   critica ai sistemi (scuola, app) senza colpevolizzare chi guarda, poi un consiglio concreto e subito applicabile.
 - Esempi e cifre devono parlare a quell'età: compiti, verifiche, paghetta, primo stipendio, telefono, social.
+
+## Sincronia voce-sottotitoli (obbligatoria)
+- I tempi di ogni parola vengono dalla trascrizione ElevenLabs dell'audio vero (`tempi_parole`), mai stimati, tranne
+  nelle anteprime mute.
+- Le parole scritte in un modo e pronunciate in un altro vanno nelle `equivalenze` della regia
+  (es. "machine" → "mascìn", "73" → "settantatré"), così anche loro hanno il tempo esatto.
+- Il sottotitolo nuovo compare appena inizia la sua prima parola; il precedente non resta mai sovrapposto.
+- Prima di consegnare: `python3 video/verifica_sync.py <cartella> <regia.json>` deve dare **0 non allineati**.
