@@ -235,7 +235,8 @@ def ease(x): x = max(0.0, min(1.0, x)); return 1 - (1 - x) ** 3
 
 # ------------------------------------------------------------------ composizione
 def scena_img(s, t, w, h):
-    nome = s['scena']; lt = t - s['inizio']; dur = s['fine'] - s['inizio']
+    # 'avanti': la scena riparte gia' avanzata (stessa scena dell'inquadratura prima, animazione gia' completa)
+    nome = s['scena']; lt = t - s['inizio'] + s.get('avanti', 0); dur = s['fine'] - s['inizio']
     p = min(1, lt / max(0.1, dur))
     if nome in SCENE_GRANDI:
         fn = SCENE_GRANDI[nome]
