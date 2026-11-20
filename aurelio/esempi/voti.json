@@ -1,0 +1,37 @@
+{
+  "titolo": "I voti misurano davvero l'intelligenza?",
+  "verificato": true,
+  "tono": "amico dalla parte dei ragazzi: critica al sistema dei voti, nessuna colpa, poi un consiglio concreto",
+  "stile": "ritmo visivo alto, Professore sempre in scena e protagonista, area sicura TikTok, apertura d'impatto",
+  "pubblico": "14-26 anni",
+  "fonti": [
+    "Stesso tema corretto da 73 insegnanti su scala da 100: voti da 50 a 96 (Brimi, Practical Assessment, Research and Evaluation, 2011, replica di Starch ed Elliott 1912). Nel video: «dal cinque al nove e mezzo».",
+    "Starch ed Elliott (1912-1913): lo stesso compito di inglese, storia e geometria dato a più di cento insegnanti ricevette voti molto diversi.",
+    "Duckworth e Seligman, «Self-discipline outdoes IQ in predicting academic performance of adolescents», Psychological Science 2005: in studenti di terza media (8th grade) l'autodisciplina prevedeva i voti finali più del QI.",
+    "Poropat 2009, meta-analisi: la coscienziosità prevede i voti quasi quanto l'intelligenza (r circa 0,22 contro 0,24).",
+    "Nota: l'intelligenza resta un predittore importante dei voti (Mammadov 2021); il video dice che il voto non misura SOLO l'intelligenza, non che non la misuri affatto.",
+    "Stesso insegnante che ricorregge lo stesso compito dopo 11 settimane: affidabilità bassa, coefficienti tra 0,25 e 0,51 (Eells 1930, 61 insegnanti)."
+  ],
+  "parti": [
+    {
+      "fase": "apertura",
+      "testo": "Lo stesso compito, corretto da settantatré professori. Voti? Dal cinque al nove e mezzo. Allora, i voti misurano davvero quanto sei intelligente?"
+    },
+    {
+      "fase": "spiegazione",
+      "testo": "Non è un caso isolato. Già nel millenovecentododici, due ricercatori diedero lo stesso tema a più di cento insegnanti: i voti erano lontanissimi tra loro. E perfino lo stesso professore, ricorreggendo lo stesso compito settimane dopo, spesso dà un voto diverso. Un voto dipende anche da chi lo dà."
+    },
+    {
+      "fase": "scoperta",
+      "testo": "E c'è di più. Uno studio su ragazzi di terza media ha scoperto che, per prevedere i voti di fine anno, contava più la *costanza* del quoziente intellettivo. Il voto misura anche quanto sei organizzato, puntuale, costante. Non quanto vali."
+    },
+    {
+      "fase": "conclusione",
+      "testo": "Quindi un brutto voto non dice che sei stupido. Dice su cosa puoi lavorare. E la costanza, a differenza del talento, si allena. Prova così: una materia, venti minuti al giorno, per due settimane. Poi guarda il voto."
+    },
+    {
+      "fase": "invito",
+      "testo": "Se ti è stato utile, seguimi!"
+    }
+  ]
+}
