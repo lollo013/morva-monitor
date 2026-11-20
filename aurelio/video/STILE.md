@@ -49,3 +49,10 @@ parola che la fa partire (`"da": "luce#2"` = seconda volta che dice «luce»).
 - Cifre in dollari e dati internazionali; mai «not financial advice» omesso nei video di finanza.
 - Sottotitoli YouTube: **frasi intere** (1-2 righe, banda chiara in basso), tempi presi parola per parola dalla
   trascrizione ElevenLabs dell'audio (`tempi_parole` nella regia), parole chiave solo in rosso. Si allega anche il file .srt.
+
+## Pubblico (dati dell'utente, 20/11/2026)
+- I video che sono piaciuti di più: **«La scuola assomiglia a una prigione?»** e **«Duemila euro e la regola 50-30-20»**.
+- Fascia d'età: **14-26 anni** (studenti delle superiori, universitari, primi lavori).
+- Temi che funzionano: scuola e studio, soldi e primo stipendio, vita da ragazzi; tono da amico che sta dalla loro parte,
+  critica ai sistemi (scuola, app) senza colpevolizzare chi guarda, poi un consiglio concreto e subito applicabile.
+- Esempi e cifre devono parlare a quell'età: compiti, verifiche, paghetta, primo stipendio, telefono, social.
