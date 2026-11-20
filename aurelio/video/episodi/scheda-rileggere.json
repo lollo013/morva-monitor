@@ -1,0 +1,193 @@
+{
+ "nome": "rileggere",
+ "frasi": [
+  "Hai riletto il libro tre volte, e il giorno dopo non ricordi quasi niente?",
+  "Tranquillo: non sei tu.",
+  "È il metodo.",
+  "Rileggere è il metodo che usano quasi tutti.",
+  "Ma una grande ricerca ha messo a confronto dieci tecniche di studio: rileggere e sottolineare sono finite tra le meno efficaci.",
+  "E allora cosa funziona?",
+  "Interrogarti da solo.",
+  "In un esperimento, degli studenti hanno imparato parole in swahili.",
+  "Dopo una settimana, chi aveva continuato a rileggere ne ricordava circa un terzo.",
+  "Chi aveva continuato a interrogarsi, circa l'80%.",
+  "Ricordare fa più fatica che rileggere: ed è proprio quella fatica che fissa i ricordi.",
+  "Allora fai così: chiudi il libro.",
+  "Scrivi tutto quello che ricordi, oppure fatti tre domande.",
+  "Poi riapri e controlla cosa ti mancava.",
+  "È più faticoso, ma funziona molto di più.",
+  "Se ti è stato utile, seguimi!"
+ ],
+ "equivalenze": {
+  "l'80%": "l'ottanta per cento"
+ },
+ "piano": [
+  [
+   0,
+   null,
+   "angolo_dx",
+   "rilettura",
+   {
+    "testo_grande": "Rileggi 3 volte|e non ricordi niente?"
+   }
+  ],
+  [
+   1,
+   "tranquillo",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   3,
+   "rileggere",
+   "affiancati",
+   "classifica",
+   null
+  ],
+  [
+   4,
+   "grande",
+   "angolo_sx",
+   "classifica",
+   {
+    "avanti": 4
+   }
+  ],
+  [
+   4,
+   "sottolineare",
+   "mezzo_busto",
+   "classifica",
+   {
+    "avanti": 4
+   }
+  ],
+  [
+   5,
+   "cosa",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   7,
+   "esperimento",
+   "affiancati",
+   "swahili",
+   null
+  ],
+  [
+   7,
+   "swahili",
+   "angolo_sx",
+   "swahili",
+   {
+    "avanti": 4
+   }
+  ],
+  [
+   8,
+   "settimana",
+   "mezzo_busto",
+   "settimana_dopo",
+   null
+  ],
+  [
+   9,
+   "interrogarsi",
+   "angolo_dx",
+   "settimana_dopo",
+   {
+    "avanti": 4
+   }
+  ],
+  [
+   10,
+   "fatica",
+   "affiancati",
+   "fatica",
+   null
+  ],
+  [
+   10,
+   "fissa",
+   "angolo_sx",
+   "fatica",
+   {
+    "avanti": 4
+   }
+  ],
+  [
+   11,
+   "chiudi",
+   "mezzo_busto",
+   "metodo",
+   null
+  ],
+  [
+   12,
+   "scrivi",
+   "angolo_dx",
+   "metodo",
+   {
+    "avanti": 1.2
+   }
+  ],
+  [
+   13,
+   "riapri",
+   "affiancati",
+   "metodo",
+   {
+    "avanti": 4
+   }
+  ],
+  [
+   14,
+   "funziona",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   15,
+   "se",
+   "mezzo_busto",
+   "invito",
+   null
+  ]
+ ],
+ "chiave": [
+  "metodo",
+  "tutti",
+  "meno",
+  "efficaci",
+  "funziona",
+  "interrogarti",
+  "swahili",
+  "terzo",
+  "l'80",
+  "fatica",
+  "ricordi",
+  "chiudi",
+  "scrivi",
+  "controlla",
+  "utile",
+  "seguimi"
+ ],
+ "stupore": [
+  [
+   9,
+   "interrogarsi"
+  ],
+  [
+   9,
+   "l'80"
+  ]
+ ],
+ "sorriso": [
+  15,
+  "se"
+ ]
+}

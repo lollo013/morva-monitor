@@ -1,0 +1,34 @@
+{
+  "titolo": "Rileggere non basta",
+  "verificato": true,
+  "pubblico": "14-26 anni",
+  "tono": "amico dalla parte dei ragazzi: non è colpa tua, è il metodo; poi un metodo concreto",
+  "stile": "stesso modello del reel sui voti (virale): apertura che tocca la scuola, due ricerche, svolta, consiglio da usare domani",
+  "fonti": [
+    "Karpicke e Roediger, «The critical importance of retrieval for learning», Science 319, 2008: 40 coppie di parole swahili-inglese; dopo una settimana circa l'80% ricordato da chi continuava a interrogarsi, 33-36% da chi smetteva di essere interrogato e ristudiava.",
+    "Dunlosky e colleghi, «Improving Students' Learning With Effective Learning Techniques», Psychological Science in the Public Interest, 2013: 10 tecniche; rileggere e sottolineare tra quelle di bassa utilità; interrogarsi (practice testing) e studio distribuito di alta utilità.",
+    "Karpicke, Butler e Roediger 2009 (Memory): rileggere appunti o libro è la strategia più usata dagli studenti; pochi si interrogano da soli."
+  ],
+  "parti": [
+    {
+      "fase": "apertura",
+      "testo": "Hai riletto il libro tre volte, e il giorno dopo non ricordi quasi niente? Tranquillo: non sei tu. È il metodo."
+    },
+    {
+      "fase": "spiegazione",
+      "testo": "Rileggere è il metodo che usano quasi tutti. Ma una grande ricerca ha messo a confronto dieci tecniche di studio: rileggere e sottolineare sono finite tra le meno efficaci."
+    },
+    {
+      "fase": "scoperta",
+      "testo": "E allora cosa funziona? Interrogarti da solo. In un esperimento, degli studenti hanno imparato parole in swahili. Dopo una settimana, chi aveva continuato a rileggere ne ricordava circa un terzo. Chi aveva continuato a interrogarsi, circa l'*ottanta* per cento. Ricordare fa più fatica che rileggere: ed è proprio quella fatica che fissa i ricordi."
+    },
+    {
+      "fase": "conclusione",
+      "testo": "Allora fai così: chiudi il libro. Scrivi tutto quello che ricordi, oppure fatti tre domande. Poi riapri e controlla cosa ti mancava. È più faticoso, ma funziona molto di più."
+    },
+    {
+      "fase": "invito",
+      "testo": "Se ti è stato utile, seguimi!"
+    }
+  ]
+}
