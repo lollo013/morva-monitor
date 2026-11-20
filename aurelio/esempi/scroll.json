@@ -7,13 +7,29 @@
     "Ricompense variabili: B. F. Skinner, anni '30 (programmi a rapporto variabile); paragone con le slot machine e con le notifiche delle app (Harvard SITN, «Dopamine, Smartphones & You», 2018).",
     "Dopamina ed errore di previsione della ricompensa: la dopamina segnala l'attesa e la sorpresa più che il piacere (Schultz; sintesi Harvard SITN 2018).",
     "Scroll infinito: inventato da Aza Raskin nel 2006; Raskin ha detto di essersene pentito (NPR, 7 aprile 2026; Masters of Scale).",
-    "Schermo in scala di grigi: riduzione dell'uso da circa 20 a circa 50 minuti al giorno negli studi (Mobile Media & Communication, 2023/2024; Computers in Human Behavior Reports, 2023; University of Cincinnati, 2022)."
+    "Schermo in scala di grigi: riduzione dell'uso da circa 20 a circa 50 minuti al giorno negli studi (Mobile Media & Communication, 2023/2024; Computers in Human Behavior Reports, 2023; University of Cincinnati, 2022).",
+    "Pronuncia: «slot mascìne» (scelta dell'utente, 20/11/2026); le due frasi sono state rigenerate e sostituite nell'audio, il resto è identico."
   ],
   "parti": [
-    {"fase": "apertura", "testo": "Il tuo telefono funziona come una slot mascìn. E tu ci giochi ogni giorno. Perché non riusciamo a smettere di scrollare? Apri un video, poi un altro, e all'improvviso è passata un'ora. Tranquillo: non è colpa tua. È progettato così."},
-    {"fase": "spiegazione", "testo": "Il trucco si chiama *ricompensa variabile*. Lo scoprì lo psicologo Skìnner, negli anni Trenta: se un premio arriva a caso, continui a cercarlo molto più che se arriva sempre. È lo stesso meccanismo delle slot mascìn."},
-    {"fase": "scoperta", "testo": "E la dopamina? Non è il piacere: è l'*attesa*. Si accende soprattutto quando il premio è incerto: forse il prossimo video sarà quello giusto. Poi c'è lo scroll infinito: nessuna fine pagina, nessun segnale di stop. L'ha inventato nel duemilasei un designer, Àsa Ràskin. E oggi dice di essersene pentito."},
-    {"fase": "conclusione", "testo": "Come difendersi? Metti lo schermo in bianco e nero: negli studi, si usa il telefono dai venti ai cinquanta minuti in meno al giorno. Senza colori, il premio attira meno. E togli le notifiche delle app che ti rubano più tempo."},
-    {"fase": "invito", "testo": "Se ti è stato utile, seguimi!"}
+    {
+      "fase": "apertura",
+      "testo": "Il tuo telefono funziona come una slot mascìne. E tu ci giochi ogni giorno. Perché non riusciamo a smettere di scrollare? Apri un video, poi un altro, e all'improvviso è passata un'ora. Tranquillo: non è colpa tua. È progettato così."
+    },
+    {
+      "fase": "spiegazione",
+      "testo": "Il trucco si chiama *ricompensa variabile*. Lo scoprì lo psicologo Skìnner, negli anni Trenta: se un premio arriva a caso, continui a cercarlo molto più che se arriva sempre. È lo stesso meccanismo delle slot mascìne."
+    },
+    {
+      "fase": "scoperta",
+      "testo": "E la dopamina? Non è il piacere: è l'*attesa*. Si accende soprattutto quando il premio è incerto: forse il prossimo video sarà quello giusto. Poi c'è lo scroll infinito: nessuna fine pagina, nessun segnale di stop. L'ha inventato nel duemilasei un designer, Àsa Ràskin. E oggi dice di essersene pentito."
+    },
+    {
+      "fase": "conclusione",
+      "testo": "Come difendersi? Metti lo schermo in bianco e nero: negli studi, si usa il telefono dai venti ai cinquanta minuti in meno al giorno. Senza colori, il premio attira meno. E togli le notifiche delle app che ti rubano più tempo."
+    },
+    {
+      "fase": "invito",
+      "testo": "Se ti è stato utile, seguimi!"
+    }
   ]
 }
