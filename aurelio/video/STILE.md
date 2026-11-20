@@ -64,3 +64,7 @@ parola che la fa partire (`"da": "luce#2"` = seconda volta che dice «luce»).
   (es. "machine" → "mascìn", "73" → "settantatré"), così anche loro hanno il tempo esatto.
 - Il sottotitolo nuovo compare appena inizia la sua prima parola; il precedente non resta mai sovrapposto.
 - Prima di consegnare: `python3 video/verifica_sync.py <cartella> <regia.json>` deve dare **0 non allineati**.
+
+## Anteprima muta prima (regola fissa)
+- Per ogni nuovo video si manda **prima l'anteprima senza voce**: scene, inquadrature e sottotitoli con tempi stimati,
+  il Professore che muove la bocca sulle parole. La voce ElevenLabs si genera **solo dopo il «Vai»** dell'utente.
