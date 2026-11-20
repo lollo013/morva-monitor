@@ -20,8 +20,8 @@ from PIL import Image, ImageDraw, ImageFont
 S = sys.argv[1]
 sys.path.insert(0, S)
 from anima import Figura
-import scene_cielo, scene_inception, scene_fortnite, scene_scuola, scene_larping, scene_stipendio, scene_procrastinazione, scene_youtube, scene_youtube_en, scene_scroll, scene_voti, disegni, inspect
-SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE, **scene_larping.SCENE, **scene_stipendio.SCENE, **scene_procrastinazione.SCENE, **scene_youtube.SCENE, **scene_youtube_en.SCENE, **scene_scroll.SCENE, **scene_voti.SCENE}
+import scene_cielo, scene_inception, scene_fortnite, scene_scuola, scene_larping, scene_stipendio, scene_procrastinazione, scene_youtube, scene_youtube_en, scene_scroll, scene_voti, scene_tempo, disegni, inspect
+SCENE_GRANDI = {**scene_cielo.SCENE, **scene_inception.SCENE, **scene_fortnite.SCENE, **scene_scuola.SCENE, **scene_larping.SCENE, **scene_stipendio.SCENE, **scene_procrastinazione.SCENE, **scene_youtube.SCENE, **scene_youtube_en.SCENE, **scene_scroll.SCENE, **scene_voti.SCENE, **scene_tempo.SCENE}
 
 R = json.load(open(sys.argv[2], encoding='utf8'))
 YT = R.get('formato') == 'youtube'   # 16:9 orizzontale per YouTube

@@ -1,0 +1,197 @@
+{
+ "nome": "uno-per-cento",
+ "frasi": [
+  "Se migliori dell'1% ogni giorno, tra un anno sarai 37 volte più bravo.",
+  "Sembra una truffa?",
+  "È matematica.",
+  "1,01, moltiplicato per sé stesso 365 volte, fa 37,8.",
+  "E se invece peggiori dell'1% al giorno?",
+  "0,99 alla 365: ti resta il 3%.",
+  "Ma l'1% è pochissimo: dieci minuti di studio, una pagina, un esercizio in più.",
+  "Il problema è che per settimane non vedi nessuna differenza.",
+  "Ed è proprio lì che quasi tutti mollano.",
+  "Certo, nella vita vera non è così preciso.",
+  "Ma il principio funziona: i piccoli progressi si sommano, come gli interessi.",
+  "Allora fai così: scegli una sola cosa.",
+  "Ogni giorno, un pochino meglio di ieri.",
+  "E segna una X sul calendario.",
+  "Non spezzare la catena.",
+  "Se ti è stato utile, seguimi!"
+ ],
+ "equivalenze": {
+  "dell'1%": "dell'uno per cento",
+  "37": "trentasette",
+  "1,01": "uno virgola zero uno",
+  "365": "trecentosessantacinque",
+  "37,8": "trentasette virgola otto",
+  "0,99": "zero virgola novantanove",
+  "3%": "tre per cento",
+  "l'1%": "l'uno per cento"
+ },
+ "piano": [
+  [
+   0,
+   null,
+   "angolo_dx",
+   "curva37",
+   {
+    "testo_grande": "+1% al giorno|= ×37 in un anno"
+   }
+  ],
+  [
+   1,
+   "sembra",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   3,
+   "moltiplicato",
+   "affiancati",
+   "moltiplica",
+   null
+  ],
+  [
+   3,
+   "fa",
+   "angolo_sx",
+   "moltiplica",
+   null
+  ],
+  [
+   4,
+   "peggiori",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   5,
+   "alla",
+   "affiancati",
+   "peggiora",
+   null
+  ],
+  [
+   5,
+   "resta",
+   "angolo_dx",
+   "peggiora",
+   null
+  ],
+  [
+   6,
+   "pochissimo",
+   "mezzo_busto",
+   "piccolo",
+   null
+  ],
+  [
+   6,
+   "pagina",
+   "angolo_sx",
+   "piccolo",
+   null
+  ],
+  [
+   7,
+   "problema",
+   "affiancati",
+   "plateau",
+   null
+  ],
+  [
+   8,
+   "lì",
+   "angolo_dx",
+   "plateau",
+   null
+  ],
+  [
+   9,
+   "certo",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   10,
+   "principio",
+   "mezzo_busto",
+   "somma",
+   null
+  ],
+  [
+   10,
+   "interessi",
+   "angolo_sx",
+   "somma",
+   null
+  ],
+  [
+   11,
+   "allora",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   12,
+   "ogni",
+   "affiancati",
+   "catena",
+   null
+  ],
+  [
+   13,
+   "segna",
+   "angolo_dx",
+   "catena",
+   null
+  ],
+  [
+   14,
+   "spezzare",
+   "mezzo_busto",
+   "catena",
+   null
+  ],
+  [
+   15,
+   "se",
+   "mezzo_busto",
+   "invito",
+   null
+  ]
+ ],
+ "chiave": [
+  "37",
+  "matematica",
+  "peggiori",
+  "3",
+  "pochissimo",
+  "differenza",
+  "mollano",
+  "principio",
+  "sommano",
+  "interessi",
+  "catena",
+  "utile",
+  "seguimi"
+ ],
+ "stupore": [
+  [
+   1,
+   "sembra"
+  ],
+  [
+   2,
+   "matematica"
+  ]
+ ],
+ "sorriso": [
+  15,
+  "se"
+ ]
+}

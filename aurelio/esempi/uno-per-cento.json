@@ -1,0 +1,34 @@
+{
+  "titolo": "Migliora dell'1% al giorno",
+  "verificato": true,
+  "pubblico": "14-26 anni",
+  "tono": "amico motivatore: numero d'impatto, onestà sui limiti, consiglio pratico",
+  "stile": "stesso modello del reel sui voti: apertura con un numero, due fatti, svolta, consiglio",
+  "fonti": [
+    "Matematica: 1,01^365 = 37,78; 0,99^365 = 0,0255 (circa 3%).",
+    "Idea resa popolare da James Clear, «Atomic Habits» (2018); nel video si dice esplicitamente che nella vita vera non è così preciso.",
+    "Il periodo in cui i progressi non si vedono e molti mollano: James Clear lo chiama «plateau of latent potential»."
+  ],
+  "parti": [
+    {
+      "fase": "apertura",
+      "testo": "Se migliori dell'uno per cento ogni giorno, tra un anno sarai *trentasette* volte più bravo. Sembra una truffa? È matematica."
+    },
+    {
+      "fase": "spiegazione",
+      "testo": "Uno virgola zero uno, moltiplicato per sé stesso trecentosessantacinque volte, fa trentasette virgola otto. E se invece peggiori dell'uno per cento al giorno? Zero virgola novantanove alla trecentosessantacinque: ti resta il *tre* per cento."
+    },
+    {
+      "fase": "scoperta",
+      "testo": "Ma l'uno per cento è pochissimo: dieci minuti di studio, una pagina, un esercizio in più. Il problema è che per settimane non vedi nessuna differenza. Ed è proprio lì che quasi tutti mollano. Certo, nella vita vera non è così preciso. Ma il principio funziona: i piccoli progressi si sommano, come gli interessi."
+    },
+    {
+      "fase": "conclusione",
+      "testo": "Allora fai così: scegli una sola cosa. Ogni giorno, un pochino meglio di ieri. E segna una X sul calendario. Non spezzare la catena."
+    },
+    {
+      "fase": "invito",
+      "testo": "Se ti è stato utile, seguimi!"
+    }
+  ]
+}

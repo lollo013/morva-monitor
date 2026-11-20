@@ -1,0 +1,36 @@
+{
+  "titolo": "Il tempo che ci rimane",
+  "verificato": true,
+  "pubblico": "14-26 anni",
+  "tono": "amico che fa riflettere: dati veri, nessun catastrofismo, chiusura positiva e pratica",
+  "stile": "stesso modello del reel sui voti: apertura con un numero, esempi concreti, svolta, consiglio",
+  "fonti": [
+    "Età della pensione di vecchiaia: 67 anni (ISTAT, Indicatori demografici 2024).",
+    "Speranza di vita in buona salute alla nascita: 58,1 anni nel 2024 (ISTAT, BES 2025); media nazionale, non un destino individuale.",
+    "Ore lavorate: circa 1.730 ore l'anno per occupato in Italia (OCSE); per 42 anni di lavoro circa 72.800 ore, cioè più di 8 anni ininterrotti.",
+    "Sonno: 8 ore su 24 sono un terzo; su 83,4 anni di vita media circa 27-28 anni.",
+    "Telefono: 3 ore al giorno x 365 = 1.095 ore = circa 45 giorni l'anno (calcolo)."
+  ],
+  "parti": [
+    {
+      "fase": "apertura",
+      "testo": "In Italia vai in pensione a sessantasette anni. Ma in media, in buona salute, ci vivi fino a *cinquantotto*. Fermati un attimo su questo numero."
+    },
+    {
+      "fase": "spiegazione",
+      "testo": "Pensaci: studi una settimana intera per un esame che dura venti minuti. Lavori cinque giorni per goderti due giorni di weekend. E in tutta la vita, al lavoro, passerai più di settantamila ore: più di *otto anni*, giorno e notte."
+    },
+    {
+      "fase": "scoperta",
+      "testo": "Poi c'è il sonno: quasi un terzo della vita. E il telefono: tre ore al giorno sono *quarantacinque giorni* all'anno. Alla fine, il tempo davvero nostro è pochissimo. Siamo così occupati a prepararci per vivere, che ci dimentichiamo di vivere."
+    },
+    {
+      "fase": "conclusione",
+      "testo": "Non devi smettere di studiare o di lavorare. Devi smettere di rimandare la vita a dopo. Ogni giorno, prenditi un'ora che sia solo tua. Non domani. Oggi."
+    },
+    {
+      "fase": "invito",
+      "testo": "Se ti è stato utile, seguimi!"
+    }
+  ]
+}

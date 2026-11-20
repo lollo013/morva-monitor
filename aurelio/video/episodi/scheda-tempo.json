@@ -1,0 +1,205 @@
+{
+ "nome": "tempo",
+ "frasi": [
+  "In Italia vai in pensione a 67 anni.",
+  "Ma in media, in buona salute, ci vivi fino a 58.",
+  "Fermati un attimo su questo numero.",
+  "Pensaci: studi una settimana intera per un esame che dura venti minuti.",
+  "Lavori cinque giorni per goderti due giorni di weekend.",
+  "E in tutta la vita, al lavoro, passerai più di 70.000 ore: più di otto anni, giorno e notte.",
+  "Poi c'è il sonno: quasi un terzo della vita.",
+  "E il telefono: tre ore al giorno sono 45 giorni all'anno.",
+  "Alla fine, il tempo davvero nostro è pochissimo.",
+  "Siamo così occupati a prepararci per vivere, che ci dimentichiamo di vivere.",
+  "Non devi smettere di studiare o di lavorare.",
+  "Devi smettere di rimandare la vita a dopo.",
+  "Ogni giorno, prenditi un'ora che sia solo tua.",
+  "Non domani.",
+  "Oggi.",
+  "Se ti è stato utile, seguimi!"
+ ],
+ "equivalenze": {
+  "67": "sessantasette",
+  "58": "cinquantotto",
+  "70.000": "settantamila",
+  "45": "quarantacinque",
+  "weekend": "uìkend"
+ },
+ "piano": [
+  [
+   0,
+   null,
+   "angolo_dx",
+   "pensione",
+   {
+    "testo_grande": "Pensione a 67.|In salute fino a 58."
+   }
+  ],
+  [
+   2,
+   "fermati",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   3,
+   "pensaci",
+   "affiancati",
+   "esame",
+   null
+  ],
+  [
+   3,
+   "esame",
+   "angolo_sx",
+   "esame",
+   null
+  ],
+  [
+   4,
+   "lavori",
+   "mezzo_busto",
+   "weekend",
+   null
+  ],
+  [
+   4,
+   "goderti",
+   "angolo_dx",
+   "weekend",
+   null
+  ],
+  [
+   5,
+   "vita",
+   "affiancati",
+   "ore_lavoro",
+   null
+  ],
+  [
+   5,
+   "otto",
+   "mezzo_busto",
+   "ore_lavoro",
+   null
+  ],
+  [
+   6,
+   "sonno",
+   "angolo_dx",
+   "torta_vita",
+   null
+  ],
+  [
+   7,
+   "telefono",
+   "affiancati",
+   "telefono45",
+   null
+  ],
+  [
+   7,
+   "sono",
+   "angolo_sx",
+   "telefono45",
+   null
+  ],
+  [
+   8,
+   "fine",
+   "mezzo_busto",
+   "torta_vita",
+   null
+  ],
+  [
+   9,
+   "occupati",
+   "angolo_dx",
+   "ruota",
+   null
+  ],
+  [
+   9,
+   "dimentichiamo",
+   "affiancati",
+   "ruota",
+   null
+  ],
+  [
+   10,
+   "smettere",
+   "primo_piano",
+   null,
+   null
+  ],
+  [
+   11,
+   "rimandare",
+   "mezzo_busto",
+   "ruota",
+   null
+  ],
+  [
+   12,
+   "prenditi",
+   "affiancati",
+   "ora_tua",
+   null
+  ],
+  [
+   13,
+   "domani",
+   "angolo_dx",
+   "ora_tua",
+   null
+  ],
+  [
+   14,
+   "oggi",
+   "mezzo_busto",
+   "ora_tua",
+   null
+  ],
+  [
+   15,
+   "se",
+   "mezzo_busto",
+   "invito",
+   null
+  ]
+ ],
+ "chiave": [
+  "pensione",
+  "67",
+  "58",
+  "settimana",
+  "venti",
+  "weekend",
+  "8",
+  "otto",
+  "sonno",
+  "terzo",
+  "telefono",
+  "45",
+  "pochissimo",
+  "vivere",
+  "oggi",
+  "utile",
+  "seguimi"
+ ],
+ "stupore": [
+  [
+   1,
+   "58"
+  ],
+  [
+   2,
+   "fermati"
+  ]
+ ],
+ "sorriso": [
+  15,
+  "se"
+ ]
+}
