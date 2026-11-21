@@ -16,11 +16,11 @@
     },
     {
       "fase": "spiegazione",
-      "testo": "Rileggere è il metodo che usano quasi tutti. Ma una grande ricerca ha messo a confronto dieci tecniche di studio: rileggere e sottolineare sono finite tra le meno efficaci."
+      "testo": "Rileggere è il metodo che usano quasi tutti. Ma una grande ricerca ha messo a confronto dieci tecniche di studio: rileggere e sottolineare sono finite tra le meno efficaci. Ma prima: tu come studi? Rileggi o ti interroghi? Scrivilo nei commenti. Ti do due secondi."
     },
     {
       "fase": "scoperta",
-      "testo": "E allora cosa funziona? Interrogarti da solo. In un esperimento, degli studenti hanno imparato parole in swahili. Dopo una settimana, chi aveva continuato a rileggere ne ricordava circa un terzo. Chi aveva continuato a interrogarsi, circa l'*ottanta* per cento. Ricordare fa più fatica che rileggere: ed è proprio quella fatica che fissa i ricordi."
+      "testo": "E allora cosa funziona? Interrogarti da solo. In un esperimento, degli studenti hanno imparato parole in suaìli. Dopo una settimana, chi aveva continuato a rileggere ne ricordava circa un terzo. Chi aveva continuato a interrogarsi, circa l'*ottanta* per cento. Ricordare fa più fatica che rileggere: ed è proprio quella fatica che fissa i ricordi."
     },
     {
       "fase": "conclusione",
@@ -30,5 +30,6 @@
       "fase": "invito",
       "testo": "Se ti è stato utile, seguimi!"
     }
-  ]
+  ],
+  "note": "Dopo «Ti do due secondi.» c'è una pausa vera di 2 secondi con il conto alla rovescia sullo schermo."
 }
