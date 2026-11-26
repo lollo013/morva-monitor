@@ -14,12 +14,26 @@ on:
     - cron: '0 * * * *'        # ogni ora, al minuto zero
   workflow_dispatch:            # e a mano, dal pulsante "Run workflow"
 
+permissions:
+  contents: read
+  actions: write                # serve solo a tenersi acceso, qui sotto
+
 jobs:
   controlla:
     runs-on: ubuntu-latest
     timeout-minutes: 12
 
     steps:
+      # GitHub spegne da solo i lavori a calendario dopo 60 giorni senza
+      # modifiche al repository: è successo il 21 ottobre 2026, e il sito
+      # è sparito senza che nessuno se ne accorgesse. Riaccendersi a ogni
+      # giro azzera quel conto, senza commit finti.
+      - name: Resta acceso
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT "repos/${{ github.repository }}/actions/workflows/controlla.yml/enable"
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4

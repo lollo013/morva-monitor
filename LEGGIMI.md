@@ -22,6 +22,11 @@ Su **desktop, tablet e telefono**, quattordici verifiche per dispositivo:
 - un indirizzo inesistente riporta alla home invece di lasciare il vuoto
 - il sito riconosce il controllo e non lo conta fra i visitatori
 
+Prima di tutto verifica che il sito esista ancora. Se Netlify risponde che a
+quell'indirizzo non c'è più nessun sito (rinominato, eliminato, account
+sospeso), o se l'indirizzo non porta a nessun server, si ferma subito e lo
+dice in una riga sola, in cima alla pagina del lavoro su GitHub.
+
 In parallelo raccoglie tutto quello che il browser lamenta: errori JavaScript,
 eccezioni, richieste fallite, 404, 500, e ogni caricamento oltre i sei secondi.
 
@@ -40,6 +45,13 @@ Il lavoro fallisce, GitHub manda un'email, e negli allegati trovi:
 - uno screenshot del momento in cui si è rotto
 
 Gli allegati restano trenta giorni.
+
+## Resta acceso da solo
+
+GitHub spegne i lavori a calendario quando un repository resta 60 giorni
+senza modifiche. Per evitarlo, a ogni giro il controllo si riaccende da solo.
+Se dovesse comunque risultare spento: scheda **Actions** → *Controllo del
+sito* → **Enable workflow**.
 
 ## Lanciarlo a mano
 

@@ -314,10 +314,64 @@ async function scatta(pagina, dispositivo, nome) {
 
 const stampaData = () => new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
 
+/* ---------------------------------------------------------------------
+   Prima di tutto: il sito esiste ancora? Se l'indirizzo non porta più
+   da nessuna parte, i tre giri producono solo decine di errori confusi.
+   Meglio una riga sola che dica cosa è successo davvero.
+   --------------------------------------------------------------------- */
+async function esiste() {
+  let r;
+  try {
+    r = await fetch(SITO + '/?monitor=true', {
+      headers: { 'user-agent': 'Mozilla/5.0 ' + NOME_AGENTE },
+      redirect: 'follow',
+      signal: AbortSignal.timeout(30000)
+    });
+  } catch (e) {
+    const causa = e.cause?.code || e.name || e.message;
+    const dettaglio = /ENOTFOUND|EAI_AGAIN/.test(causa)
+      ? `l'indirizzo ${SITO} non esiste più: nessun server lo trova (${causa})`
+      : `${SITO} non risponde (${causa})`;
+    return { tipo: 'sito irraggiungibile', url: SITO, stato: 0, dettaglio };
+  }
+  if (r.ok) return null;
+
+  const testo = await r.text().catch(() => '');
+  // la pagina di Netlify per un sito che non c'è: "Not Found - Request ID"
+  if (r.status === 404 && /netlify/i.test(r.headers.get('server') || '') &&
+      /Not Found - Request ID/i.test(testo)) {
+    return {
+      tipo: 'sito sparito', url: SITO, stato: 404,
+      dettaglio: `su Netlify non c'è più nessun sito a ${SITO}: ` +
+        'è stato rinominato, eliminato, o l\'account ha un problema. ' +
+        'Controlla su app.netlify.com.'
+    };
+  }
+  return {
+    tipo: 'sito non disponibile', url: SITO, stato: r.status,
+    dettaglio: `la home di ${SITO} risponde ${r.status}`
+  };
+}
+
+/* nel riepilogo della pagina di GitHub e come avviso in cima al lavoro */
+async function avvisaGitHub(p) {
+  console.log(`::error title=MORVA: ${p.tipo}::${p.dettaglio}`);
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+  await writeFile(process.env.GITHUB_STEP_SUMMARY,
+    `## ⚠ MORVA: ${p.tipo}\n\n${p.dettaglio}\n`, { flag: 'a' });
+}
+
 /* --------------------------------------------------------------------- */
 (async () => {
   console.log(`MORVA — controllo di ${SITO}`);
   console.log(`${ora()}\n`);
+
+  const assenza = await esiste();
+  if (assenza) {
+    segnala(assenza);
+    await avvisaGitHub(assenza);
+    await chiudi();
+  }
 
   const browser = await chromium.launch();
   for (const d of DISPOSITIVI) {
@@ -328,7 +382,11 @@ const stampaData = () => new Date().toISOString().replace(/[:.]/g, '-').slice(0,
     }
   }
   await browser.close();
+  await chiudi();
+})();
 
+/* scrive il rapporto e termina: 1 se c'è qualcosa che non va */
+async function chiudi() {
   await mkdir(CARTELLA, { recursive: true });
   const rapporto = {
     quando: ora(),
@@ -352,4 +410,4 @@ const stampaData = () => new Date().toISOString().replace(/[:.]/g, '-').slice(0,
   console.log(`rapporto: ${file}`);
 
   process.exit(problemi.length ? 1 : 0);
-})();
+}
