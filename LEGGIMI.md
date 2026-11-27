@@ -1,31 +1,34 @@
 # Controllo del sito MORVA
 
-Percorre [morva-studios.netlify.app](https://morva-studios.netlify.app) come farebbe
+Percorre [lollo013.github.io](https://lollo013.github.io) come farebbe
 una persona e registra tutto quello che non funziona.
+
+Il sito ora sta su **GitHub Pages** (prima era su Netlify, che non c'è più).
 
 Gira **ogni ora** sui computer di GitHub. Non serve lasciare niente acceso.
 
 ## Cosa controlla
 
-Su **desktop, tablet e telefono**, quattordici verifiche per dispositivo:
+Su **desktop, tablet e telefono**, quindici verifiche per dispositivo:
 
 - la home si carica e mostra il marchio — non una schermata bianca
 - i caratteri Anton e Archivo arrivano davvero
 - il menu si apre
 - ogni voce del menu è cliccabile e non inerte
-- si arriva alla pagina Accesso
-- il modulo d'accesso risponde
-- una password sbagliata produce un messaggio, non il silenzio
-- le sezioni Opere, Studio e Tessera si aprono
+- dal menu si arriva alla pagina Accesso
+- il modulo d'accesso accetta nome e contatto
+- un contatto sbagliato produce un messaggio, non il silenzio — senza
+  mai mandarne uno vero, così il controllo non lascia iscrizioni finte
+- le sezioni Manifesto, Linguaggio, Opere e Studio si aprono, ognuna
+  dalla sua voce del menu (il sito non ha indirizzi per le sezioni)
 - nessuna immagine è rotta
 - i collegamenti verso l'esterno rispondono
 - un indirizzo inesistente riporta alla home invece di lasciare il vuoto
 - il sito riconosce il controllo e non lo conta fra i visitatori
 
-Prima di tutto verifica che il sito esista ancora. Se Netlify risponde che a
-quell'indirizzo non c'è più nessun sito (rinominato, eliminato, account
-sospeso), o se l'indirizzo non porta a nessun server, si ferma subito e lo
-dice in una riga sola, in cima alla pagina del lavoro su GitHub.
+Prima di tutto verifica che il sito esista ancora. Se la home non risponde,
+o se l'indirizzo non porta a nessun server, si ferma subito e lo dice in una
+riga sola, in cima alla pagina del lavoro su GitHub.
 
 In parallelo raccoglie tutto quello che il browser lamenta: errori JavaScript,
 eccezioni, richieste fallite, 404, 500, e ogni caricamento oltre i sei secondi.
