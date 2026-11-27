@@ -47,7 +47,7 @@ jobs:
 
       - name: Percorri il sito
         env:
-          MORVA_URL: https://morva-studios.netlify.app
+          MORVA_URL: https://lollo013.github.io
         run: node controlla.mjs
 
       # i rapporti si tengono anche quando è andato tutto bene:
